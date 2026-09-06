@@ -253,7 +253,7 @@ $$f(z) = (z - z_0)^m g(z) \ (m \geqslant n),$$
 若$f(z)\not\equiv 0,z\in K$,则因为$f(z)$在点$a$连续，且$f(z_n)=0$，让$n$趋于无穷取极限，即得$f(a)=0$.故$a$是一个非孤立的零点.这与\refthe{theorem:复变函数--定理4.3.6}矛盾!故必有$f(z)$在$K$内恒为零.
 \end{proof}
 
-\begin{theorem}[唯一性定理]\label{theorem:定理4.3.7}
+\begin{theorem}[唯一性定理]\label{theorem:复变函数--唯一性定理}
 设 \( D \) 是 \( \mathbb{C} \) 中的区域，\( f_1, f_2 \in H(D) \). 如果存在 \( D \) 中的点列 \( \{ z_n \} \)，使得 \( f_1(z_n) = f_2(z_n) \)，\( n = 1, 2, \cdots \)，且 \( \lim_{n \to \infty} z_n = a \in D \)，那么在 \( D \) 中有 \( f_1(z) \equiv f_2(z) \).
 \end{theorem}
 \begin{remark}
@@ -311,11 +311,11 @@ n\\
 \begin{align}
 e^z = \sum_{n=0}^{\infty} \frac{z^n}{n!}, \quad z \in \mathbb{C}. \label{eq:exp_taylor123}
 \end{align}
-公式\eqref{eq:exp_taylor123} 也可以由\hyperref[theorem:定理4.3.7]{全纯函数的唯一性定理}得到. 由直接计算知道，幂级数 \( \sum_{n=0}^{\infty} \frac{z^n}{n!} \) 的收敛半径 \( R = \infty \)，所以 \( \varphi(z) = \sum_{n=0}^{\infty} \frac{z^n}{n!} \) 是一个整函数. 已知 \( e^z \) 是一个整函数，这两个整函数在实轴上相等，即
+公式\eqref{eq:exp_taylor123} 也可以由\hyperref[theorem:复变函数--唯一性定理]{全纯函数的唯一性定理}得到. 由直接计算知道，幂级数 \( \sum_{n=0}^{\infty} \frac{z^n}{n!} \) 的收敛半径 \( R = \infty \)，所以 \( \varphi(z) = \sum_{n=0}^{\infty} \frac{z^n}{n!} \) 是一个整函数. 已知 \( e^z \) 是一个整函数，这两个整函数在实轴上相等，即
 \[
 e^x = \sum_{n=0}^{\infty} \frac{x^n}{n!}, \quad x \in \mathbb{R},
 \]
-故由\hyperref[theorem:定理4.3.7]{唯一性定理}知道这两个整函数在 \( \mathbb{C} \) 上处处相等，这就是公式 \eqref{eq:exp_taylor123}.
+故由\hyperref[theorem:复变函数--唯一性定理]{唯一性定理}知道这两个整函数在 \( \mathbb{C} \) 上处处相等，这就是公式 \eqref{eq:exp_taylor123}.
 
 \item 由(1)同理可得.
 

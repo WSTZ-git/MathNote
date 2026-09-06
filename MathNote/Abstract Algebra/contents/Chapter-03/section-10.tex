@@ -90,6 +90,7 @@ b_1=b_1^{mk+nl}=(b_1^m)^k(b_1^n)^l=(b_2^m)^k(b_2^n)^l=b_2^{mk+nl}=b_2.
 特别地，$\mathbf{Fermat}$\textbf{小定理:}若$p$是素数，则$a^p \equiv a \pmod{p}$, $\forall a \in \mathbb{Z}$.
 \end{theorem}
 \begin{proof}
+
 $\mathbb{Z}_n$中乘法可逆的元作成$\varphi(n)$阶群，记为$\mathbb{Z}_n^*$. 因$(a,n)=1$，故$\overline{a} \in \mathbb{Z}_n^*$. 于是由\refthe{theorem:抽象代数-推论 1.3.4}知在群$\mathbb{Z}_n^*$中有$(\overline{a})^{\varphi(n)} = \overline{1}$，即$a^{\varphi(n)} \equiv 1 \pmod{n}$.
 
 若$p$是素数，则$\varphi(p)=p-1$. 因此，若$p \nmid a$，则由上述证明可知$a^{p-1} \equiv 1 \pmod{p}$，从而$a^p \equiv a \pmod{p}$. 
@@ -110,7 +111,8 @@ G = \left\{ \cos \frac{2k\pi}{n} + \mathrm{i} \sin \frac{2k\pi}{n} \mid k = 0, 1
 设群$G$中元$g$的阶$\mathrm{ord}\,g$与正整数$n$互素，在$\langle g\rangle$中求解方程$x^n = g$.
 \end{example}
 \begin{proof}
-设$s \mathrm{ord}\,g + t n = 1$, $s,t\in\mathbb{Z}$. 于是$g = g^{t n}$, 故$x = g^t \in \langle g\rangle$是方程$x^n = g$的解.
+
+设$s\cdot \mathrm{ord}\,g + t n = 1$, $s,t\in\mathbb{Z}$. 于是$g = g^{t n}$, 故$x = g^t \in \langle g\rangle$是方程$x^n = g$的解.
 
 设$x = g^m$, $g^t$均是$x^n = g$的解,则$g^m,g^n\in \langle g\rangle$,进而$0\leqslant t\leqslant m\leqslant \mathrm{ord}\,g-1$. 由$g^{m n} = g$知$m n \equiv 1$, $t n \equiv 1 \pmod{\mathrm{ord}\,g}$. 从而$\mathrm{ord}\,g\mid (m-t)n$, $\mathrm{ord}\,g\mid (m-t)$, 于是$m = t$. 即在$\langle g\rangle$中方程$x^n = g$有唯一的解.
 \end{proof}
@@ -146,6 +148,7 @@ S=\{ M\mid M\text{是}G\text{的真子群且}K\subseteq M\subset G \},
 如果有限群$G$有唯一的极大子群, 则$G$是素数幂阶循环群.
 \end{proposition}
 \begin{proof}
+
 设$H$是$G$的唯一极大子群. 由\refthe{theorem:有限群的每个真子群必包含于某个极大子群中}知$G$的任一真子群必含于$G$的某一极大子群之中. 因为$H$是$G$的唯一极大子群, 故$H$也是$G$的最大子群, 即$H$包含$G$的任一真子群. 取$g \notin H$, $g \in G$, 则$G = \langle g \rangle$. 否则$\langle g \rangle$是$G$的真子群,进而$\langle g \rangle \subseteq H$,这与$g\notin H$矛盾!
 
 若$g$的阶含有两个不同的素因子$p$和$q$, 则$\langle g^p \rangle$和$\langle g^q \rangle$均是$G$的真子群. 从而$\langle g^p \rangle$, $\langle g^q \rangle \subseteq H$. 因为$(p,q)=1$, 所以存在整数$l,m$使得$lp + mq = 1$. 故$g = g^{lp+mq} \in H$, 矛盾!故$g$的阶必是一个素数的幂.

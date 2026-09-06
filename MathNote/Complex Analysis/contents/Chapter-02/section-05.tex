@@ -325,6 +325,14 @@ z_3-z_1 = \rho(z_2-z_1), \quad \rho > 0.
 
 \begin{example}
 求一分式线性变换, 把月牙形域 $D = \{z: |z| > 1, |z-1| < 2\}$ 变为带状域 $G = \{w: 0 < \operatorname{Re} w < 1\}$.
+\end{example}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{crescent-strip.png}
+\caption{月牙形域$D$变为带状域$G$}
+\label{fig:crescent-strip}
+\end{figure}
+\begin{solution}
 
 先设法把月牙形域 $D$ 边界的两个圆周变为两条平行直线, 同时把单位圆周变成虚轴, 只要让 $-1,i,1$ 分别变为 $\infty,i,0$, 即能达到目的.
 
@@ -333,13 +341,7 @@ z_3-z_1 = \rho(z_2-z_1), \quad \rho > 0.
 w = \frac{z-1}{z+1}.
 \end{align*}
 令 $z=3$, 得 $w = \frac{1}{2}$, 所以它把圆周 $|z-1| = 2$ 变为 $\operatorname{Re} w = \frac{1}{2}$. 又因为 $1$ 变为 $0$, 所以它把 $|z-1| < 2$ 变为 $\operatorname{Re} w < \frac{1}{2}$. 因而 $w = \frac{z-1}{z+1}$ 把月牙形域 $D$ 变为带状域 $G$.
-\end{example}
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.6\textwidth]{crescent-strip.png}
-\caption{月牙形域$D$变为带状域$G$}
-\label{fig:crescent-strip}
-\end{figure}
+\end{solution}
 
 \begin{definition}
 设 $\gamma$ 是以 $a$ 为中心、以 $R$ 为半径的圆周。如果点 $z,z'$ 在从 $a$ 出发的射线上，且满足

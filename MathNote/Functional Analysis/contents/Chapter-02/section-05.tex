@@ -28,172 +28,6 @@
 $\mathscr{X}^*$的完备性可由$\mathscr{X}^*=\mathscr{L}(\mathscr{X},\mathbb{K})$和\refthe{theorem:有界线性算子全体构成的空间完备}直接导出.
 \end{proof}
 
-\begin{proposition}
-设$1\leqslant p<\infty$，$q$是$p$的共轭数，即
-\begin{align*}
-\begin{cases}
-\frac{1}{p}+\frac{1}{q}=1,& p>1,\\
-q=\infty,& p=1.
-\end{cases}
-\end{align*}
-则
-\begin{enumerate}[(1)]
-\item $L^p[0,1]^*=L^q[0,1]$.
-
-\item $(l^p)^*=l^q$.
-\end{enumerate}
-\end{proposition}
-\begin{remark}
-该结论可推广至一般$\sigma$-有限的完全可加测度空间$(\Omega,\mathscr{B},\mu)$，即
-\begin{align}
-L^p(\Omega,\mathscr{B},\mu)^*=L^q(\Omega,\mathscr{B},\mu)\quad(1\leqslant p<\infty).\label{eq:lpgenconj}
-\end{align}
-\end{remark}
-\begin{proof}
-\begin{enumerate}[(1)]
-\item 对任意$g\in L^q[0,1]$，由\hyperref[Real Analysis-theorem:实变函数--Hölder不等式]{Hölder不等式}
-\begin{align*}
-\left|\int_{0}^{1}f(x)g(x)\mathrm{d}\mu\right|\leqslant\left(\int_{0}^{1}|f(x)|^p\mathrm{d}\mu\right)^{\frac{1}{p}}\left(\int_{0}^{1}|g(x)|^q\mathrm{d}\mu\right)^{\frac{1}{q}},
-\end{align*}
-其中$\mu$是$[0,1]$上的Lebesgue测度。定义映射
-\begin{align}
-F_g(f)\triangleq\int_{0}^{1}f(x)g(x)\mathrm{d}\mu\quad(\forall f\in L^p[0,1]),\label{eq:fgmap}
-\end{align}
-则$F_g$是$L^p[0,1]$上的连续线性泛函，且
-\begin{align}
-\|F_g\|_{L^p[0,1]^*}\leqslant\|g\|_{L^q[0,1]}.\label{eq:fnormbound}
-\end{align}
-即映射$g\mapsto F_g$将$L^q[0,1]$连续嵌入$L^p[0,1]^*$。
-
-下证该映射为等距满射，即对任意$F\in L^p[0,1]^*$，存在$g\in L^q[0,1]$，使得
-\begin{align}
-F(f)=\int_{0}^{1}f(x)g(x)\mathrm{d}\mu\quad(\forall f\in L^p[0,1]),\label{eq:frep}
-\end{align}
-且
-\begin{align}
-\|g\|_{L^q[0,1]}=\|F\|.\label{eq:gnormeqf}
-\end{align}
-
-对任意可测集$E\subseteq[0,1]$，令$\nu(E)\triangleq F(\chi_E)$，其中$\chi_E$为$E$的特征函数
-\begin{align*}
-\chi_E(x)=
-\begin{cases}
-1,& x\in E,\\
-0,& x\notin E.
-\end{cases}
-\end{align*}
-可验证$\nu$为完全可加测度：
-\begin{enumerate}[(i)]
-\item 有限可加性由$F$的可加性直接可得；
-\item 设$\{E_n\}\subseteq[0,1]$满足$E_1\supseteq E_2\supseteq\cdots\supseteq E_n\supseteq\cdots$且$\bigcap\limits_{n=1}^{\infty}E_n=\varnothing $，则
-\begin{align*}
-\nu(E_n)=F(\chi_{E_n})\leqslant\|F\|\cdot\|\chi_{E_n}\|_{L^p[0,1]}
-=\|F\|\left(\int_{0}^{1}|\chi_{E_n}|^p\mathrm{d}\mu\right)^{\frac{1}{p}}
-=\|F\|\mu(E_n)^{\frac{1}{p}}\to0\quad(n\to\infty).
-\end{align*}
-\end{enumerate}
-同时$\nu$关于$\mu$绝对连续，即$\mu(E)=0\implies\nu(E)=0$。
-
-由\hyperref[theorem:泛函分析--Radon-Nikodym定理]{Radon-Nikodym定理}，存在可测函数$g$，使得对任意可测集$E$，有$\nu(E)=\int_{E}g\mathrm{d}\mu$，因此
-\begin{align*}
-F(\chi_E)=\int_{0}^{1}\chi_E(x)g(x)\mathrm{d}\mu.
-\end{align*}
-进而对所有简单函数$f$，成立
-\begin{align*}
-F(f)=\int_{0}^{1}f(x)g(x)\mathrm{d}\mu.
-\end{align*}
-
-接下来证明
-\begin{align}
-\|g\|_{L^q[0,1]}\leqslant\|F\|.\label{eq:gnormbound}
-\end{align}
-简单函数在$L^p[0,1]$中稠密，故对任意$f\in L^p[0,1]$，存在简单函数列$f_n\to f\ (L^p[0,1])$，于是
-\begin{align*}
-F(f)=\lim\limits_{n\to\infty}F(f_n),
-\end{align*}
-且由\hyperref[Real Analysis-theorem:实变函数--Hölder不等式]{Hölder不等式}
-\begin{align*}
-\left|\int_{0}^{1}[f(x)-f_n(x)]g(x)\mathrm{d}\mu\right|&\leqslant\left(\int_{0}^{1}|f(x)-f_n(x)|^p\mathrm{d}\mu\right)^{\frac{1}{p}}\left(\int_{0}^{1}|g(x)|^q\mathrm{d}\mu\right)^{\frac{1}{q}}\\
-&\leqslant\|F\|\cdot\|f-f_n\|_{L^p[0,1]}\to0\quad(n\to\infty),
-\end{align*}
-因此$\eqref{eq:frep}$成立。
-
-分两种情形证明$\eqref{eq:gnormbound}$：
-\begin{enumerate}[(i)]
-\item $1<p<\infty$。对任意$t>0$，记$E_t\triangleq\{x\in[0,1]\mid|g(x)|\leqslant t\}$。令$f=\chi_{E_t}|g|^{q-2}g$，则
-\begin{align*}
-\int_{E_t}|g|^q\mathrm{d}\mu=\int_{0}^{1}f\cdot g\mathrm{d}\mu=F(f)
-\leqslant\|F\|\cdot\|f\|_{L^p[0,1]}=\|F\|\left(\int_{E_t}|g|^q\mathrm{d}\mu\right)^{\frac{1}{p}},
-\end{align*}
-整理得$\left(\int_{E_t}|g|^q\mathrm{d}\mu\right)^{\frac{1}{q}}\leqslant\|F\|$，令$t\to\infty$即得\eqref{eq:gnormbound}式。
-
-\item $p=1$，此时$q=\infty$。对任意$\varepsilon>0$，令$A\triangleq\{x\in[0,1]\mid|g(x)|>\|F\|+\varepsilon\}$，仍记$E_t=\{x\in[0,1]\mid|g(x)|\leqslant t\}$，令$f=\chi_{E_t\cap A}\cdot \mathrm{sign}\,g$，则$\|f\|_{L^1[0,1]}=\mu(E_t\cap A)$，且
-\begin{align*}
-\mu(E_t\cap A)(\|F\|+\varepsilon)\leqslant\int_{A\cap E_t}|g|\mathrm{d}\mu
-=\int_{0}^{1}f\cdot g\mathrm{d}\mu\leqslant\|F\|\mu(E_t\cap A).
-\end{align*}
-令$t\to\infty$得$\mu(A)(\|F\|+\varepsilon)\leqslant\|F\|\mu(A)$，故$\mu(A)=0$，因此$\|g\|_{L^\infty[0,1]}\leqslant\|F\|$。
-\end{enumerate}
-
-\item 定义映射$T:l^q\to (l^p)^*$如下：
-\begin{align*}
-T(y)=f_y,\,\text{其中}y=\{y_n\}\in l^q,\text{并且}f_y(x)=\sum\limits_{n=1}^\infty x_n y_n,\,\,x=\{x_n\}\in l^p.
-\end{align*}
-由\hyperref[Real Analysis-theorem:实变函数--Hölder不等式]{Hölder不等式}知
-\begin{align*}
-|f_y(x)|\leqslant\|x\|_p\|y\|_q.
-\end{align*}
-故$f_y\in (l^p)^*$且$\|f_y\|\leqslant\|y\|_q$。
-下证反向不等式.
-\begin{enumerate}[(i)]
-\item 若$p>1$，取$x^{(y)}=\{x_n\}$，其中$x_n=\operatorname{sgn}(y_n)|y_n|^{q-1}$.
-则
-\begin{align*}
-\|x^{(y)}\|_p^p=\sum\limits_{n=1}^\infty |y_n|^{(q-1)p}=\sum\limits_{n=1}^\infty |y_n|^q=\|y\|_q^q,\quad
-f_y(x^{(y)})=\sum\limits_{n=1}^\infty |y_n|^q=\|y\|_q^q.
-\end{align*}
-因此$\|f_y\|\geqslant\frac{|f_y(x^{(y)})|}{\|x^{(y)}\|_p}=\|y\|_q^{\frac{q-q}{p}}=\|y\|_q$。
-
-\item 若$p=1$，则$q=\infty$。对任意$\varepsilon>0$，存在$n_0$使得$|y_{n_0}|>\|y\|_\infty-\varepsilon$。
-取$x^{(\varepsilon)}$仅在坐标$n_0$处为$\operatorname{sgn}(y_{n_0})$，其余为$0$，则$\|x^{(\varepsilon)}\|_1=1$，
-$f_y(x^{(\varepsilon)})=|y_{n_0}|>\|y\|_\infty-\varepsilon$，从而$\|f_y\|\geqslant\|y\|_\infty-\varepsilon$。
-由$\varepsilon$的任意性得$\|f_y\|\geqslant\|y\|_\infty$。
-\end{enumerate}
-综上可得$\|f_y\|=\|y\|_q$,因而$T$是$l^q$到$(l^p)^*$的等距同构。
-
-再证$T$是满射。任取$f\in (l^p)^*$，则$\|f\|<\infty$.令$y=\{y_n\}$，其中$y_n=f(e_n)$,$e_n$为第$n$个标准单位向量。
-\begin{enumerate}[(i)]
-\item 当$p>1$时，对每个$N\in\mathbb{N}$，构造
-\begin{align*}
-x^{(N)}=\{x_n^{(N)}\}\in l^p,\,\,\text{其中}
-x_{n}^{(N)}=\begin{cases}
-\sgn(y_n)|y_n|^{q-1},&n\leqslant N,\\
-0,&n>N.\\
-\end{cases}
-\end{align*}
-则
-\begin{align*}
-\|x^{(N)}\|_p=\bigl(\sum\limits_{n=1}^N |y_n|^{(q-1)p}\bigr)^{\frac{1}{p}}=\bigl(\sum\limits_{n=1}^N |y_n|^q\bigr)^{\frac{1}{p}},\quad
-f(x^{(N)})=\sum\limits_{n=1}^N |y_n|^q.
-\end{align*}
-由\cref{proposition:有界线性算子的基本不等式}知$|f(x^{(N)})|\leqslant\|f\|\,\|x^{(N)}\|_p$,进而
-\begin{align*}
-\sum\limits_{n=1}^N |y_n|^q\leqslant\|f\|\bigl(\sum\limits_{n=1}^N |y_n|^q\bigr)^{\frac{1}{p}}\Longrightarrow \|y\|_q=\bigl(\sum\limits_{n=1}^N |y_n|^q\bigr)^{\frac{1}{q}}\leqslant\|f\|<\infty.
-\end{align*}
-令$N\to\infty$，即得$y\in l^q$.
-
-\item 当$p=1$时，$q=\infty$。由$|y_n|=|f(e_n)|\leqslant\|f\|\,(\forall n\in \mathbb{N})$知$y\in l^\infty$且$\|y\|_\infty\leqslant\|f\|$。
-\end{enumerate}
-最后，对任意$x=\{x_n\}\in l^p$，显然部分和$\sum_{k=1}^n x_k e_k$按$l^p$范数收敛到$x$。
-由$f$的连续性得
-\begin{align*}
-f(x)=\lim_{n\to\infty}\sum_{k=1}^n x_k f(e_k)=\sum_{n=1}^\infty x_n y_n=f_y(x).
-\end{align*}
-因此$f=f_y$，从而$T$为满射。
-故$T$是$l^q$到$(l^p)^*$上的等距线性同构，即$(l^p)^*=l^q$。
-\end{enumerate}
-\end{proof}
-
 \begin{example}
 定义空间
 \begin{align*}
@@ -408,10 +242,6 @@ T(\alpha x+\beta y)(f)&=f(\alpha x+\beta y)
 \end{proof}
 
 \begin{proposition}
-当$1<p<\infty$时，空间$L^p(\Omega,\mathscr{B},\mu)$是自反的；当$p=1,\infty$时，空间$L^p(\Omega,\mathscr{B},\mu)$不是自反的.
-\end{proposition}
-
-\begin{proposition}
 设 \(H\) 是一个Hilbert空间，则 \(H\) 是自反的，并且存在从 \(H\) 到\(H^{**}\) 的一个等距同构,即$H\cong H^{**}.$
 \end{proposition}
 \begin{proof}
@@ -437,6 +267,68 @@ F(g) = \langle g, f \rangle_{H^*} = (y_g, x)_H = g(x) = J(x)(g).
 \end{align*}
 这说明 \(F = J(x)\)，即 \(J\) 是满射，从而 \(J\) 是一个等距同构。因此 \(H\) 是自反的，即 \(H \cong H^{**}\).
 \end{proof}
+
+\begin{proposition}\label{proposition:Lp对偶与自反性}
+设 $(\Omega,\mathscr{B},\mu)$ 是 $\sigma$-有限的完全可加测度空间，$1\leqslant p<\infty$，$q$ 是 $p$ 的共轭数，即当 $p>1$ 时 $\frac{1}{p}+\frac{1}{q}=1$，当 $p=1$ 时 $q=\infty$。则在等距同构意义下，有
+\begin{enumerate}[(1)]
+\item $(L^p(\Omega,\mathscr{B},\mu))^*=L^q(\Omega,\mathscr{B},\mu)$，且当 $1<p<\infty$ 时 $L^p(\Omega,\mathscr{B},\mu)$ 是自反的；
+
+\item $(L^1(\Omega,\mathscr{B},\mu))^*=L^\infty(\Omega,\mathscr{B},\mu)$，但 $L^1(\Omega,\mathscr{B},\mu)$ 不自反；
+
+\item $L^\infty(\Omega,\mathscr{B},\mu)$ 不自反，且 $(L^\infty(\Omega,\mathscr{B},\mu))^*\neq L^1(\Omega,\mathscr{B},\mu)$，即 $(L^\infty(\Omega,\mathscr{B},\mu))^*$ 严格包含 $L^1(\Omega,\mathscr{B},\mu)$。
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+
+先证 $(1)$。对任意 $g\in L^q(\Omega,\mathscr{B},\mu)$，定义泛函
+\begin{align*}
+T_g(f)\triangleq\int_{\Omega} f(x)g(x)\mathrm{d}\mu,\quad f\in L^p(\Omega,\mathscr{B},\mu).
+\end{align*}
+由\hyperref[Real Analysis-theorem:实变函数--Hölder不等式]{Hölder不等式}，$T_g\in (L^p(\Omega,\mathscr{B},\mu))^*$，且 $\|T_g\|\leqslant\|g\|_{L^q}$。反之，任取 $F\in (L^p(\Omega,\mathscr{B},\mu))^*$，由 \hyperref[theorem:泛函分析--Radon-Nikodym定理]{Radon-Nikodym定理}，存在 $g\in L^q(\Omega,\mathscr{B},\mu)$，使得
+\begin{align*}
+F(f)=\int_{\Omega} f(x)g(x)\mathrm{d}\mu,\quad \forall f\in L^p(\Omega,\mathscr{B},\mu),
+\end{align*}
+且 $\|g\|_{L^q}=\|F\|$。故 $(L^p(\Omega,\mathscr{B},\mu))^*=L^q(\Omega,\mathscr{B},\mu)$。
+
+当 $1<p<\infty$ 时，由于 $(L^p)^*=L^q$ 且 $(L^q)^*=L^p$，故 $(L^p)^{**}=L^p$，并且典则映射 $J:L^p\to (L^p)^{**}$ 是满射，所以 $L^p$ 自反。
+
+再证 $(2)$。当 $p=1$ 时，同理可得 $(L^1)^*=L^\infty$。为证 $L^1$ 不自反，只需证明 $(L^\infty)^*\neq L^1$。
+
+下面证明 $(3)$ 中 $(L^\infty)^*\neq L^1$。仍以 $\Omega=[0,1]$，$\mu$ 为 Lebesgue 测度为例，一般 $\sigma$-有限非原子测度空间情形完全类似。
+
+对任意 $g\in L^1[0,1]$，定义泛函
+\begin{align*}
+T_g(h)=\int_0^1 h(x)g(x)\mathrm{d}x,\quad h\in L^\infty[0,1].
+\end{align*}
+则 $T_g\in (L^\infty[0,1])^*$，且 $\|T_g\|=\|g\|_{L^1}$，故 $L^1[0,1]$ 可等距嵌入 $(L^\infty[0,1])^*$。
+
+考虑闭子空间 $C[0,1]\subseteq L^\infty[0,1]$，在其上定义有界线性泛函
+\begin{align*}
+\delta_0(f)=f(0),\quad f\in C[0,1].
+\end{align*}
+由\hyperref[theorem:泛函分析--(哈恩-巴拿赫)Hahn-Banach定理]{Hahn-Banach定理}，存在 $T\in (L^\infty[0,1])^*$，使得 $T(f)=f(0)$ 对一切 $f\in C[0,1]$ 成立。
+
+假设存在 $g\in L^1[0,1]$，使得
+\begin{align*}
+T(h)=\int_0^1 h(x)g(x)\mathrm{d}x,\quad \forall h\in L^\infty[0,1].
+\end{align*}
+对每个 $m\in\mathbb{N}$，令
+\begin{align*}
+f_m(x)=\max\{0,1-mx\},\quad x\in[0,1].
+\end{align*}
+则 $f_m\in C[0,1]$，且
+\begin{align*}
+f_m(0)=1,\quad 0\leqslant f_m(x)\leqslant 1,\quad \operatorname{supp} f_m\subseteq\left[0,\frac{1}{m}\right].
+\end{align*}
+于是 $f_m\to 0$ a.e. 于 $[0,1]$。又因为 $|f_m(x)g(x)|\leqslant |g(x)|$ 且 $g\in L^1[0,1]$，由 \hyperref[Real Analysis-theorem:控制收敛定理]{Lebesgue控制收敛定理}得
+\begin{align*}
+\lim\limits_{m\to\infty}\int_0^1 f_m(x)g(x)\mathrm{d}x=0.
+\end{align*}
+但另一方面 $T(f_m)=f_m(0)=1$，矛盾！因此 $T$ 不能由任何 $L^1[0,1]$ 函数表示，故 $(L^\infty[0,1])^*\neq L^1[0,1]$。
+
+因此 $L^1$ 不自反；若 $L^\infty$ 自反，则其对偶 $L^1$ 也自反，矛盾！故 $L^\infty$ 也不自反。
+\end{proof}
+
 
 \subsection{共轭算子}
 
@@ -809,14 +701,14 @@ f=\sum\limits_{i=1}^n f(e_i)e_i^*.
 |\|x_n\| - \|x\|| \leqslant \|x_n - x\| \to 0.
 \end{align*}
 故 \(\|x_n\| \to \|x\|\)。
-再证弱收敛。由\hyperref[theorem:Riesz表示定理(Hilbert空间)]{Riesz表示定理}可知，弱收敛等价于对任意固定的 \(y \in H\)，有 \((x_n, y) \to (x, y)\)。因此，对任意固定的 \(y \in H\)，由Cauchy-Schwarz不等式，有
+再证弱收敛。由\hyperref[theorem:Riesz表示定理-泛函]{Riesz表示定理}可知，弱收敛等价于对任意固定的 \(y \in H\)，有 \((x_n, y) \to (x, y)\)。因此，对任意固定的 \(y \in H\)，由Cauchy-Schwarz不等式，有
 \begin{align}
 |(x_n, y) - (x, y)| \leqslant \|x_n - x\| \cdot \|y\| \to 0.
 \end{align}
 因此 \((x_n, y) \to (x, y)\)，即 \(x_n\) 弱收敛于 \(x\)。
 
 {\heiti 充分性:} 若 \(x_n\) 弱收敛于 \(x\)，且 \(\|x_n\| \to \|x\|\)。
-由\hyperref[theorem:Riesz表示定理(Hilbert空间)]{Riesz表示定理}可知，弱收敛等价于对任意固定的 \(y \in H\)，有 \((x_n, y) \to (x, y)\)。特别地，取 \(y = x\)，则有
+由\hyperref[theorem:Riesz表示定理-泛函]{Riesz表示定理}可知，弱收敛等价于对任意固定的 \(y \in H\)，有 \((x_n, y) \to (x, y)\)。特别地，取 \(y = x\)，则有
 \begin{align}
 \label{eq:weak_conv_special}
 (x_n, x) \to (x, x) = \|x\|^{2}.

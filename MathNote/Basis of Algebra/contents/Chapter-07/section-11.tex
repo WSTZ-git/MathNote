@@ -418,7 +418,36 @@ A = f(XY) - f(YX).
 故结论得证。
 \end{proof}
 
-
+\begin{example}
+设\(A,B\)是\(n\)阶复方阵,且\(A\)可逆. 已知存在正整数\(t\),使得对\(k \in \{t+1, t+2, \cdots, t+n\}\),\(B\)与\(A^k\)均可交换. 证明: \(B\)与\(A\)可交换.
+\end{example}
+\begin{proof}
+设\(A\)的特征多项式为\(p(\lambda) = \lambda^n + c_{n-1}\lambda^{n-1} + \cdots + c_1\lambda + c_0\). 因为\(A\)可逆,所以\(c_0 \neq 0\). 由Cayley-Hamilton定理,\(p(A) = 0\),即
+\begin{align*}
+A^n + c_{n-1}A^{n-1} + \cdots + c_1A + c_0I = 0.
+\end{align*}
+将上式两边同乘\(A^t\),得到
+\begin{align*}
+A^{n+t} + c_{n-1}A^{n+t-1} + \cdots + c_1A^{t+1} + c_0A^t = 0.
+\end{align*}
+移项可得
+\begin{align*}
+A^t = -\frac{1}{c_0}(A^{n+t} + c_{n-1}A^{n+t-1} + \cdots + c_1A^{t+1}).
+\end{align*}
+这说明\(A^t\)是\(A^{t+1}, A^{t+2}, \cdots, A^{t+n}\)的线性组合. 因为\(B\)与\(A^{t+1}, A^{t+2}, \cdots, A^{t+n}\)均可交换,所以\(B\)与\(A^t\)也可交换,即
+\begin{align*}
+BA^t = A^tB.
+\end{align*}
+又因为\(B\)与\(A^{t+1}\)可交换,即\(BA^{t+1} = A^{t+1}B\). 将左边展开得
+\begin{align*}
+BA^{t+1} = BA^tA = A^tBA.
+\end{align*}
+因此\(A^tBA = A^{t+1}B\). 由于\(A^tBA = BA^tA\),故\(A^t(BA - AB) = 0\). 因为\(A\)可逆,所以\(A^t\)可逆,左乘\(A^{-t}\)可得\(BA - AB = 0\),即
+\begin{align*}
+BA = AB.
+\end{align*}
+所以\(B\)与\(A\)可交换.
+\end{proof}
 
 
 

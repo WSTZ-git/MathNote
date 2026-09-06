@@ -80,28 +80,6 @@ A = |\xi - (\xi + A)| = |f(\xi) - f(\xi - A)| < |\xi - (\xi - A)| = A。
 \end{enumerate}
 \end{proof}
 
-\begin{proposition}\label{proposition:经典导数一致连续问题}
-设 $f'$ 在 $[0,+\infty)$ 一致连续且 $\lim_{x \to +\infty} f(x)$ 存在，证明 $\lim_{x \to +\infty} f'(x) = 0$。
-\end{proposition}
-\begin{note}
-本题也有积分版本(见\refpro{proposition:一致连续无穷积分收敛则极限为0})令$F=\int_0^x{f\left( x \right) \mathrm{d}x}$就可以将这个积分版本转化为上述命题.
-\end{note}
-\begin{proof}
-反证，若 $\lim_{x\rightarrow +\infty} f'(x) \ne 0$，则可以不妨设存在 $\delta >0$，$\{ x_n \}_{n=1}^{\infty}$，使得
-\begin{align*}
-x_n\rightarrow +\infty \text{且} f'(x_n) \geqslant \delta，\forall n\in \mathbb{N}.    
-\end{align*}
-由 $f'$ 在 $[0,+\infty)$ 上一致连续可知，存在 $\eta >0$，使得对 $\forall n\in \mathbb{N}$，都有
-\begin{align*}
-f'(x) \geqslant f'(x_n) -\frac{\delta}{2} \geqslant \frac{\delta}{2}, \forall x\in [x_n-\eta ,x_n+\eta] 。
-\end{align*}
-从而对 $\forall n\in \mathbb{N}$，都有
-\begin{align*}
-f(x_n+\eta) -f(x_n) =\int_{x_n}^{x_n+\eta} f'(x) \mathrm{d}x \geqslant \int_{x_n}^{x_n+\eta} \frac{\delta}{2} \mathrm{d}x = \frac{\delta \eta}{2} > 0, \forall x\in [x_n-\eta ,x_n+\eta] 。
-\end{align*}
-令$n\rightarrow \infty$,由 $\lim_{x\rightarrow +\infty} f(x) $存在可得 $0 \geqslant \frac{\delta \eta}{2} > 0$，矛盾！故 $\lim_{x\rightarrow +\infty} f'(x) =0$。
-\end{proof}
-
 \begin{proposition}[时滞方程]\label{proposition:时滞方程}
 设 $f$ 在 $\mathbb{R}$ 上可微且满足
 \begin{align*}
@@ -799,6 +777,52 @@ f'(0), & x = 0.
 \end{enumerate}
 综上可知 $\sup\limits_{x \ne 0} |g(x)| < 1$.
 \end{proof}
+
+\begin{example}
+设 $f$ 是 $\mathbb{R}$ 上有界或者有下界的函数，且满足对某个 $a>0$ 成立
+\begin{align*}
+f(x)+a\int_{x-1}^{x}f(y)\,\mathrm{d}y
+\end{align*}
+为常数，证明 $f$ 为常数。
+\end{example}
+\begin{proof}
+不妨设 $f$ 有下界，否则用 $-f$ 代替 $f$. 再不妨设 $\inf_{x\in\mathbb{R}}f=0$，否则用 $f-\inf_{x\in\mathbb{R}}f$ 代替 $f$. 由题设可记
+\begin{align*}
+C\triangleq f(x)+a\int_{x-1}^{x}f(y)\,\mathrm{d}y,
+\end{align*}
+其中$C$ 为常数.从而
+\begin{align*}
+f(x)=C-a\int_{x-1}^{x}f(y)\,\mathrm{d}y.
+\end{align*}
+由于上式右端关于$x$可导，故 $f$ 可导,且
+\begin{align*}
+f'(x)=-a\bigl(f(x)-f(x-1)\bigr)\iff f'(x)+af(x)=af(x-1).
+\end{align*}
+由于 $\inf_{x\in\mathbb{R}}f=0$，故 $f(x)\geqslant 0$ 对一切 $x\in\mathbb{R}$ 成立，从而 $af(x-1)\geqslant 0$. 于是
+\begin{align*}
+e^{-ax}\bigl[e^{ax}f(x)\bigr]'=f'(x)+af(x)=af(x-1)\geqslant 0,
+\end{align*}
+因此 $e^{ax}f(x)$ 是单调递增函数。由此，对任意 $x\in\mathbb{R}$，有
+\begin{align*}
+C&=f(x)+a\int_{x-1}^{x}f(y)\,\mathrm{d}y =f(x)+a\int_{x-1}^{x}e^{ay}f(y)e^{-ay}\,\mathrm{d}y \\
+&\leqslant f(x)+a\int_{x-1}^{x}e^{ax}f(x)e^{-ay}\,\mathrm{d}y =f(x)+a e^{ax}f(x)\cdot \frac{e^{-a(x-1)}-e^{-ax}}{a} \\
+&=f(x)+f(x)(e^{a}-1)=f(x)e^{a}.
+\end{align*}
+所以 $f(x)\geqslant C e^{-a}$ 对一切 $x\in \mathbb{R}$成立。两边取下确界，得
+\begin{align*}
+0=\inf_{x\in\mathbb{R}} f(x)\geqslant C e^{-a}\Longrightarrow C\leqslant 0.
+\end{align*}
+另一方面，由于 $f(x)\geqslant 0$ 且 $a>0$，有
+\begin{align*}
+C=f(x)+a\int_{x-1}^{x}f(y)\,\mathrm{d}y\geqslant 0.
+\end{align*}
+故 $C=0$.于是
+\begin{align*}
+f(x)+a\int_{x-1}^{x}f(y)\,\mathrm{d}y=0.
+\end{align*}
+上式左边两项均非负，所以 $f(x)=0$ 对一切 $x\in \mathbb{R}$ 成立，即 $f\equiv 0$.
+\end{proof}
+
 
 
 

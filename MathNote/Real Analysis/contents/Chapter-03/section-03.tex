@@ -34,7 +34,7 @@ d\left( x,\bigcup_{k\ne k_0}{F_k} \right) \geqslant d\left( x_0,\bigcup_{k\ne k_
 \end{proof}
 
 \begin{theorem}[Lusin(卢津)定理]\label{theorem:Lusin(卢津)定理}
-若\(f(x)\)是\(E \subset \mathbb{R}^{n}\)上的几乎处处有限的可测函数，则对任给的\(\delta > 0\)，存在\(E\)中的闭集\(F\)，\(m(E \setminus F) < \delta\)，使得\(f(x)\)是\(F\)上的连续函数.
+若\(f(x)\)是\(E \subset \mathbb{R}^{n}\)上的几乎处处有限的实值函数，则$f$是$E$上的可测函数当且仅当对任给的\(\delta > 0\)，存在\(E\)中的闭集\(F\)，\(m(E \setminus F) < \delta\)，使得\(f(x)\)是\(F\)上的连续函数.
 \end{theorem}
 \begin{remark}
 上述\hyperref[theorem:Lusin(卢津)定理]{Lusin定理}的结论不能改为：\(f(x)\)是\(E \setminus Z\)上的连续函数，其中\(m(Z) = 0\)（\hyperref[theorem:Lusin(卢津)定理]{Lusin定理}也可不用\hyperref[theorem:Egorov定理]{Egorov定理}来证明，见美国数学月刊(1988)）. 粗略地讲，\hyperref[theorem:Lusin(卢津)定理]{Lusin定理}是把可测函数的不连续性局部连续化了. 
@@ -64,11 +64,13 @@ g(x) = \frac{f(x)}{1 - f(x)} = \frac{1}{1 - f(x)} - 1 \geqslant -1, \quad \foral
 
 又注意到
 \begin{align*}
-f(x) = g(x)(1 + |f(x)|) = \frac{g(x)}{1 + |f(x)|} = \frac{g(x)}{1 - \frac{|f(x)|}{1 + |f(x)|}} = \frac{g(x)}{1 - |g(x)|},
+f(x) = g(x)(1 + |f(x)|) = \frac{g(x)}{1 - \frac{|f(x)|}{1 + |f(x)|}} = \frac{g(x)}{1 - |g(x)|},
 \end{align*}
 故由连续函数的性质可知，此时\(f(x)\)也是\(F\)上的连续函数。从而原结论成立。
 \end{remark}
 \begin{proof}
+
+{\heiti 必要性:}
 \hyperlink{不妨假定f是实值函数的原因}{不妨假定}\(f(x)\)是实值函数，这是因为$f(x)$几乎处处有限,从而
 \begin{align*}
 m(\{x \in E: |f(x)| = +\infty\}) = 0.
@@ -89,14 +91,9 @@ m(E\setminus F)&=m(E\cap \left( \bigcap_{k=1}^{\infty}{F_k} \right) ^c)=m(E\cap 
 \\
 &=m(\bigcup_{k=1}^{\infty}{\left( E\backslash F_k \right)})\leqslant \sum_{k=1}^{\infty}{m(E}\setminus F_k)<\delta .
 \end{align*}
-因为每个\(\varphi_{k}(x)\)在\(F\)上都是连续的，所以根据一致收敛性可知,\(f(x)\)在\(F\)上连续. 
-\end{proof}
+因为每个\(\varphi_{k}(x)\)在\(F\)上都是连续的，所以根据一致收敛性可知,\(f(x)\)在\(F\)上连续.
 
-\begin{theorem}[Lusin定理的逆定理(可测函数的又一定义)]\label{theorem:Lusin定理的逆定理}
-设 \( f(x) \) 为可测集 \( E \) 上几乎处处有限的实值函数, 若对 \( \forall\,\delta > 0 \), 存在闭集 \( F_{\delta} \subset E \), 使得 \( m(E \setminus F_{\delta}) < \delta \), 且 \( f(x) \) 在 \( F_{\delta} \) 上连续, 则 \( f(x) \) 是 \( E \) 上的可测函数.
-\end{theorem}
-\begin{proof}
-对每个 \( n \in \mathbb{N} \), 都存在闭集 \( F_{n} \subset E \) 使得 \( m(E \setminus F_{n}) < \frac{1}{n} \), 且 \( f(x) \) 在 \( F_{n} \) 上连续, 故 \( f(x) \) 在 \( F_{n} \) 上可测.
+{\heiti 充分性:}对每个 \( n \in \mathbb{N} \), 都存在闭集 \( F_{n} \subset E \) 使得 \( m(E \setminus F_{n}) < \frac{1}{n} \), 且 \( f(x) \) 在 \( F_{n} \) 上连续, 故 \( f(x) \) 在 \( F_{n} \) 上可测.
 记 \( F = \bigcup_{n = 1}^{\infty} F_{n} \), 则 \( f(x) \) 在 \( F \) 上可测. 由于 \( F_{n} \subset F \), \( n = 1, 2, \cdots \), 故
 \[
 m(E \setminus F) \leqslant m(E \setminus F_{n}) < \frac{1}{n}, \quad n = 1, 2, \cdots

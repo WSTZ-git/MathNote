@@ -297,7 +297,7 @@ $A \in \mathbb{C}^{n \times n}$ 且满足对任何 $k \in \mathbb{N}$ 都有 $|A
 y_1^k + y_2^k + \cdots + y_{2^n - 1}^k = 0, \forall k \in \mathbb{N}.\label{eq:::--9076921}
 \end{align}
 由\hyperref[theorem:Netwon公式]{Netwon公式}得 $y_1, y_2, \cdots, y_{2^n - 1}$ 所有初等对称多项式为 $0$. 从而由\hyperref[theorem:Vieta定理]{Vieta定理}知 $y_1, y_2, \cdots, y_{2^n - 1}$ 是多项式 $y^{2^n - 1} = 0$ 的全部根. 这就给出了
-$$y_i = 0, i = 1, 2, \cdots, 2^n - 1 \Rightarrow \lambda_i = 0, i = 1, 2, \cdots, n,$$
+$$y_i = 0, i = 1, 2, \cdots, 2^n - 1 \Longrightarrow \lambda_i = 0, i = 1, 2, \cdots, n,$$
 因此由\refpro{proposition:幂零矩阵关于特征值的充要条件}知$A$ 是幂零矩阵.
 \end{proof}
 
@@ -483,7 +483,7 @@ x + 2 & \cdots & x + 2 & x
 \]
 则显然\( f \)是关于\( x \)的一次函数且
 \[
-f(-1) = (-1)^n,f(-2) = (-2)^n \Rightarrow f(x) = ((-1)^n - (-2)^n)(x + 1) + (-1)^n.
+f(-1) = (-1)^n,f(-2) = (-2)^n \Longrightarrow f(x) = ((-1)^n - (-2)^n)(x + 1) + (-1)^n.
 \]
 现在
 \[
@@ -494,11 +494,11 @@ f(-1) = (-1)^n,f(-2) = (-2)^n \Rightarrow f(x) = ((-1)^n - (-2)^n)(x + 1) + (-1)
 \]
 注意到
 \[
-4 \equiv 1\ (\text{mod}3) \Rightarrow 4^m \equiv 1\ (\text{mod}3) \Rightarrow 2 - 4^m \equiv 1\ (\text{mod}3),
+4 \equiv 1\ (\text{mod}3) \Longrightarrow 4^m \equiv 1\ (\text{mod}3) \Longrightarrow 2 - 4^m \equiv 1\ (\text{mod}3),
 \]
 以及
 \[
-4 \equiv 1\ (\text{mod}3) \Rightarrow 2^{2m - 2} \equiv 1\ (\text{mod}3) \Rightarrow 2(2^{2m - 2} - 1) \equiv 0\ (\text{mod}3) \Rightarrow -2 + 2^{2m - 1} \equiv 0\ (\text{mod}3),
+4 \equiv 1\ (\text{mod}3) \Longrightarrow 2^{2m - 2} \equiv 1\ (\text{mod}3) \Longrightarrow 2(2^{2m - 2} - 1) \equiv 0\ (\text{mod}3) \Longrightarrow -2 + 2^{2m - 1} \equiv 0\ (\text{mod}3),
 \]
 这就完成了证明.
 \end{proof}
@@ -590,9 +590,9 @@ A^T X^T + X^T A^T = B^T \implies AX^T + X^T A = B,
 \]
 容易看到必要性得证.
 
-对于充分性, 由上面的推导我们知道 \( V_1 + V_2 \) 是直和. 由 \( AB = BA \) 我们知道 \( V_1 \oplus V_2 \subset V \Rightarrow \), 于是
+对于充分性, 由上面的推导我们知道 \( V_1 + V_2 \) 是直和. 由 \( AB = BA \) 我们知道 \( V_1 \oplus V_2 \subset V \Longrightarrow \), 于是
 \[
-n-r(AB)\geqslant n-r(A)+n-r(B)\Rightarrow r(AB)\leqslant r(A)+r(B)-n.
+n-r(AB)\geqslant n-r(A)+n-r(B)\Longrightarrow r(AB)\leqslant r(A)+r(B)-n.
 \]
 由\hyperref[proposition:Sylvester(西尔维斯特)不等式]{Sylvester(西尔维斯特)不等式}我们得
 \[
@@ -858,9 +858,9 @@ v_{t_{i-1}},\cdots,v_{t_i}\in V_i,\quad i=1,2,\cdots,k.
 设$A,B$为$n$阶实方阵, 证明: $r\begin{pmatrix} A & BA \\ O & A^{T}A \end{pmatrix}=2r(A)$.
 \end{example}
 \begin{proof}
-由\hyperref[proposition:矩阵秩的基本公式-]{proposition:矩阵秩的基本公式}和\refpro{proposition:AA转置秩与A秩相等}可知
-$\mathrm{r}\left( A \right) =\mathrm{r}\left( A^TA \right) \leqslant \mathrm{r}\left( A^TA\,\,BA \right) =\mathrm{r}\left( \left( A^T\,\,B \right) A \right) \leqslant \mathrm{r}\left( A \right) .$
-从而$\mathrm{r}\left( A^TA \right) =\mathrm{r}\left( A^TA\,\,BA \right) $, 于是$A^TAX=BA$存在非零解$X_0$. 故
+由\hyperref[proposition:矩阵秩的基本公式]{矩阵秩的基本公式}和\refpro{proposition:AA转置秩与A秩相等}可知
+$r\left( A \right) =r\left( A^TA \right) \leqslant r\left( A^TA\,\,BA \right) =r\left( \left( A^T\,\,B \right) A \right) \leqslant r\left( A \right) .$
+从而$r\left( A^TA \right) =r\left( A^TA\,\,BA \right) $, 于是$A^TAX=BA$存在非零解$X_0$. 故
 $$\left( \begin{matrix}
 E&		-X_0\\
 O&		E\\
@@ -875,7 +875,7 @@ A&		O\\
 O&		A^{T}A\\
 \end{matrix} \right) .$$
 因此
-$$\mathrm{r}\left( \begin{matrix}
+$$r\left( \begin{matrix}
 A&		BA\\
 O&		A^{T}A\\
 \end{matrix} \right) =2\mathrm{r(}A).$$
@@ -989,12 +989,12 @@ E_r - C_1 & 0 \\
 \begin{align}
 a_1+a_2+a_3\leqslant 3\sqrt{\frac{a_{1}^{2}+a_{2}^{2}+a_{3}^{2}}{3}}=\sqrt{3},\quad b_1+b_2\leqslant 2\sqrt{\frac{b_{1}^{2}+b_{2}^{2}}{2}}=\sqrt{2}.\label{166.223}
 \end{align}
-当$\mathrm{r}\left( M \right) \geqslant 3$时,就有
+当$r\left( M \right) \geqslant 3$时,就有
 \begin{align*}
-\left( \mathrm{tr}M \right) ^2\leqslant 25<\left( 5+2\sqrt{6} \right) \cdot 3\leqslant \left( 5+2\sqrt{6} \right) \mathrm{r}\left( M \right)
+\left( \mathrm{tr}M \right) ^2\leqslant 25<\left( 5+2\sqrt{6} \right) \cdot 3\leqslant \left( 5+2\sqrt{6} \right) r\left( M \right)
 \end{align*}
-恒成立.故只需考虑$\mathrm{r}\left( M \right) =1,2$的情形.
-当$\mathrm{r}\left( M \right) =1$时,不妨设
+恒成立.故只需考虑$r\left( M \right) =1,2$的情形.
+当$r\left( M \right) =1$时,不妨设
 \begin{align*}
 M=\begin{pmatrix}
 a_1&	a_2&	a_3&	b_1&	b_2\\
@@ -1008,7 +1008,7 @@ a_1&	a_2&	a_3&	b_1&	b_2\\
 \begin{align*}
 \left( \mathrm{tr}M \right) ^2=\left( a_1+a_2+a_3+b_1+b_2 \right) ^2\leqslant \left( \sqrt{3}+\sqrt{2} \right) ^2=5+4\sqrt{6}.
 \end{align*}
-当$\mathrm{r}\left( M \right) =2$时,不妨设
+当$r\left( M \right) =2$时,不妨设
 \begin{align*}
 M=\begin{pmatrix}
 a_1&	a_2&	a_3&	b_1&	b_2\\
@@ -1026,11 +1026,11 @@ a_1+2a_3&\leqslant 3\sqrt{\frac{a_{1}^{2}+2a_{3}^{2}}{3}}=\sqrt{3}\sqrt{\left( a
 \end{align*}
 于是
 \begin{align*}
-\left( \mathrm{tr}M \right) ^2=\left( a_1+2a_3+2b_2 \right) ^2\leqslant \left( \sqrt{6}+2 \right) ^2=\left( 5+2\sqrt{6} \right) \mathrm{r}\left( M \right).
+\left( \mathrm{tr}M \right) ^2=\left( a_1+2a_3+2b_2 \right) ^2\leqslant \left( \sqrt{6}+2 \right) ^2=\left( 5+2\sqrt{6} \right) r\left( M \right).
 \end{align*}
 综上,我们有
 \begin{align*}
-\left( \mathrm{tr}M \right) ^2\leqslant \left( 5+2\sqrt{6} \right) \mathrm{r}\left( M \right).
+\left( \mathrm{tr}M \right) ^2\leqslant \left( 5+2\sqrt{6} \right) r\left( M \right).
 \end{align*}
 
 \item 注意到
@@ -1104,17 +1104,17 @@ B-aA-bE\\
 BA-cA-dE\\
 \end{array} \right) x=0 \label{eq:1889.23ioiou349052352341}
 \end{align}
-有非零解$\alpha$. 从而$\mathrm{span}\left( \alpha ,A\alpha \right)$就是$A$和$B$的一个维数为$1$或$2$的公共不变子空间. 而\eqref{eq:1889.23ioiou349052352341}式有非零解等价于$\mathrm{r}\left( \begin{array}{c}
+有非零解$\alpha$. 从而$\mathrm{span}\left( \alpha ,A\alpha \right)$就是$A$和$B$的一个维数为$1$或$2$的公共不变子空间. 而\eqref{eq:1889.23ioiou349052352341}式有非零解等价于$r\left( \begin{array}{c}
 B-aA-bE\\
 BA-cA-dE\\
-\end{array} \right) <n$. 故现在只需找到$a,b,c,d\in \mathbb{C}$使得$\mathrm{r}\left( \begin{array}{c}
+\end{array} \right) <n$. 故现在只需找到$a,b,c,d\in \mathbb{C}$使得$r\left( \begin{array}{c}
 B-aA-bE\\
 BA-cA-dE\\
 \end{array} \right) <n$.
 
 我们的想法是: 用第一行分块阵将第二行分块消掉, 因此需要第二行分块阵是第一行分块阵的倍数.
 然后是第一行分块的秩小于$n$, 即不满秩. 注意到取$a=1,b$为$B-A$的特征值, 则
-$| B-A-bE |=0\Longleftrightarrow \mathrm{r}\left( B-A-bE \right) <n.$
+$| B-A-bE |=0\Longleftrightarrow r\left( B-A-bE \right) <n.$
 由条件可设$B$的极小多项式$f_B\left( x \right) =x^2+kx+r$. 由Cayley-Hamilton定理知
 $B^2+kB+rE=O\Longleftrightarrow kB=-\left( 1+r \right) E.$
 于是待定$c,d\in \mathbb{C}$, 使得
@@ -1131,7 +1131,7 @@ $B^2+kB+rE=O\Longleftrightarrow kB=-\left( 1+r \right) E.$
 \begin{align*}
 BA-cA-dE-\left( B-A-bE \right) A=k\left( B-A-bE \right) ,
 \end{align*}
-$| B-A-bE |=0\Longleftrightarrow \mathrm{r}\left( B-A-bE \right) <n.$
+$| B-A-bE |=0\Longleftrightarrow r\left( B-A-bE \right) <n.$
 考虑如下分块矩阵的初等变换
 \begin{align*}
 \left( \begin{array}{c}
@@ -1147,13 +1147,13 @@ O\\
 \end{align*}
 于是
 \begin{align*}
-\mathrm{r}\left( \begin{array}{c}
+r\left( \begin{array}{c}
 B-aA-bE\\
 BA-cA-dE\\
-\end{array} \right) =\mathrm{r}\left( \begin{array}{c}
+\end{array} \right) =r\left( \begin{array}{c}
 B-A-bE\\
 O\\
-\end{array} \right) =\mathrm{r}\left( B-A-bE \right) <n.
+\end{array} \right) =r\left( B-A-bE \right) <n.
 \end{align*}
 因此线性方程组
 \begin{align*}
@@ -1267,7 +1267,7 @@ A(xI + B) = xA + BA = (xA_1 + BA_1, \cdots, xA_n + BA_n),
 \begin{example}
 \( n \) 维欧式空间 \( V \) 中 \( s \) 个向量\(\alpha_i, i = 1,2,\cdots,s\)满足
 \[
-\sum_{i=1}^{s} c_i \alpha_i = 0, c_i \geqslant 0, i = 1,2,\cdots,s \Rightarrow c_1 = c_2 = \cdots = c_s = 0.
+\sum_{i=1}^{s} c_i \alpha_i = 0, c_i \geqslant 0, i = 1,2,\cdots,s \Longrightarrow c_1 = c_2 = \cdots = c_s = 0.
 \]
 证明: 存在\(\alpha \in V\), 使得\((\alpha, \alpha_i) > 0, i = 1,2,\cdots,s\).
 \end{example}
@@ -1469,7 +1469,7 @@ $$\boldsymbol{B}'\left( \boldsymbol{A}+\boldsymbol{BB}' \right) ^{-1}\boldsymbol
 $$1-\lambda >0\Longrightarrow \lambda <1.$$
 因此$\lambda \in \left[ 0,1 \right)$。又因为矩阵的行列式等于全体特征值的乘积，所以
 $$0\leqslant \left| \boldsymbol{B}'\left( \boldsymbol{A}+\boldsymbol{BB}' \right) ^{-1}\boldsymbol{B} \right|<1.$$
-由\refpro{proposition:第8章解答题6}知上式等号成立的充要条件是$\mathrm{r}\left( \boldsymbol{B} \right) <m$。
+由\refpro{proposition:第8章解答题6}知上式等号成立的充要条件是$r\left( \boldsymbol{B} \right) <m$。
 
 {\color{blue}证法二(类似\refexa{example:例题9.3112223444}):}由$\boldsymbol{A}$正定知$\boldsymbol{A} = \boldsymbol{A}^{\frac{1}{2}}\boldsymbol{A}^{\frac{1}{2}}$，记$\boldsymbol{C} = \left( \boldsymbol{A}^{\frac{1}{2}} \right)^{-1}\boldsymbol{B}$，则
 \begin{align}
@@ -1489,7 +1489,7 @@ $$\frac{\lambda}{1 + \lambda} \in [0, 1).$$
 $$0 \leqslant \left| \boldsymbol{C}' \left( \boldsymbol{I}_n + \boldsymbol{CC}' \right)^{-1}\boldsymbol{C} \right| < 1.$$
 由\eqref{eq::::--234235325534522}式知
 $$0 \leqslant \left| \boldsymbol{B}' \left( \boldsymbol{A} + \boldsymbol{BB}' \right)^{-1}\boldsymbol{B} \right| < 1.$$
-又由$\boldsymbol{A}$正定和\refpro{proposition:正定和半正定阵的判定准则}知$\boldsymbol{A} + \boldsymbol{BB}'$也正定，故由\refpro{proposition:第8章解答题6}知上式等号成立的充要条件是$\mathrm{r}\left( \boldsymbol{B} \right) < m$。
+又由$\boldsymbol{A}$正定和\refpro{proposition:正定和半正定阵的判定准则}知$\boldsymbol{A} + \boldsymbol{BB}'$也正定，故由\refpro{proposition:第8章解答题6}知上式等号成立的充要条件是$r\left( \boldsymbol{B} \right) < m$。
 
 \item {\heiti 必要性：}由于$\boldsymbol{A}+\boldsymbol{BB}'$正定，故由\refpro{proposition:正定和半正定阵的判定准则}知存在可逆阵$\boldsymbol{C}$，使得$\boldsymbol{A}+\boldsymbol{BB}'=\boldsymbol{C}'\boldsymbol{C}$，进而
 $$\boldsymbol{B}'\left( \boldsymbol{A}+\boldsymbol{BB}' \right) ^{-1}\boldsymbol{B}=\left( \boldsymbol{CB} \right) '\boldsymbol{CB},$$
@@ -1513,10 +1513,10 @@ $$\boldsymbol{B}'\left( \boldsymbol{A}+\boldsymbol{BB}' \right) ^{-1}\boldsymbol
 由命题知$\boldsymbol{I}_m-\boldsymbol{B}'\left( \boldsymbol{A}+\boldsymbol{BB}' \right) ^{-1}\boldsymbol{B}$也是半正定阵。于是$\boldsymbol{I}_m-\boldsymbol{B}'\left( \boldsymbol{A}+\boldsymbol{BB}' \right) ^{-1}\boldsymbol{B}$的特征值为
 $$1-\lambda \geqslant 0\Longrightarrow \lambda \leqslant 1.$$
 因此$\lambda \in \left[ 0,1 \right]$。又因为$\left| \boldsymbol{B}'\left( \boldsymbol{A}+\boldsymbol{BB}' \right) ^{-1}\boldsymbol{B} \right|=1$，所以$\lambda =1$，即$\boldsymbol{B}'\left( \boldsymbol{A}+\boldsymbol{BB}' \right) ^{-1}\boldsymbol{B}$的特征值全为$1$。又由$\boldsymbol{B}'\left( \boldsymbol{A}+\boldsymbol{BB}' \right) ^{-1}\boldsymbol{B}$是半正定阵知，$\boldsymbol{B}'\left( \boldsymbol{A}+\boldsymbol{BB}' \right) ^{-1}\boldsymbol{B}$可对角化，故$\boldsymbol{B}'\left( \boldsymbol{A}+\boldsymbol{BB}' \right) ^{-1}\boldsymbol{B}=\boldsymbol{I}_m$。再利用\eqref{eq::ioejtw905935235234wt525}式和$\boldsymbol{A}+\boldsymbol{BB}'$正定知
-$$\mathrm{r}\left( \boldsymbol{A} \right) +m=\mathrm{r}\left( \boldsymbol{A}+\boldsymbol{BB}' \right) =n\Longrightarrow \mathrm{r}\left( \boldsymbol{A} \right) =n-m.$$
+$$r\left( \boldsymbol{A} \right) +m=r\left( \boldsymbol{A}+\boldsymbol{BB}' \right) =n\Longrightarrow r\left( \boldsymbol{A} \right) =n-m.$$
 
 
-{\heiti 充分性：}由$\mathrm{r}\left( \boldsymbol{A} \right) =n-m$和$\boldsymbol{A}$半正定知，存在$n$阶正交矩阵$\boldsymbol{C}$，使得
+{\heiti 充分性：}由$r\left( \boldsymbol{A} \right) =n-m$和$\boldsymbol{A}$半正定知，存在$n$阶正交矩阵$\boldsymbol{C}$，使得
 $$\boldsymbol{A}=\boldsymbol{C}\begin{pmatrix} \boldsymbol{I}_{n-m}&\boldsymbol{O}\\ \boldsymbol{O}&\boldsymbol{O} \end{pmatrix}\boldsymbol{C}'.$$
 取$\boldsymbol{B}=\boldsymbol{C}\begin{pmatrix} \boldsymbol{O}\\ \boldsymbol{I}_m \end{pmatrix} \in \boldsymbol{M}_{n\times m}\left( \mathbb{R} \right)$，则
 $$\boldsymbol{A}+\boldsymbol{BB}'=\boldsymbol{C}\begin{pmatrix} \boldsymbol{I}_{n-m}&\boldsymbol{O}\\ \boldsymbol{O}&\boldsymbol{O} \end{pmatrix}\boldsymbol{C}'+\boldsymbol{C}\begin{pmatrix} \boldsymbol{O}&\boldsymbol{O}\\ \boldsymbol{O}&\boldsymbol{I}_m \end{pmatrix}\boldsymbol{C}'=\boldsymbol{CC}',$$
@@ -1804,11 +1804,12 @@ O&		O\\
 \begin{proof}
 当$A$或$B$可逆时,结论显然成立.下设$A,B$均不可逆.
 
+{\color{blue}证法一:}
 {\heiti 必要性:} 注意到
 \begin{align*}
-\mathrm{r}(A^2) \leqslant \mathrm{r}(A) = \mathrm{r}(A^2B) \leqslant \mathrm{r}(A^2),
+r(A^2) \leqslant r(A) = r(A^2B) \leqslant r(A^2),
 \end{align*}
-故\(\mathrm{r}(A) = \mathrm{r}(A^2)\). 因此由\refpro{proposition:矩阵开方的秩等于其秩则幂零Jordan块均为1阶}可知，存在可逆阵\(M\)，使得
+故\(r(A) = r(A^2)\). 因此由\refpro{proposition:矩阵开方的秩等于其秩则幂零Jordan块均为1阶}可知，存在可逆阵\(M\)，使得
 \begin{align*}
 A \sim \begin{pmatrix}
 M&		O\\
@@ -1868,7 +1869,7 @@ O&		O\\
 \end{pmatrix} \notag \\
 &\Longleftrightarrow B_4 = O. \label{eq::9033w232让4fg343445364558685467fge232489t4234892n389tu234tger231}
 \end{align}
-又\(r(A) = r(B)\)，故由\hyperref[proposition:矩阵秩的基本公式-]{proposition:矩阵秩的基本公式}知
+又\(r(A) = r(B)\)，故由\hyperref[proposition:矩阵秩的基本公式]{矩阵秩的基本公式}知
 \begin{align*}
 r(A) = r(B) = r\left( \begin{pmatrix}
 M^{-1}&		O\\
@@ -1877,78 +1878,77 @@ B_3&		B_4\\
 \end{align*}
 从而\(r(B_4) = 0\)，进而\(B_4 = O\). 再由\(\eqref{eq::9033w232让4fg343445364558685467fge232489t4234892n389tu234tger231}\)知必要性成立.
 
-{\heiti 充分性:} 注意到
+{\heiti 充分性:}当 \(B^2A = B\),由必要性证明同理可得 \(A^2B = A\).
+
+{\color{blue}证法二:}{\heiti 必要性:} 
+若 \(A^2B = A\), 由条件, 我们有
 \begin{align*}
-\mathrm{r}(B^2) \leqslant \mathrm{r}(B) = \mathrm{r}(B^2A) \leqslant \mathrm{r}(B^2),
+x \in \ker B \Longrightarrow 0 = A^2Bx = Ax \Longrightarrow x \in \ker A \Longrightarrow \ker B \subseteq \ker A.
 \end{align*}
-故\(\mathrm{r}(B) = \mathrm{r}(B^2)\). 因此由\refpro{proposition:矩阵开方的秩等于其秩则幂零Jordan块均为1阶}可知，存在可逆阵\(M\)，使得
+由$r(A)=r(B)$可得
 \begin{align*}
-B \sim \begin{pmatrix}
-M&		O\\
-O&		O\\
-\end{pmatrix}.
+\dim \ker B = \dim \ker A \Longrightarrow \ker A = \ker B.
 \end{align*}
-因为条件和结论在相似变换下不变，所以不妨设
+取 \(\ker A\) 的一组基扩充为 \(\mathbb{C}^n\) 的一组基, 则 \(A,B\) 在这组基下的矩阵为
 \begin{align*}
-B = \begin{pmatrix}
-M&		O\\
-O&		O\\
-\end{pmatrix},\quad A = \begin{pmatrix}
-A_1&		A_2\\
-A_3&		A_4\\
-\end{pmatrix}.
+\begin{pmatrix} 0 & A_1 \\ 0 & A_2 \end{pmatrix}, \quad \begin{pmatrix} 0 & B_1 \\ 0 & B_2 \end{pmatrix}.
 \end{align*}
-由\(B^2A = B\)可得
+注意到 \(\begin{pmatrix} A_1 \\ A_2 \end{pmatrix}\) 列满秩, 于是由\cref{proposition:行/列满秩矩阵性质}我们有
 \begin{align*}
-\begin{pmatrix}
-M^2&		O\\
-O&		O\\
-\end{pmatrix} \begin{pmatrix}
-A_1&		A_2\\
-A_3&		A_4\\
-\end{pmatrix} = \begin{pmatrix}
-M&		O\\
-O&		O\\
-\end{pmatrix} \Longleftrightarrow \begin{pmatrix}
-M(MA_1 - I)&		M^2A_2\\
-O&		O\\
-\end{pmatrix} = \begin{pmatrix}
-O&		O\\
-O&		O\\
-\end{pmatrix}.
+A^2B=A&\Longleftrightarrow \left( \begin{matrix}
+0&		A_1\\
+0&		A_2\\
+\end{matrix} \right) ^2\left( \begin{matrix}
+0&		B_1\\
+0&		B_2\\
+\end{matrix} \right) =\left( \begin{matrix}
+0&		A_1\\
+0&		A_2\\
+\end{matrix} \right) \Longleftrightarrow \left( \begin{matrix}
+0&		A_1A_2B_2\\
+0&		A_{2}^{2}B_2\\
+\end{matrix} \right) =\left( \begin{matrix}
+0&		A_1\\
+0&		A_2\\
+\end{matrix} \right) 
+\\
+&\Longleftrightarrow \left( \begin{array}{c}
+A_1\\
+A_2\\
+\end{array} \right) A_2B_2=\left( \begin{array}{c}
+A_1\\
+A_2\\
+\end{array} \right) \Longleftrightarrow A_2B_2=E.
 \end{align*}
-再结合\(M\)可逆知\(A_2 = O\)，\(A_1 = M^{-1}\)，故\(A = \begin{pmatrix}
-M^{-1}&		O\\
-A_3&		A_4\\
-\end{pmatrix}\). 于是
-\begin{align}
-A^2B = A &\Longleftrightarrow \begin{pmatrix}
-M^{-1}&		O\\
-A_3&		A_4\\
-\end{pmatrix}^2 \begin{pmatrix}
-M&		O\\
-O&		O\\
-\end{pmatrix} = \begin{pmatrix}
-M^{-1}&		O\\
-A_3&		A_4\\
-\end{pmatrix} \notag \\
-&\Longleftrightarrow \begin{pmatrix}
-O&		O\\
-A_4A_3M&		-A_4\\
-\end{pmatrix} = \begin{pmatrix}
-O&		O\\
-O&		O\\
-\end{pmatrix} \notag \\
-&\Longleftrightarrow A_4 = O. \label{eq::9033w232让4fg343445364558685467fge232489t4234892n389tu234tger232}
-\end{align}
-又\(r(A) = r(B)\)，故由\hyperref[proposition:矩阵秩的基本公式-]{proposition:矩阵秩的基本公式}知
+从而$B_2A_2=E$,故
 \begin{align*}
-r(A) = r(B) = r\left( \begin{pmatrix}
-M^{-1}&		O\\
-A_3&		A_4\\
-\end{pmatrix} \right) \geqslant r(M^{-1}) + r(A_4) = r(A) + r(A_4).
+B^2A = \begin{pmatrix} 0 & B_1 \\ 0 & B_2 \end{pmatrix}^2 \begin{pmatrix} 0 & A_1 \\ 0 & A_2 \end{pmatrix} = \begin{pmatrix} 0 & B_1B_2A_2 \\ 0 & B_2^2A_2 \end{pmatrix} = \begin{pmatrix} 0 & B_1 \\ 0 & B_2 \end{pmatrix} = B.
 \end{align*}
-从而\(r(A_4) = 0\)，进而\(A_4 = O\). 再由\(\eqref{eq::9033w232让4fg343445364558685467fge232489t4234892n389tu234tger232}\)知充分性成立.
+
+{\heiti 充分性:}当 \(B^2A = B\),由必要性证明同理可得 \(A^2B = A\).
+
+{\color{blue}证法三:}{\heiti 必要性:} 
+已知 \(A^2B = A\), 即 \(A(AB - E) = O\), 那么 \(r(A) + r(AB - E) \leqslant n\), 而显然
+\begin{align*}
+r(A) + r(AB - E) \geqslant r(AB) + r(AB - E) \geqslant r(AB - (AB - E)) = n.
+\end{align*}
+因此 \(r(A) + r(AB - E) = n\).
+
+对矩阵 \(\mathrm{diag}\{A, AB - E\}\) 进行初等变换, 有
+\begin{align*}
+\begin{pmatrix} A & O \\ O & AB - E \end{pmatrix} \to \begin{pmatrix} A & O \\ A & AB - E \end{pmatrix} \to \begin{pmatrix} A & -AB \\ A & -E \end{pmatrix} \to \begin{pmatrix} A - ABA & -AB \\ O & -E \end{pmatrix} \to \begin{pmatrix} A - ABA & O \\ O & -E \end{pmatrix}.
+\end{align*}
+
+这意味着
+\begin{align*}
+n = r(A) + r(AB - E) = r(A - ABA) + r(-E) = r(A - ABA) + n\Longrightarrow r(A - ABA) = 0\Longrightarrow ABA = A.
+\end{align*}
+另外,由\(A = A^2B\)可知$A$的行向量均可由 \(B\) 的行向量线性表出, 再结合 \(r(A) = r(B)\) 可知 \(A\) 和 \(B\) 的行向量组等价, 那么存在可逆矩阵 \(C\) 使得 \(CA = B\), 进而
+\begin{align*}
+B^2A = (CA)BA = C(ABA) = CA = B.
+\end{align*}
+
+{\heiti 充分性:}当 \(B^2A = B\),由必要性证明同理可得 \(A^2B = A\).
 \end{proof}
 
 \begin{example}
@@ -2270,18 +2270,14 @@ m_1(x) = x m_2(x).
 \begin{align*}
 r = r(AB) \leqslant r(A),\ r(B) \leqslant r \Longrightarrow r(A) = r(B) = r.
 \end{align*}
-故$A$为列满秩矩阵，$B$为行满秩矩阵。从而存在$r \times n$行满秩矩阵$P$和$n \times r$列满秩矩阵$Q$，使得
-\begin{align*}
+故$A$为列满秩矩阵，$B$为行满秩矩阵。由\cref{proposition:行/列满秩矩阵性质},存在$r \times n$行满秩矩阵$P$和$n \times r$列满秩矩阵$Q$，使得
+\begin{align}\label{eq:JFOWJIjijiwjfiojw2333333-1}
 PA = BQ = I_r.
-\end{align*}
-由\hyperref[proposition:Sylvester(西尔维斯特)不等式]{Sylvester不等式}和\hyperref[proposition:矩阵秩的基本公式-]{矩阵秩基本不等式}知
-\begin{align*}
-r = r(B) + r(A) - r \leqslant r(BA) \leqslant r(A) = r \Longrightarrow r(BA) = r.
-\end{align*}
-于是对$\forall k \in \mathbb{N}$，都有
-\begin{align*}
-AB(AB)^k = ABA(AB)^{k-1}B = A(BA)^kB,
-\end{align*}
+\end{align}
+注意到对$\forall k \in \mathbb{N}$，都有
+\begin{align}
+AB(AB)^k = ABA(AB)^{k-1}B = A(BA)^kB,\label{eq:JFOWJIjijiwjfiojw2333333}
+\end{align}
 \begin{align*}
 (BA)^k = PA(BA)^kBQ = PAB(AB)^kQ.
 \end{align*}
@@ -2308,13 +2304,17 @@ xm_2(x) = p(x)m_1(x) = p(x)q(x)m_1(x) \Longrightarrow (x - p(x)q(x))m_1(x) = 0.
 \begin{align*}
 \text{要么}p(x)=1,q(x)=x,\text{要么}p(x)=x,q(x)=1.
 \end{align*}
-若$p(x) = x, q(x) = 1$。则由\eqref{eq::9033wfwfge232489t4}式知$m_1(x) = m_2(x)$。但是，因为$r(AB) = r < n, r(BA) = r$，所以$AB$不可逆，$BA$可逆。因此$0$是$AB$的特征值，不是$BA$的特征值。故$m_1(0) = 0 \ne m_2(0)$，这与$m_1(x) = m_2(x)$矛盾！因此$p(x) = 1, q(x) = x$。再由\eqref{eq::9033wfwfge232489t4}式可知$m_1(x) = xm_2(x)$.
+若$p(x) = x, q(x) = 1$。则由\eqref{eq::9033wfwfge232489t4}式知$m_1(x) = m_2(x)$。但是，因为$r(AB) = r < n$,所以$AB$不可逆,进而0是$AB$的特征值,从而$x\mid m_1(x)$.于是可设$m_1(x)=xh(x)$,则由\eqref{eq:JFOWJIjijiwjfiojw2333333-1}\eqref{eq:JFOWJIjijiwjfiojw2333333}式得
+\begin{align*}
+O=m_1(AB)=ABh(AB)=Ah(BA)B\Longrightarrow h(BA)=O.
+\end{align*}
+故$m_2(x)\mid h(x)$,这与$m_2(x)=m_1(x)=xh(x)$矛盾!因此$p(x) = 1, q(x) = x$。再由\eqref{eq::9033wfwfge232489t4}式可知$m_1(x) = xm_2(x)$.
 
 {\color{blue}证法二:}由$r(AB) = r$且$A$为$n \times r$矩阵，$B$为$r \times n$矩阵知
 \begin{align*}
 r = r(AB) \leqslant r(A),\ r(B) \leqslant r \Longrightarrow r(A) = r(B) = r.
 \end{align*}
-故$A$为列满秩矩阵，$B$为行满秩矩阵。从而存在$r \times n$行满秩矩阵$P$和$n \times r$列满秩矩阵$Q$，使得
+故$A$为列满秩矩阵，$B$为行满秩矩阵。由\cref{proposition:行/列满秩矩阵性质},存在$r \times n$行满秩矩阵$P$和$n \times r$列满秩矩阵$Q$，使得
 \begin{align}
 PA = BQ = I_r. \label{eq::9033w232让4fg343445364558685467fge232489t41}
 \end{align}
@@ -2336,12 +2336,12 @@ J_2 & & & \\
 \begin{align*}
 \left| \lambda I - AB \right| = \lambda^{n - r} \left| \lambda I - BA \right|.
 \end{align*}
-从而$AB,BA$的非零特征值的代数重数相同。于是$J_1,J_2$的阶数相同，都记为$k$。由\eqref{eq::9033w232让4fg343445364558685467fge232489t41}\eqref{eq::9033w232让4fg343445364558685467fge232489t42}式可得
+从而$AB,BA$的非零特征值的代数重数相同。于是$J_1,J_2$的阶数相同，都记为$k$。再由\eqref{eq::9033w232让4fg343445364558685467fge232489t41}\eqref{eq::9033w232让4fg343445364558685467fge232489t42}式和\cref{proposition:行/列满秩矩阵性质}可得
 \begin{align*}
 k = r\left( \left( AB \right)^{r_s} \right) = r\left( A\left( BA \right)^{r_s - 1}B \right) \leqslant r\left( \left( BA \right)^{r_s - 1} \right),
 \end{align*}
 \begin{align*}
-k = r\left( \left( BA \right)^{t_l} \right) = r\left( PA\left( BA \right)^{t_l}BQ \right) \leqslant r\left( A\left( BA \right)^{t_l}B \right) = r\left( \left( AB \right)^{t_l + 1} \right).
+k = r\left( \left( BA \right)^{t_l} \right) = r\left( PA\left( BA \right)^{t_l}BQ \right) \leqslant r\left( A\left( BA \right)^{t_l}B \right) \xlongequal{\text{\cref{proposition:行/列满秩矩阵性质}}} r\left( \left( AB \right)^{t_l + 1} \right).
 \end{align*}
 因此
 \begin{align*}

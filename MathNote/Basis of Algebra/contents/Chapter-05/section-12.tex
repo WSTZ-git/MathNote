@@ -373,6 +373,46 @@ e_r(x_1,\cdots,x_s)=(-1)^r\frac{a_{s-r}}{a_s}\in\mathbb{Q},\quad r=1,2,\cdots,s.
 \end{align*}
 \end{proof}
 
+\begin{example}
+证明: 数域 \(F\) 上的任意一个 \(n\) 元多项式都可以表示成一次齐次多项式方幂的线性组合.
+\end{example}
+\begin{proof}
+对 \(n\) 作归纳法. 当 \(n=2\) 时, \(f(x_1, x_2) = \sum\limits_{n_1, n_2} a_{n_1, n_2} x_1^{n_1} x_2^{n_2}\), 只需对其中的任一单项式 \(x^r y^s\) (无需考虑系数), 证明结论成立. 为此, 可设
+\begin{align}
+x^r y^s = k_0(x+y)^{r+s} + k_1(x+2y)^{r+s} + \cdots + k_{r+s}(x+(r+s)y)^{r+s} \label{eq:setup}
+\end{align}
+将等式右边展开，比较 \(y^j\) (\(j=0,1,\cdots,r+s\)) 的系数，可知 \eqref{eq:setup} 式成立当且仅当以下线性方程组有解：
+\begin{align*}
+\begin{cases}
+k_0+k_1+\cdots +k_{r+s}=0\\
+k_0+2k_1+\cdots +\left( r+s \right) k_{r+s}=0\\
+\cdots \cdots \cdots \cdots\\
+k_0+2^sk_1+\cdots +\left( r+s \right) ^sk_{r+s}=\frac{1}{\mathrm{C}_{r+s}^{s}}\\
+\cdots \cdots \cdots \cdots\\
+k_0+2^{r+s}k_1+\cdots +\left( r+s \right) ^{r+s}k_{r+s}^{s}=0\\
+\end{cases}
+\end{align*}
+显然，该线性方程组的系数矩阵为Vandermode矩阵，由于 \(1, 2, \cdots, r+s\) 互不相同，其系数行列式不为零. 根据 Cramer 法则，上述方程组有唯一解. 因此，\(n=2\) 时结论成立.
+
+假设对变量个数 \(\leqslant n-1\) 的多项式结论成立. 对于 \(n\) 元多项式 \(f(x_1,x_2,\cdots,x_n)\)，我们有
+\begin{align}
+f(x_1,x_2,\cdots,x_n) = \sum\limits_{s} f_s(x_1,x_2,\cdots,x_{n-1}) x_n^s, \label{eq:induction_step}
+\end{align}
+其中 \(f_s(x_1,x_2,\cdots,x_{n-1})\) 是变量个数不超过 \(n-1\) 的多项式. 根据归纳假设，可用一次齐次多项式幂的线性组合表示为
+\begin{align*}
+f_s(x_1,x_2,\cdots,x_{n-1}) = \sum\limits_{r} a_{rs} (c_{s1} x_1 + c_{s2} x_2 + \cdots + c_{s,n-1} x_{n-1})^r. 
+\end{align*}
+代入 \eqref{eq:induction_step} 式，得
+\begin{align}
+f(x_1,x_2,\cdots,x_n) = \sum\limits_{s} \sum\limits_{r} a_{rs} (c_{s1} x_1 + c_{s2} x_2 + \cdots + c_{s,n-1} x_{n-1})^r x_n^s. \label{eq:combined}
+\end{align}
+将上式右端的每一个括号视为一个变量，记为 \(z_i\)，对二元单项式 \(z_i^r x_n^s\) 利用已证明的事实，有
+\begin{align*}
+z_i^r x_n^s = \sum\limits_{i=0}^{r+s} k_i (z_i + (i+1) x_n)^{r+s}. 
+\end{align*}
+代入 \eqref{eq:combined} 式右端，即为 \(x_1, x_2, \cdots, x_n\) 的一次齐次多项式幂的线性组合. 因此，命题得证.
+\end{proof}
+
 
 
 \end{document}

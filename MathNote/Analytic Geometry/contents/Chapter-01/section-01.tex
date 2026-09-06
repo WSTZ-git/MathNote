@@ -16,6 +16,27 @@
 \section{常见问题}
 
 \begin{example}
+设的二次曲面方程为 $F(\bm{x}) = \bm{x}^T A \bm{x} + \bm{b}^T \bm{x} + c = 0,$ 其中 $\bm{x} = (x_1, x_2, \cdots, x_n)^T,$ $A$ 为 $n$ 阶实对称矩阵, $\bm{b}$ 为 $n$ 维列向量, $c$ 为常数. 其化为标准型的完整步骤如下：
+\begin{enumerate}[(1)]
+\item 正交变换消去交叉项：存在正交矩阵 $Q,$ 使得 $Q^T A Q = \Lambda = \mathrm{diag}(\lambda_1, \lambda_2, \cdots, \lambda_n).$ 令 $\bm{x} = Q \bm{y},$ 则方程化为见 \eqref{eq:quadratic_form_step_1}
+\begin{align}
+\bm{y}^T \Lambda \bm{y} + \bm{b}'^T \bm{y} + c = 0, \label{eq:quadratic_form_step_1}
+\end{align}
+其中 $\bm{b}' = Q^T \bm{b}.$
+\item 平移变换消去一次项：若所有的特征值 $\lambda_i \neq 0,$ 令 $\bm{y} = \bm{z} + \bm{h},$ 其中 $\bm{h}$ 满足 $2 \Lambda \bm{h} + \bm{b}' = 0,$ 即 $\bm{h} = -\frac{1}{2} \Lambda^{-1} \bm{b}'.$ 此时常数项变为 $c' = c - \frac{1}{4} \bm{b}'^T \Lambda^{-1} \bm{b}'.$ 方程化为见 \eqref{eq:quadratic_form_step_2}
+\begin{align}
+\bm{z}^T \Lambda \bm{z} + c' = 0, \label{eq:quadratic_form_step_2}
+\end{align}
+\item 特例：若存在 $\lambda_i = 0$ (设前 $r$ 个非零, 后 $n-r$ 个为零), 则无法通过完全平移消去对应的一次项. 此时可将非零特征值的部分配方, 而零特征值的部分保留一次项. 方程化为见 \eqref{eq:quadratic_form_step_3}
+\begin{align}
+\sum_{i=1}^{r} \lambda_i z_i^2 + \sum_{j=r+1}^{n} d_j z_j + c' = 0, \label{eq:quadratic_form_step_3}
+\end{align}
+其中若存在 $d_j \neq 0,$ 则对应的曲面为抛物面或柱面.
+\end{enumerate}
+根据特征值 $\lambda_i$ 的符号以及常数项 $c'$ 的正负, 可分类判定曲面类型：若所有 $\lambda_i$ 同号且 $c' \neq 0$ 则为椭球面；若存在正负特征值且 $c' \neq 0$ 则为单叶或双叶双曲面；若 $c' = 0$ 则为二次锥面；若有 $\lambda_i = 0$ 且对应一次项不为零, 则为抛物面；若对应一次项也为零, 则为柱面.
+\end{example}
+
+\begin{example}
 已知椭球面
 $$
 \Sigma_0:\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1,a>b,$$

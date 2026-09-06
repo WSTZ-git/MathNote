@@ -462,6 +462,22 @@ v(x,y)&=\int_{(x_0,y_0)}^{(x,y_0)}{-\frac{\partial u}{\partial y}\mathrm{d}x+\fr
 所以，$v$ 就是要求的 $u$ 的共轭调和函数.
 \end{proof}
 
+\begin{theorem}[函数在一点解析的充要条件]\label{theorem:函数在一点解析的充要条件}
+设$f(z)=u(x,y)+iv(x,y)$在点$z_0$的某个邻域内有定义, 则$f(z)$在$z_0$点解析的充要条件是以下条件之一:
+\begin{enumerate}[(1)]
+\item $f(z)$在$z_0$的某个邻域内处处可导.
+\item $u(x,y)$和$v(x,y)$在$z_0$的某个邻域内具有连续的一阶偏导数, 且在该邻域内满足Cauchy-Riemann方程:
+\begin{align*}
+\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, \quad \frac{\partial v}{\partial x} = -\frac{\partial u}{\partial y}.
+\end{align*}
+\item $f(z)$在$z_0$的某个邻域内可以展开成$(z-z_0)$的幂级数, 即
+\begin{align*}
+f(z) = \sum\limits_{n=0}^{\infty} c_n (z-z_0)^n.
+\end{align*}
+\item $v(x,y)$在$z_0$的某个邻域内是$u(x,y)$的共轭调和函数.
+\end{enumerate}
+\end{theorem}
+
 \begin{theorem}[函数在区域内解析的充要条件]\label{theorem:函数在区域内解析的充要条件}
 设$D\subset \mathbb{C}$,则
 \begin{enumerate}[(1)]
@@ -473,7 +489,7 @@ v(x,y)&=\int_{(x_0,y_0)}^{(x,y_0)}{-\frac{\partial u}{\partial y}\mathrm{d}x+\fr
 \item 函数 \(f(z) = f(x,y) = u(x,y) + \mathrm{i}v(x,y)\) 在 \(D\) 内解析的充要条件为：
 \begin{enumerate}[(i)]
 \item \(u_x, u_y, v_x, v_y\) 在 \(D\) 内连续；
-\item \(u(x,y), v(x,y)\) 在 \(D\) 内满足 Cauchy-Riemann 方程.
+\item \(u(x,y), v(x,y)\) 在 \(D\) 内满足Cauchy-Riemann方程.
 \end{enumerate}
 
 \item 函数 \(f(z)\) 在区域 \(D\) 内解析的充要条件是：
@@ -484,9 +500,23 @@ v(x,y)&=\int_{(x_0,y_0)}^{(x,y_0)}{-\frac{\partial u}{\partial y}\mathrm{d}x+\fr
 
 \item 函数 \(f(z) = f(x,y) = u(x,y) + \mathrm{i}v(x,y)\) 在 \(D\) 内解析的充要条件为在区域 \(D\) 内 \(v(x,y)\) 是 \(u(x,y)\) 的共轭调和函数.
 
-\item 函数 \(f(z)\) 在 \(D\) 内解析的充要条件为\(f(z)\) 在 \(D\) 内可局部(逐点)展开为幂级数,即$f$在$D$内任一点 \(a\) 的邻域内可展开成 \(z - a\) 的幂级数,即Taylor级数.
+\item 函数 \(f(z)\) 在 \(D\) 内解析的充要条件为\(f(z)\) 在 \(D\) 内可局部(逐点)展开为幂级数,即$f$在$D$内任一点 \(a\) 的邻域内可展开成 \(z - a\) 的幂级数,, 即
+\begin{align*}
+f(z) = \sum\limits_{n=0}^{\infty} c_n (z-z_0)^n.
+\end{align*}
 \end{enumerate}
 \end{theorem}
+
+\begin{example}
+设$f(z)=|z|^2$, 则以下常见错误命题均不成立:
+\begin{enumerate}[(1)]
+\item 若$f(z)$在$z_0$不解析则不可导. 反例: $f(z)=|z|^2$在$z=0$处可导但不解析.
+\item 若$f(z)$在$z_0$可导则解析. 反例: $f(z)=|z|^2$在$z=0$处可导但不解析.
+\item 若$u,v$在$z_0$满足C-R方程则$f(z)$在$z_0$解析. 反例: $f(z)=|z|^2$在$z=0$处满足C-R方程, 但在$z=0$的任意邻域内不满足C-R方程, 因此不解析.
+\end{enumerate}
+\end{example}
+
+
 
 
 

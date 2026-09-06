@@ -15,7 +15,7 @@
 
 \section{不定积分的微分}
 
-\begin{lemma}
+\begin{lemma}\label{lemma:引理变限积分的平均连续性}
 设 $f\in L([a,b])$, 令
 \begin{align*}
 F_h(x) = \frac{1}{h}\int_x^{x+h} f(t)\mathrm{d}t
@@ -74,14 +74,14 @@ F_h(x) = \frac{1}{h}\int_x^{x+h} f(t)\mathrm{d}t
 \begin{align*}
 \lim_{h\to 0} F_h(x) = g(x), \quad \text{a.e. } x\in[a,b],
 \end{align*}
-$g(x)$ 是 $[a,b]$ 上的可测函数. 上述引理指出, $F_h(x)$ 是平均收敛于 $f(x)$ 的 ($h\to 0$), 从而我们有
+$g(x)$ 是 $[a,b]$ 上的可测函数. \cref{lemma:引理变限积分的平均连续性}指出, $F_h(x)$ 是平均收敛于 $f(x)$ 的 ($h\to 0$), 从而再由\hyperref[theorem:Fatou引理]{Fatou引理}得
 \begin{align*}
-\int_a^b |f(x)-g(x)|\mathrm{d}x = \int_a^b \lim_{h\to 0} |f(x)-F_h(x)|\mathrm{d}x \leqslant \liminf_{h\to 0} \int_a^b |f(x)-F_h(x)|\mathrm{d}x = 0.
+\int_a^b |f(x)-g(x)|\mathrm{d}x = \int_a^b \lim_{h\to 0} |f(x)-F_h(x)|\mathrm{d}x \leqslant \varliminf_{h\to 0} \int_a^b |f(x)-F_h(x)|\mathrm{d}x = 0.
 \end{align*}
 这说明 $g(x)=f(x)$, a.e. $x\in[a,b]$.
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}\label{corollary:可积函数的Lebesgue点}
 若 $f\in L([a,b])$, 则对 $[a,b]$ 中几乎处处的点 $x$, 都有
 \begin{align*}
 \lim_{h\rightarrow 0} \frac{1}{h}\int_0^h{\left| f\left( x+t \right) -f\left( x \right) \right|\mathrm{d}t}=0 \iff \lim_{h\rightarrow 0} \frac{1}{h}\int_0^h{f\left( x+t \right) \mathrm{d}t}=f\left( x \right) .
@@ -89,7 +89,7 @@ $g(x)$ 是 $[a,b]$ 上的可测函数. 上述引理指出, $F_h(x)$ 是平均收
 我们称满足上式的点 $x$ 为 $f(x)$ 的$\mathbf{Lebesgue}$\textbf{点}.
 \end{corollary}
 \begin{proof}
-对于任意取定的 $r\in\mathbb{Q}\cap[a,b]$, 易知有
+对于任意取定的 $r\in\mathbb{Q}\cap[a,b]$, 由\cref{lemma:引理变限积分的平均连续性}知
 \begin{align*}
 \lim_{h\to 0} \frac{1}{h}\int_x^{x+h} |f(t)-r|\mathrm{d}t = |f(x)-r|, \quad \text{a.e. } x\in[a,b].
 \end{align*}
@@ -134,11 +134,11 @@ f(x) = C \text{ (常数)}, \quad \text{a.e. } x\in[a,b].
 \end{align*}
 \end{proposition}
 \begin{proof}
-设 $x_1,x_2$ ($x_1<x_2$) 是 $f(x)$ 在 $(a,b)$ 中的 Lebesgue 点, 则
+设 $x_1,x_2$ ($x_1<x_2$) 是 $f(x)$ 在 $(a,b)$ 中的 Lebesgue 点, 则由题设可知
 \begin{align*}
 \lim_{h\to 0} \left|\frac{1}{h}\int_{x_1}^{x_2} (f(x+h)-f(x))\mathrm{d}x\right| = 0.
 \end{align*}
-因为
+再利用\cref{corollary:可积函数的Lebesgue点}可得
 \begin{align*}
 &\left|\frac{1}{h}\int_{x_1}^{x_2} (f(x+h)-f(x))\mathrm{d}x\right|
 = \left|\frac{1}{h}\int_{x_1+h}^{x_2+h} f(x)\mathrm{d}x - \frac{1}{h}\int_{x_1}^{x_2} f(x)\mathrm{d}x\right| \\

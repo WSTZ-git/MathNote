@@ -139,20 +139,20 @@ f = y_1^2 + \cdots + y_r^2.
 \end{proof}
 
 \begin{lemma}\label{lemma:矩阵二次型技巧}
-设$A,B,P,Q$都是$n$阶矩阵,$\alpha,\beta$为$n$维列向量,则
-\begin{align*}
-\alpha ' AP\alpha +\beta ' B\beta -2\alpha ' \beta =\left( \begin{matrix}
-\alpha '&		\beta '\\
+设$A,B,P,Q$都是$n$阶矩阵,$x,y$为$n$维列向量,则
+\begin{gather*}
+x^TAPx+y^TBy-2x^Ty=\left( \begin{matrix}
+x^T&		y^T\\
 \end{matrix} \right) \left( \begin{matrix}
 A&		-I_n\\
 -I_n&		B\\
 \end{matrix} \right) \left( \begin{array}{c}
-\alpha\\
-\beta\\
+x\\
+y\\
 \end{array} \right) ,
 \\
-P' AP+Q' BQ-2P' Q=\left( \begin{matrix}
-P'&		Q'\\
+P^TAP+Q^TBQ-2P^TQ=\left( \begin{matrix}
+P^T&		Q^T\\
 \end{matrix} \right) \left( \begin{matrix}
 A&		-I_n\\
 -I_n&		B\\
@@ -160,7 +160,7 @@ A&		-I_n\\
 P\\
 Q\\
 \end{array} \right) .
-\end{align*}
+\end{gather*}
 \end{lemma}
 \begin{proof}
 由矩阵乘法显然成立.

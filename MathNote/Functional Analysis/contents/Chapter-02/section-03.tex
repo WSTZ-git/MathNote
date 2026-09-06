@@ -150,6 +150,9 @@ $p$的导数在$[0,1]$上是有界的, 因此根据中值定理, $\exists M>0$, 
 \begin{proposition}
 任何一个无穷维 Banach 空间都不存在可数的 Hamel 基.
 \end{proposition}
+\begin{remark}
+显然有限维Banach空间的任意基就是Hamel基.
+\end{remark}
 \begin{proof}
 反设无穷维 Banach 空间 \(X\) 具有可数的 Hamel 基 \(\{e_1, e_2, \cdots\}\).
 令 \(X_n = \operatorname{span}\{e_1, e_2, \cdots, e_n\}\)，则对于每一个 \(n \in \mathbb{N}\) 成立. 因为 \(X\) 是无穷维的，所以每个 \(X_n\) 都是 \(X\) 的有限维真子空间. 由\cref{corollary:有限维B*空间必完备子空间必是闭的},在赋范空间中，有限维子空间必为闭子空间.
@@ -159,6 +162,46 @@ X = \bigcup\limits_{n=1}^{\infty} X_n.
 \end{align*}
 然而，由\hyperref[theorem:泛函分析--Baire纲定理]{Baire纲定理}可知，一个完备的度量空间不能表示为可数个无处稠密集的并集. 由于每个 \(X_n\) 的内部均为空，故它们都是无处稠密集，这说明 \(X = \bigcup\limits_{n=1}^{\infty} X_n\) 与 \hyperref[theorem:泛函分析--Baire纲定理]{Baire纲定理}相矛盾!
 综上，无穷维 Banach 空间不存在可数 Hamel 基，其基必然是无限的且不可数.
+\end{proof}
+
+\begin{definition}[Schauder基]
+令 \(X\) 是赋范线性空间。如果存在可数序列 \(\{e_n\}_{n=1}^{\infty} \subseteq X\)，使得对任意向量 \(x \in X\)，都存在唯一的标量序列 \(\{c_n\}_{n=1}^{\infty}\)，使得
+\begin{align*}
+x = \sum\limits_{n=1}^{\infty} c_n e_n,
+\end{align*}
+这里的级数按范数收敛，即
+\begin{align*}
+\lim\limits_{N \to \infty} \left\| x - \sum\limits_{n=1}^{N} c_n e_n \right\| = 0,
+\end{align*}
+则称 \(\{e_n\}_{n=1}^{\infty}\) 为 \(X\) 的一个 \textbf{Schauder基}或\textbf{拓扑基}.
+\end{definition}
+
+\begin{proposition}
+若赋范线性空间 \(X\) 存在可数 Schauder 基，则 \(X\) 是可分的.
+\end{proposition}
+
+\begin{proof}
+设 \(\{e_n\}_{n=1}^{\infty}\) 是 \(X\) 的一个可数 Schauder 基. 考虑集合
+\begin{align*}
+D = \left\{ \sum\limits_{i=1}^{n} q_i e_i : n \in \mathbb{N}, q_i \in \mathbb{Q} \right\}.
+\end{align*}
+由于有理数集 \(\mathbb{Q}\) 是可数的，\(D\) 是有限个有理数系数的组合，故 \(D\) 是可数集.
+
+下面证明 \(D\) 在 \(X\) 中稠密. 对任意 \(x \in X\) 和任意 \(\varepsilon > 0\)，由于 \(\{e_n\}_{n=1}^{\infty}\) 是 Schauder 基，存在正整数 \(N\)，使得
+\begin{align*}
+\left\| x - \sum\limits_{i=1}^{N} c_i e_i \right\| < \frac{\varepsilon}{2}.
+\end{align*}
+由有理数的稠密性，对每个 \(i = 1, 2, \cdots, N\)，存在有理数 \(q_i \in \mathbb{Q}\)，使得
+\begin{align*}
+|q_i - c_i| < \frac{\varepsilon}{2N \|e_i\|},
+\end{align*}
+这里不妨设 \(e_i \neq 0\). 于是
+\begin{align*}
+\left\| x - \sum\limits_{i=1}^{N} q_i e_i \right\| &\leqslant \left\| x - \sum\limits_{i=1}^{N} c_i e_i \right\| + \left\| \sum\limits_{i=1}^{N} (c_i - q_i) e_i \right\| \\
+&< \frac{\varepsilon}{2} + \sum\limits_{i=1}^{N} |c_i - q_i| \|e_i\| \\
+&< \frac{\varepsilon}{2} + \sum\limits_{i=1}^{N} \frac{\varepsilon}{2N} = \varepsilon.
+\end{align*}
+因此 \(D\) 在 \(X\) 中稠密. 综上，\(X\) 存在可数稠密子集，故 \(X\) 是可分的.
 \end{proof}
 
 \subsection{开映射定理}

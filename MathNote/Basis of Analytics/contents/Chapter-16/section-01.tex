@@ -63,7 +63,7 @@ a_0 - (a_1 - a_2) - (a_3 - a_4) - \cdots - (a_{p - 2} - a_{p - 1}) - a_p &, p\te
 
 \begin{theorem}[A-D判别法]
 级数 \( \sum_{n=1}^\infty a_n b_n \) 满足下列条件之一时收敛.
-\begin{enumerate}
+\begin{enumerate}[(1)]
 \item \( \left\{ \sum_{k=1}^n a_k \right\}_{n=1}^\infty \) 有界, \( b_n \) 递减到 \( 0 \);
 
 \item \( \sum_{n=1}^\infty a_n \) 收敛, \( b_n \) 单调有界.
@@ -831,7 +831,7 @@ a_n\sum_{k=1}^n{\frac{1}{k}}\sim a_n\ln n,\quad n\rightarrow \infty . \label{110
 \end{proof}
 
 \begin{proposition}\label{proposition:部分和相关级数重要性质}
-\begin{enumerate}
+\begin{enumerate}[(1)]
 \item 设 \( \{a_n\}_{n = 1}^{\infty} \subset [0, +\infty) \)，\( S_n = \sum_{k = 1}^{n} a_k, n \in \mathbb{N} \)。若 \( \{a_n\}_{n = 1}^{\infty} \) 不恒为 0，不妨设 \( a_1 \neq 0 \)，则有
 \begin{align*}
 \sum_{n = 1}^{\infty} \frac{a_n}{S_n^p}
@@ -850,14 +850,14 @@ a_n\sum_{k=1}^n{\frac{1}{k}}\sim a_n\ln n,\quad n\rightarrow \infty . \label{110
 \end{align*}
 \end{enumerate}
 \end{proposition}
-\begin{note}
+\begin{remark}
 本结果虽然不能直接使用，但连同证明方法却要记住！并且要学会联想和转化到本题的样子，例如
 \[
 \sum \left( 1 - \frac{a_{n + 1}}{a_n} \right), \sum \left( \frac{\ln \frac{a_n}{a_{n + 1}}}{\ln a_n} \right).
 \]
-\end{note}
+\end{remark}
 \begin{proof}
-\begin{enumerate}
+\begin{enumerate}[(1)]
 \item 当 \( p > 1 \)，注意到
 \[
 \sum_{n = 2}^{\infty} \frac{a_n}{S_n^p} = \sum_{n = 2}^{\infty} \frac{S_n - S_{n - 1}}{S_n^p} = \sum_{n = 2}^{\infty} \int_{S_{n - 1}}^{S_n} \frac{1}{S_n^p} \mathrm{d}x \leqslant \sum_{n = 2}^{\infty} \int_{S_{n - 1}}^{S_n} \frac{1}{x^p} \mathrm{d}x = \int_{S_1}^{\sum\limits_{n = 1}^{\infty} a_n} \frac{1}{x^p} \mathrm{d}x,
@@ -1021,7 +1021,51 @@ b_1 = \frac{\sgn (a_1 - a_2)}{S_1},\quad b_n = \frac{\sgn (a_n - a_{n+1})}{S_n} 
 \end{enumerate}
 \end{proof}
 
+\begin{proposition}\label{proposition:没有收敛最慢的级数也没有发散最慢的级数}
+\begin{enumerate}[(1)]
+\item 设正项级数$\sum\limits_{n=1}^\infty a_n$收敛,$a_n>0$,则存在$A_n$使得$a_n=o(A_n)$和$\sum\limits_{n=1}^\infty A_n$收敛.
 
+\item 设正项级数$\sum\limits_{n=1}^\infty a_n$发散,$a_n>0$,则存在$A_n$使得$A_n=o(a_n)$和$\sum\limits_{n=1}^\infty A_n$发散.
+\end{enumerate}
+\end{proposition}
+\begin{remark}
+这个命题说明:\textbf{没有收敛最慢的级数,也没有发散最慢的级数.}
+\end{remark}
+\begin{proof}
+\begin{enumerate}[(1)]
+\item 令
+\begin{align*}
+A_n\triangleq \sqrt{\sum_{k=n}^{\infty}{a_k}}-\sqrt{\sum_{k=n+1}^{\infty}{a_k}},
+\end{align*}
+则
+\begin{align*}
+\sum_{n=1}^{\infty}{A_n}=\sqrt{\sum_{k=1}^{\infty}{a_k}}<+\infty .
+\end{align*}
+\begin{align*}
+\lim_{n\rightarrow \infty}\frac{a_n}{A_n}=\lim_{n\rightarrow \infty}\frac{a_n}{\sqrt{\sum\limits_{k=n}^{\infty}{a_k}}-\sqrt{\sum\limits_{k=n+1}^{\infty}{a_k}}}=\lim_{n\rightarrow \infty}\frac{a_n\left( \sqrt{\sum\limits_{k=n}^{\infty}{a_k}}+\sqrt{\sum\limits_{k=n+1}^{\infty}{a_k}} \right)}{a_n}=0.
+\end{align*}
+故$a_n=o\left( A_n \right) ,n\rightarrow \infty .$
+
+\item {\color{blue}证法一:}令
+\begin{align*}
+A_1=1,\quad A_n\triangleq \sqrt{\sum_{k=1}^n{a_k}}-\sqrt{\sum_{k=1}^{n-1}{a_k}},\,\,n=2,3,\cdots .
+\end{align*}
+则
+\begin{align*}
+\sum_{n=2}^{\infty}{A_n}=\lim_{n\rightarrow \infty}\left( \sqrt{\sum_{k=1}^n{a_k}}-\sqrt{a_1} \right) =+\infty .
+\end{align*}
+\begin{align*}
+\lim_{n\rightarrow \infty}\frac{A_n}{a_n}=\lim_{n\rightarrow \infty}\frac{\sqrt{\sum\limits_{k=1}^n{a_k}}-\sqrt{\sum\limits_{k=1}^{n-1}{a_k}}}{a_n}=\lim_{n\rightarrow \infty}\frac{a_n}{a_n\left( \sqrt{\sum\limits_{k=1}^n{a_k}}+\sqrt{\sum\limits_{k=1}^{n-1}{a_k}} \right)}=0.
+\end{align*}
+故$A_n=o\left( a_n \right) ,n\rightarrow \infty .$
+
+{\color{blue}证法二:}对$\forall n\in \mathbb{N}$,取$A_n=\frac{a_n}{S_n}$,其中$S_n=\sum_{k=1}^{n}a_k$.则由\cref{proposition:部分和相关级数重要性质}知$\sum\limits_{n=1}^\infty A_n$发散.再由$\sum\limits_{n=1}^\infty a_n$发散可得
+\begin{align*}
+\lim_{n\rightarrow \infty} \frac{A_n}{a_n}=\lim_{n\rightarrow \infty} \frac{1}{S_n}=\frac{1}{\sum_{k=1}^{\infty}{a_k}}=0,
+\end{align*}
+即$A_n=o\left( a_n \right) ,n\rightarrow \infty .$
+\end{enumerate}
+\end{proof}
 
 
 

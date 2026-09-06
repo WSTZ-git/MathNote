@@ -328,6 +328,7 @@ $\lim_{x\rightarrow a^{+}}f(x)$,$\lim_{x\rightarrow b^{-}}f(x)$存在.
 由这个命题及\hyperref[proposition:开区间下凸闭区间连续的函数在闭区间上仍然下凸]{命题\ref{proposition:开区间下凸闭区间连续的函数在闭区间上仍然下凸}}可知:如果下凸函数$f$在$(a,b)$上有上界,则$f$可连续延拓到$[a,b]$(补充定义端点的函数值等于端点的左右极限即可),使得$f$在$[a,b]$上仍是下凸函数.
 \end{note}
 \begin{proof}
+
 $(\Leftarrow):$由\hyperref[theorem:开区间下凸函数左右导数处处存在]{开区间下凸函数左右导数处处存在}可知,$f$在$(a,b)$上连续.又因为$\lim_{x\rightarrow a^{+}}f(x)$,$\lim_{x\rightarrow b^{-}}f(x)$存在,所以由\hyperref[theroem:Heine-Cantor定理]{Heine-Cantor定理}可知,$f$可以连续延拓到$[a,b]$上,故$f$在$[a,b]$上有界,从而在$(a,b)$上有界.
 
 $(\Rightarrow):$由\hyperref[下凸函数割线斜率递增]{下凸函数割线斜率递增}可知,对$\forall x_0\in (a,b)$,有\(\frac{f(x) - f(x_0)}{x - x_0}\)在\((a, x_0)\cup(x_0, b)\)上递增. 由\(f\)在\((a, b)\)上有上界可知，存在\(M > 0\)，使得
@@ -820,7 +821,7 @@ f[sx + (1-s)y] \leqslant s f(x) + (1-s) f(y), \quad \forall s \in (0,1),\ x,y \i
 \]
 故 \(f = \inf_{\alpha}f_{\alpha}\) 也是上半连续函数.
 
-\item 注意到开覆盖 \(K=\bigcup_{c}\{x\in K:f(x)<c\}\),由$K$是紧集可知,必有有限子覆盖
+\item 注意到开覆盖 \(K=\bigcup_{c\in \mathbb{R}}\{x\in K:f(x)<c\}\),由$K$是紧集可知,必有有限子覆盖
 \[
 K=\bigcup_{i = 1}^{n}\{x\in K:f(x)<c_{i}\}.
 \]

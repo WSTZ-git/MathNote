@@ -1123,7 +1123,7 @@ n - \mathrm{r}(\boldsymbol{A}+\boldsymbol{B})+n - \mathrm{r}(\boldsymbol{A}\bold
 &=\dim U_{\boldsymbol{A}}+\dim U_{\boldsymbol{B}}=\mathrm{r}(\boldsymbol{A})+\mathrm{r}(\boldsymbol{B}).
 \end{align*}
 
-{\color{blue}证法四:}由\refpro{proposition:矩阵乘法可交换诱导的秩不等式}和\hyperref[proposition:矩阵秩的基本公式-]{proposition:矩阵秩的基本公式}立得.
+{\color{blue}证法四:}由\refpro{proposition:矩阵乘法可交换诱导的秩不等式}和\hyperref[proposition:矩阵秩的基本公式]{矩阵秩的基本公式}立得.
 \end{proof}
 
 \begin{example}
@@ -1163,7 +1163,7 @@ $$\left( \begin{matrix}
 \boldsymbol{A}+\boldsymbol{B}&		\boldsymbol{O}\\
 \boldsymbol{B}&		-2025\boldsymbol{B}\\
 \end{matrix} \right) .$$
-由\hyperref[proposition:矩阵秩的基本公式-]{proposition:矩阵秩的基本公式}知
+由\hyperref[proposition:矩阵秩的基本公式]{矩阵秩的基本公式}知
 \begin{align*}
 &\mathbf{r}\left( \boldsymbol{A} \right) +\mathbf{r}\left( \boldsymbol{B} \right) =\mathbf{r}\left( \begin{matrix}
 \boldsymbol{A}&		\boldsymbol{O}\\
@@ -1259,7 +1259,7 @@ b_1^2 + b_2^2+\cdots + b_m^2 = 0.
 设$A\in\mathscr{M}_{m\times n}(\mathbb{R})$，$\beta$是一个$m$维实列向量。证明：线性方程组$A^\top Ax=A^\top\beta$一定有解，其中$x$为$n$维列向量。
 \end{example}
 \begin{proof}
-由\hyperref[proposition:矩阵秩的基本公式-]{proposition:矩阵秩的基本公式}和\refpro{proposition:AA转置秩与A秩相等}知知
+由\hyperref[proposition:矩阵秩的基本公式]{矩阵秩的基本公式}和\refpro{proposition:AA转置秩与A秩相等}知知
 \begin{align*}
 r\left( A^\top A \right) \leqslant r\left( \begin{pmatrix}
 A^\top A & A^\top \beta
@@ -1516,6 +1516,64 @@ x_l\\
 \end{enumerate}
 \end{proof}
 
+\begin{example}
+设 \(A,B,C\) 是 \(\mathbb{F}\) 上的 \(n\) 阶矩阵，\(A\) 可逆，\(AB=BA\)，\(C(A+B)=-BA^{-1}\). 
+证明：
+\begin{enumerate}[(1)]
+\item \(r(C)=r(B)\);
+\item \(-1\) 不是 \(CA\) 的特征值.
+\end{enumerate}
+\end{example}
+\begin{proof}
+
+{\color{blue}证法一:}由题设可知
+\begin{align*}
+CA+CB=-BA^{-1}&\Longleftrightarrow CA^2+CBA+B=O\Longleftrightarrow CA^2+CAB+B=O
+\\
+&\Longleftrightarrow CA^2+\left( CA+I \right) B=O\Longleftrightarrow CA^2=-\left( CA+I \right) B.
+\end{align*}
+若 \(-1\) 是 \(CA\) 的特征值，则 \(-1\) 也是 \(I+A^TC^T\) 的特征值. 设 \((I+A^TC^T)x=0\)，其中 \(x\neq 0\). 从而再结合$A$可逆得
+\begin{align*}
+&CA^2=-\left( CA+I \right) B\Longleftrightarrow \left( A^T \right) ^2C^T=-B^T\left( I+A^TC^T \right) 
+\\
+&\Longrightarrow \left( A^T \right) ^2C^Tx=-B^T\left( I+A^TC^T \right) x=0\Longrightarrow C^Tx=0.
+\end{align*}
+于是 \((I+A^TC^T)x=x=0\)，矛盾! 故\(-1\) 不是 \(CA\) 的特征值，即\(CA+I\) 可逆，因此
+\begin{align*}
+r\left( C \right) =r\left( CA^2 \right) =r\left( \left( CA+I \right) B \right) =r\left( B \right) .
+\end{align*}
+
+{\color{blue}证法二:} 由题设可知
+\begin{align*}
+(CA+I)(A+B) = CA(A+B) + (A+B) = -B + A + B = A.
+\end{align*}
+因为$A$可逆，所以$CA+I,A+B$都可逆.故$-1$不是$CA$的特征值,并且
+\begin{align*}
+r(C)=r(C(A+B))=r(-BA^{-1})=r(B).
+\end{align*}
+\end{proof}
+
+\begin{example}
+设 \(A,B\) 为 \(n\) 阶方阵，满足 \(aA^2+bAB+cB=O\)，其中 \(a,b,c\neq 0\)，证明：\(cE+bA\) 可逆.
+\end{example}
+\begin{proof}
+
+由 \(aA^2+bAB+cB=O\) 可得 \(bAB+cB=-aA^2\)，即 \((bA+cE)B=-aA^2\). 
+令 \(M=bA+cE\). 反设 \(M\) 不可逆，则$M^T$也不可逆,从而存在非零向量 \(x\) 使得 \(M^T x=0\).
+
+对 \(MB=-aA^2\) 两端取转置，得 \(B^T M^T=-a(A^T)^2\). 在等式两边同时右乘 \(x\)，可得
+\begin{align*}
+0=B^T M^T x=-a(A^T)^2 x.
+\end{align*}
+由于 \(a\neq 0\)，故 \((A^T)^2 x=0\).
+
+另一方面，由 \(M^T x=0\) 得 \(bA^T x+cx=0\)，即 \(A^T x=-\frac{c}{b}x\). 将其代入 \((A^T)^2 x\) 中，得到：
+\begin{align*}
+(A^T)^2 x=A^T(A^T x)=A^T\left(-\frac{c}{b}x\right)=-\frac{c}{b}\left(-\frac{c}{b}x\right)=\frac{c^2}{b^2}x.
+\end{align*}
+因此 \(\frac{c^2}{b^2}x=0\). 又由于 \(b,c\neq 0\)，所以 \(x=0\)，与 \(x\neq 0\) 矛盾!
+故假设不成立，即 \(cE+bA\) 可逆.
+\end{proof}
 
 
 \subsection{利用线性空间理论讨论矩阵的秩}

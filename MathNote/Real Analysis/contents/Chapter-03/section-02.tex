@@ -517,7 +517,15 @@ m\left(\left\{x\in E:\left|f_k(x)-f(x)\right|>\varepsilon\right\}\right)<\frac{\
 \end{proof}
 
 \begin{theorem}\label{theorem:定理3.16}
-若 $\{f_k(x)\}$ 是 $E$ 上的依测度 Cauchy 列，则在 $E$ 上存在几乎处处有限的可测函数 $f(x)$，使得 $\{f_k(x)\}$ 在 $E$ 上依测度收敛于 $f(x)$.
+若 $\{f_k(x)\}$ 是 $E$ 上的依测度 Cauchy 列，则存在子列$\{f_{k_i}(x)\}_{i=1}^{\infty}$和在$E$上几乎处处有限的可测函数 $f(x)$，使得
+\begin{enumerate}[(1)]
+\item $\{f_{k_i}(x)\}_{i=1}^{\infty}$在$E$上几乎处处收敛到$f(x)$;
+
+\item $\{f_{k_i}(x)\}_{i=1}^{\infty}$在$E$上接近一致收敛到$f(x)$;
+
+\item $\{f_{k_i}(x)\}_{i=1}^{\infty}$在$E$上依测度收敛到$f(x)$.
+\end{enumerate}
+进而$\{f_k(x)\}$ 在 $E$ 上也依测度收敛于 $f(x)$.
 \end{theorem}
 \begin{proof}
 对每个自然数 $i$，可取 $k_i$，使得当 $l,j\geqslant k_i$ 时，有
@@ -528,7 +536,7 @@ m\left(\left\{x\in E:\vert f_l(x)-f_j(x)\vert\geqslant\frac{1}{2^i}\right\}\righ
 \begin{align*}
 E_i=\left\{x\in E:\vert f_{k_i}(x)-f_{k_{i + 1}}(x)\vert\geqslant\frac{1}{2^i}\right\},\quad i = 1,2,\cdots,
 \end{align*}
-则 $m(E_i)<2^{-i}$. 现在研究 $\{E_i\}$ 的上限集 $S = \bigcap_{j = 1}^{\infty}\bigcup_{i = j}^{\infty}E_i$,注意到$\sum_{i = 1}^{\infty}m(E_i)=1<+\infty$,故由\nrefthe{theorem:测度的Fatou引理}{(1)}可知$m(S)=0$. 注意到
+则 $m(E_i)<2^{-i}$. 现在研究 $\{E_i\}$ 的上限集 $S = \bigcap_{j = 1}^{\infty}\bigcup_{i = j}^{\infty}E_i$,注意到$\sum_{i = 1}^{\infty}m(E_i)=1<+\infty$,故由\hyperref[theorem:Borel-Cantelli引理]{Borel-Cantelli引理}可知$m(S)=0$. 注意到
 \begin{align*}
 x_0\in E\backslash S&=E\cap \left( \bigcap_{j=1}^{\infty}{\bigcup_{i=j}^{\infty}{E_i}} \right) ^c=E\cap \left( \bigcup_{j=1}^{\infty}{\bigcap_{i=j}^{\infty}{E_{i}^{c}}} \right) =\bigcup_{j=1}^{\infty}{\bigcap_{i=j}^{\infty}{\left( E\cap E_{i}^{c} \right)}}
 \\
@@ -538,7 +546,7 @@ x_0\in E\backslash S&=E\cap \left( \bigcap_{j=1}^{\infty}{\bigcup_{i=j}^{\infty}
 \begin{align*}
 \sum_{i = l}^{\infty}\vert f_{k_{i + 1}}(x_0)-f_{k_i}(x_0)\vert\leqslant \sum_{i=l}^{\infty}{2^{-i}} = \frac{1}{2^{l - 1}}.
 \end{align*}
-令$l\to +\infty$,则由Cauchy收敛准则可知,级数$f_{k_1}(x_0)+\sum_{i=1}^{\infty}[f_{k_{i+1}}(x_0)-f_{k_i}(x_0)]$绝对收敛,再由$x_0$的任意性可知级数$f_{k_1}(x)+\sum_{i = 1}^{\infty}[f_{k_{i + 1}}(x)-f_{k_i}(x)]$ 在 $E\backslash S$上是绝对收敛的,即$\{f_{k_i}(x)\}$在$E\backslash S$上处处收敛.因此 $\{f_{k_i}(x)\}$ 在 $E$ 上是几乎处处收敛的，设其极限函数为 $f(x)$，$f(x)$ 是 $E$ 上几乎处处有限的可测函数.
+令$l\to +\infty$,则由Cauchy收敛准则可知,级数$f_{k_1}(x_0)+\sum_{i=1}^{\infty}[f_{k_{i+1}}(x_0)-f_{k_i}(x_0)]$绝对收敛,再由$x_0$的任意性可知级数$f_{k_1}(x)+\sum_{i = 1}^{\infty}[f_{k_{i + 1}}(x)-f_{k_i}(x)]$ 在 $E\backslash S$上是绝对收敛的,即$\{f_{k_i}(x)\}$在$E\backslash S$上处处收敛.因此 $\{f_{k_i}(x)\}$ 在 $E$ 上是几乎处处收敛的，设其极限函数为 $f(x)$，则$f(x)$ 是 $E$ 上几乎处处有限的可测函数.
 
 此外，对 $\forall j\in\mathbb{N}$，注意到
 \begin{align*}
@@ -585,11 +593,39 @@ m(\{x\in E:\vert f_n(x)-f(x)\vert\geqslant\varepsilon\})
 \end{align*}
 \end{theorem}
 \begin{proof}
-因为 $\{f_k(x)\}$ 依测度收敛于 $f(x)$，所以 $\{f_k(x)\}$ 是依测度Cauchy列. 从而由\refthe{theorem:定理3.16}的证明可知，存在子列 $\{f_{k_i}(x)\}$ 以及可测函数 $g(x)$，使得$\{f_{k_i}(x)\}$接近一致收敛于$g(x)$,再由\hyperref[theorem:Egorov定理的逆定理]{Egorov定理的逆定理}知
+
+{\color{blue}证法一:}
+因为 $\{f_k(x)\}$ 依测度收敛于 $f(x)$，所以 $\{f_k(x)\}$ 是依测度Cauchy列. 从而由\refthe{theorem:定理3.16}的证明可知，存在子列 $\{f_{k_i}(x)\}$ 以及可测函数 $g(x)$，使得
 \begin{align*}
 \lim_{i\to\infty}f_{k_i}(x)=g(x),\,\text{a.e. }x\in E,
 \end{align*}
 而且 $\{f_{k_i}(x)\}$ 也是依测度收敛于 $g(x)$ 的. 但按假设，$\{f_{k_i}(x)\}$ 应依测度收敛于 $f(x)$，从而由\refthe{theorem:依测度收敛的极限函数必唯一}知 $f(x)$ 与 $g(x)$ 对等. 
+
+{\color{blue}证法二:}
+由依测度收敛定义知,对$\forall k \in \mathbb{N}$,存在$n_k \in \mathbb{N}$,使得
+\begin{align*}
+m\left(\left\{x\in E \mid \left| f_{n_k}(x) - f(x) \right| \geqslant \frac{1}{2^k} \right\}\right) < \frac{1}{2^k}.
+\end{align*}
+记
+\begin{align*}
+E_k \triangleq \left\{x\in E \mid \left| f_{n_k}(x) - f(x) \right| \geqslant \frac{1}{2^k} \right\}, \quad k=1,2,\cdots.
+\end{align*}
+则$m(E_k) < \frac{1}{2^k}, \quad k=1,2,\cdots.$从而
+\begin{align*}
+\sum\limits_{k=1}^{\infty} m(E_k) < \sum\limits_{k=1}^{\infty} \frac{1}{2^k} = 1 < +\infty.
+\end{align*}
+故由\hyperref[theorem:Borel-Cantelli引理-1]{Borel-Cantelli引理\ref{Borel-Cantelli引理-1}}知$m\left( \underset{k\rightarrow \infty}{\overline{\lim }} E_k \right) = 0.$现在对$\forall \varepsilon > 0$,存在$K\in \mathbb{N}$,使得$\frac{1}{K} < \varepsilon.$再对$\forall x \in E \setminus \underset{k\rightarrow \infty}{\overline{\lim }} E_k$,即
+\begin{align*}
+x \in E \setminus \underset{k\rightarrow \infty}{\overline{\lim }} E_k = E \setminus \bigcap\limits_{m=1}^{\infty}\bigcup\limits_{k=m}^{\infty} E_k = \bigcup\limits_{m=1}^{\infty}\bigcap\limits_{k=m}^{\infty} E_k^c.
+\end{align*}
+于是存在$m \in \mathbb{N}$,使得$\forall k \geqslant \max\{m, K\}$,有
+\begin{align*}
+x \in E_k^c = \left\{x\in E \mid \left| f_{n_k}(x) - f(x) \right| < \frac{1}{2^k} \right\} \Longleftrightarrow \left| f_{n_k}(x) - f(x) \right| < \frac{1}{2^k} < \varepsilon.
+\end{align*}
+因此$\{f_{n_k}(x)\}$在$E \setminus \underset{k\rightarrow \infty}{\overline{\lim }} E_k$上处处收敛于$f(x)$,又$m\left( \underset{k\rightarrow \infty}{\overline{\lim }} E_k \right) = 0$,故
+\begin{align*}
+\lim_{k\rightarrow \infty} f_{n_k}(x) = f(x), \quad \mathrm{a}.\mathrm{e}. \ x \in E.
+\end{align*}
 \end{proof}
 
 \begin{example}
@@ -627,6 +663,7 @@ m(\{x \in E : |f_n(x) - f(x)| \geqslant \varepsilon\}) = 2\left[\ln \left(\frac{
 因此，\(f_n(x)\)不依测度收敛于\(0\)，从而\(f_n(x)\)的任何子列也不依测度收敛于\(0\). 
 \end{remark}
 \begin{proof}
+
 \((\Rightarrow)\):设$\{f_n(x)\}$在$E$上依测度收敛于$f(x)$，则$\{f_{n_k}(x)\}$在$E$上也依测度收敛于$f(x)$. 由\hyperref[theorem:Riesz定理]{Riesz定理}，存在子列\(\{f_{n_{k_i}}\} \subset \{f_{n_k}\}\)，使得$\lim_{i\to \infty}f_{n_{k_i}}(x)= f(x),\,\text{a.e.}\,x\in E.$
 
 \((\Leftarrow)\):假设\(f_n(x)\)在\(E\)上不依测度收敛于\(f(x)\)，则\(\exists \varepsilon_0 > 0\)，使得

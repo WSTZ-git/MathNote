@@ -41,7 +41,7 @@ $a\in \mathbb{C}$是函数$f(z)$的非孤立奇点的充要条件是存在一列
 \begin{align*}
 f(z)=\sum_{n=0}^{\infty}{a_n\left( z-a \right) ^n},\ z\in D.
 \end{align*}
-其中
+并且当$f$在$D$内可Laurent展开为一个幂级数时,必有
 \begin{align*}
 a_n=\frac{1}{2\pi \mathrm{i}}\int_{\gamma _{\rho}}{\frac{f\left( \zeta \right)}{\left( \zeta -a \right) ^{n+1}}\mathrm{d}\zeta}=\frac{f^{\left( n \right)}\left( a \right)}{n!},\,\,n=0,1,\cdots .
 \end{align*}
@@ -114,7 +114,7 @@ f(z)=\sum_{n=0}^{\infty}{a_n\left( z-a \right) ^n},\ z\in D.
 \begin{align}
 f(z) = \frac{a_{-m}}{(z - z_0)^m} + \cdots + \frac{a_{-1}}{z - z_0} + a_0 + a_1(z - z_0) + \cdots, \label{eq---:::213907---2}
 \end{align}
-其中\( a_{-m} \neq 0 \),并且
+其中\( a_{-m} \neq 0 \).并且当\( f \)在$D$内可Laurent展开为上式时,必有
 \begin{align*}
 a_n=\frac{1}{2\pi \mathrm{i}}\int_{\gamma _{\rho}}{\frac{f(\zeta )}{(\zeta -z_0)^{n+1}}\mathrm{d}\zeta},\,\,\,n=-m,\cdots ,-1,0,1,\cdots .
 \end{align*}
@@ -179,7 +179,7 @@ f(z) = \frac{g(z)}{(z-z_0)^m}.
 \begin{align*}
 f(z)=\sum_{n=-\infty}^{\infty}{a_n (z-a)^n},\ z\in D.
 \end{align*}
-其中
+并且当\( f \)在$D$内可Laurent展开为上式时,必有
 \begin{align*}
 a_n=\frac{1}{2\pi \mathrm{i}}\int_{\gamma _{\rho}}{\frac{f\left( \zeta \right)}{(\zeta-a)^{n+1}}\mathrm{d}\zeta},\,\,n=0,\pm 1,\cdots .
 \end{align*}
@@ -250,7 +250,7 @@ b_n=\frac{1}{2\pi \mathrm{i}}\int_{\gamma _{\rho}}{\frac{f(\zeta )}{\zeta^{n+1}}
 \begin{align*}
 f(z)=\sum_{n=0}^{\infty}{b_{-n} z^{-n}},\ z\in N\setminus\{\infty\}.
 \end{align*}
-其中
+并且当\( f \)在$N\setminus \{\infty\}$内可Laurent展开为上式时,必有
 \begin{align*}
 b_n=\frac{1}{2\pi \mathrm{i}}\int_{\gamma _{\rho}}{\frac{f\left( \zeta \right)}{\zeta^{n+1}}\mathrm{d}\zeta},\,\,n=0,1,\cdots .
 \end{align*}
@@ -272,7 +272,7 @@ b_n=\frac{1}{2\pi \mathrm{i}}\int_{\gamma _{\rho}}{\frac{f\left( \zeta \right)}{
 \begin{align*}
 f(z) = b_m z^m + \cdots + b_1 z + b_0 + b_{-1} z^{-1} + \cdots,\,\,z\in N\setminus \{\infty\}.
 \end{align*}
-其中$b_m\neq 0$,并且
+其中$b_m\neq 0$.并且当\( f \)在$N\setminus \{\infty\}$内可Laurent展开为上式时,必有
 \begin{align*}
 b_n=\frac{1}{2\pi \mathrm{i}}\int_{\gamma _{\rho}}{\frac{f\left( \zeta \right)}{\zeta^{n+1}}\mathrm{d}\zeta},\,\,n=\cdots,-1,0,1,\cdots,m ,
 \end{align*}
@@ -305,7 +305,7 @@ f(z)=z^m h(z),
 \begin{align*}
 f(z)=\sum_{n=-\infty}^{\infty}{b_n z^n},\ z\in N\setminus\{\infty\}.
 \end{align*}
-其中
+并且当\( f \)在$N\setminus \{\infty\}$内可Laurent展开为上式时,必有
 \begin{align*}
 b_n=\frac{1}{2\pi \mathrm{i}}\int_{\gamma _{\rho}}{\frac{f\left( \zeta \right)}{\zeta^{n+1}}\mathrm{d}\zeta},\,\,n=0,\pm 1,\cdots .
 \end{align*}
@@ -322,10 +322,10 @@ b_n=\frac{1}{2\pi \mathrm{i}}\int_{\gamma _{\rho}}{\frac{f\left( \zeta \right)}{
 若函数$f(z)$在$0<|z-a|<R$内解析,且不恒为零;又若$f(z)$有一列异于$a$但却以$a$为聚点的零点,则$a$必为$f(z)$的本质奇点.
 \end{theorem}
 \begin{proof}
+
 $z=a$必是$f(z)$的孤立奇点且不能是可去奇点.否则$f(z)$于$|z-a|<R$内解析(令$f(a)=0$)且以$a$为非孤立的零点.由\refcor{corollary:复变函数---推论4.20}必有$f(z)$恒为零,这与假设矛盾.
 
-其次,$z=a$也不能是$f(z)$的极点.否则,对任给$M>0$,有$\delta>0$,使当$0<|z-a|<\delta$时,$|f(z)|>M$,也与假设矛盾.
-
+其次,$z=a$也不能是$f(z)$的极点.否则,对任给$M>0$,有$\delta>0$,使当$0<|z-a|<\delta$时,$|f(z)|>M$,也与假设矛盾!
 故$z=a$必为$f(z)$的本质奇点.
 \end{proof}
 
@@ -336,6 +336,7 @@ $z=a$必是$f(z)$的孤立奇点且不能是可去奇点.否则$f(z)$于$|z-a|<R
 \( f \) 在本性奇点处的特征是Laurent展开式的主要部分有无穷多项.实际上,这个定理证明了更深刻的结果.
 \end{remark}
 \begin{proof}
+
 先设 \( A = \infty \).因为 \( z_0 \) 是 \( f \) 的本性奇点,故 \( f \) 在 \( z_0 \) 附近无界.于是对任意自然数 \( n \),总能找到 \( z_n \),使得 \( |z_n - z_0| < \frac{1}{n} \),但 \( |f(z_n)| > n \),这说明 \( \lim\limits_{n \to \infty} f(z_n) = \infty \).
 
 再设 \( A \) 是一个有限数.令 \( \varphi(z) = \frac{1}{f(z) - A} \),我们证明 \( \varphi \) 在 \( z_0 \) 的邻域中无界.不然的话,\( z_0 \) 是 \( \varphi \) 的可去奇点,适当选择 \( \varphi(z_0) \) 的值,可使 \( \varphi \) 在 \( z_0 \) 处全纯.如果 \( \varphi(z_0) \neq 0 \),则因 \( f(z) = \frac{1}{\varphi(z)} + A \),\( f \) 也在 \( z_0 \) 处全纯,这不可能.故必有 \( \varphi(z_0) = 0 \),由\refthe{theorem:复变函数----定理5.2.2}可知 \( z_0 \) 是 \( f(z) -A\) 的极点,也不可能.所以,\( \varphi \) 在 \( z_0 \) 的邻域中无界.于是,对任意自然数 \( n \),存在 \( z_n \),使得 \( |z_n - z_0| < \frac{1}{n} \),但 \( \frac{1}{|f(z) - A|} > n \),即 \( |f(z) - A| < \frac{1}{n} \).这就证明了 \( \lim\limits_{n \to \infty} f(z_n) = A \).

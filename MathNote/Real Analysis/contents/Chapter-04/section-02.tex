@@ -717,7 +717,34 @@ m(E_\varepsilon)\leqslant \sum\limits_{n=N}^{\infty}m(E_{n,\varepsilon})\leqslan
 （通常称 $F(x)$ 为函数列 $\{ f_k(x) \}$ 的\textbf{控制函数}. ）
 \end{theorem}
 \begin{proof}
-显然，由\refcor{corollary:可测函数列的极限也可测}可知$f(x)$ 是 $E$ 上的可测函数，且由 $|f_k(x)| \leqslant F(x)$（a. e. $x \in E$）及\eqref{eq:100.101}式可知 $|f(x)| \leqslant F(x)$，a. e. $x \in E$. 因此，由\hyperref[theorem:积分的基本性质]{积分的基本性质(4)(i)}可知$f(x)$ 也是 $E$ 上的可积函数. 作函数列
+
+{\color{blue}证法一:}由于 \(|f_n| \leqslant g\), 则 \(g - f_n \geqslant 0\) 和 \(g + f_n \geqslant 0\) 均为非负可测函数, 且因为 \(f_n \to f\) a.e.$x\in E$, 有 \(g - f_n \to g - f\) 和 \(g + f_n \to g + f\) a.e.$x\in E$. 
+先对非负函数列 \(\{ g - f_n \}\) 使用\hyperref[theorem:Fatou引理]{Fatou引理}, 得到
+\begin{align*}
+\int_E (g - f) \mathrm{d}x = \int_E \varliminf\limits_{n \to \infty} (g - f_n) \mathrm{d}x \leqslant \varliminf\limits_{n \to \infty} \int_E (g - f_n) \mathrm{d}x= \int_E g \mathrm{d}x - \varlimsup\limits_{n \to \infty} \int_E f_n \mathrm{d}x.
+\end{align*}
+因为 \(\int_E g \mathrm{d}x\) 为有限实数, 所以
+\begin{align}\label{eq::jfiosjisjfeijiowwwi-1}
+\int_E f \mathrm{d}x \geqslant \varlimsup\limits_{n \to \infty} \int_E f_n \mathrm{d}x.
+\end{align}
+同理, 再对非负函数列 \(\{ g + f_n \}\) 使用\hyperref[theorem:Fatou引理]{Fatou引理}, 得到
+\begin{align*}
+\int_E (g + f) \mathrm{d}x = \int_E \varliminf\limits_{n \to \infty} (g + f_n) \mathrm{d}x \leqslant \varliminf\limits_{n \to \infty} \int_E (g + f_n) \mathrm{d}x = \int_E g \mathrm{d}x + \varliminf\limits_{n \to \infty} \int_E f_n \mathrm{d}x.
+\end{align*}
+因为 \(\int_E g \mathrm{d}x\) 为有限实数, 所以
+\begin{align}\label{eq::jfiosjisjfeijiowwwi-2}
+\int_E f \mathrm{d}x \leqslant \varliminf\limits_{n \to \infty} \int_E f_n \mathrm{d}x. 
+\end{align} 
+综合\eqref{eq::jfiosjisjfeijiowwwi-1}\eqref{eq::jfiosjisjfeijiowwwi-2}式, 有
+\begin{align*}
+\varlimsup\limits_{n \to \infty} \int_E f_n \mathrm{d}x \leqslant \int_E f \mathrm{d}x \leqslant \varliminf\limits_{n \to \infty} \int_E f_n \mathrm{d}x.
+\end{align*}
+又因为 \(\varliminf\limits_{n \to \infty} \int_E f_n \mathrm{d}x \leqslant \varlimsup\limits_{n \to \infty} \int_E f_n \mathrm{d}x\), 故上述不等式只能取等号, 即
+\begin{align*}
+\lim_{n \to \infty} \int_E f_n \mathrm{d}x = \int_E f \mathrm{d}x.
+\end{align*}
+
+{\color{blue}证法二:}显然，由\refcor{corollary:可测函数列的极限也可测}可知$f(x)$ 是 $E$ 上的可测函数，且由 $|f_k(x)| \leqslant F(x)$（a. e. $x \in E$）及\eqref{eq:100.101}式可知 $|f(x)| \leqslant F(x)$，a. e. $x \in E$. 因此，由\hyperref[theorem:积分的基本性质]{积分的基本性质(4)(i)}可知$f(x)$ 也是 $E$ 上的可积函数. 作函数列
 \[
 g_k(x) = |f_k(x) - f(x)| \quad (k = 1, 2, \cdots),
 \]
@@ -748,7 +775,7 @@ g_k(x) = |f_k(x) - f(x)| \quad (k = 1, 2, \cdots),
 从而$\underset{k\rightarrow \infty}{\lim}\left[ \int_E{f_k(x)\,\mathrm{d}x}-\int_E{f(x)\,\mathrm{d}x} \right] =0$.因此$\underset{k\rightarrow \infty}{\lim}\int_E{f_k(x)\,\mathrm{d}x}=\int_E{f(x)\,\mathrm{d}x}.$
 \end{proof}
 \begin{remark}
-注意（i）在上述定理的推演中，实际上证明了更强的结论：
+（i）在上述定理证法二的推演中，实际上证明了更强的结论：
 \begin{align}
 \lim_{k \to \infty} \int_E |f_k(x) - f(x)| \, \mathrm{d}x = 0. \label{eq:100.102}
 \end{align}

@@ -2751,6 +2751,29 @@ nd_n = u_n \geqslant \frac{1}{4y_0(n-1)} \Longrightarrow d_n \geqslant \frac{1}{
 \end{enumerate}
 \end{proof}
 
+\begin{example}
+\(\forall n \in \bm{Z}^{+}, u_n = \lim\limits_{n \to \infty} (u_{n+1}^2 + u_{n+2}^2 + \cdots + u_{n+p}^2) \geqslant 0,\) 证明 \(\sum_{n=1}^{+\infty} u_n < +\infty.\)
+\end{example}
+\begin{proof}
+由题设可知$u_n - u_{n+1} = u_{n+1}^2$,进而
+\begin{align}
+u_{n+1}^2 + u_{n+1} - u_n = 0, \quad u_{n+1} = \frac{-1 + \sqrt{1 + 4u_n}}{2}. \label{eq:fundamental_relation_123}
+\end{align}
+由\eqref{eq:fundamental_relation_123}式知 \(u_n\) 单调递减且有下界0, 故 \(\lim\limits_{n \to \infty} u_n\) 存在. 将极限记为 \(a,\) 则由 \eqref{eq:fundamental_relation_123}式得
+\begin{align*}
+a^2=a^2+a-a = 0\Longrightarrow a=0.
+\end{align*}
+若存在 \(n_0\) 使得 \(u_{n_0} = 0,\) 则由递推式得 \(u_{n_0+1} = 0,\) 由数学归纳法, 对所有 \(n \geqslant n_0\) 有 \(u_n = 0;\) 又由 \(u_{n_0-1} = u_{n_0} + u_{n_0}^2 = 0,\) 向前递推可得对所有 \(n \leqslant n_0\) 有 \(u_n = 0.\) 故 \(u_n \equiv 0,\) 从而 \(\sum_{n=1}^{+\infty} u_n = 0 < \infty.\) 下设对所有 \(n\) 均有 \(u_n > 0,\) 则由 \eqref{eq:fundamental_relation_123}式可得
+\begin{align*}
+\frac{1}{u_{n+1}} - \frac{1}{u_n} = \frac{u_n - u_{n+1}}{u_n u_{n+1}} = \frac{u_{n+1}^2}{u_n u_{n+1}} = \frac{u_{n+1}}{u_n},\quad u_{n+1}\left( 1+u_{n+1} \right) =u_n\Longleftrightarrow \frac{u_{n+1}}{u_n}=\frac{1}{1+u_n}.
+\end{align*}
+由于 \(\lim\limits_{n \to \infty} u_n = 0,\) 故由Stolz定理得
+\begin{align*}
+\lim_{n\rightarrow \infty} \frac{\frac{1}{u_n}}{n}=\lim_{n\rightarrow \infty} \frac{u_{n+1}}{u_n}=\lim_{n\rightarrow \infty} \frac{1}{1+u_n}=1,
+\end{align*}
+即 \(u_n \sim \frac{1}{n},\,(n\to \infty)\). 此时 \(\sum_{n=1}^{+\infty} u_n\) 发散, 与题设 \(\sum_{n=1}^{+\infty} u_n < \infty\) 矛盾! 故假设不成立. 因此 \(u_n \equiv 0,\) 从而 \(\sum_{n=1}^{+\infty} u_n = 0 < \infty.\)
+\end{proof}
+
 
 
 \end{document}

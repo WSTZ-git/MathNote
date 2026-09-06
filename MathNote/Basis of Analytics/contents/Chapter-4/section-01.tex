@@ -45,8 +45,44 @@
 \\
 &=\sum_{j=1}^{\infty}{\left( \prod_{i=0}^{j-1}{q_i}-\prod_{i=0}^j{q_i} \right)}+\prod_{i=0}^{\infty}{q_i}=q_0-\prod_{i=0}^{\infty}{q_i}+\prod_{i=0}^{\infty}{q_i}=q_0.
 \end{align*}
-
 \end{solution}
+
+\begin{example}
+\begin{enumerate}[(1)]
+\item 设 \(0 < |x| < \pi\)，则
+\(\sum\limits_{n=1}^{\infty}{\ln\cos \frac{x}{2^n}}=\ln \frac{\sin x}{x}\);
+
+\item 设 \(0 < |x| < \pi\)，则
+\(\sum\limits_{n=1}^{\infty}{\frac{1}{2^n}\tan \frac{x}{2^n}}=\frac{1}{x}-\cot x\).
+\end{enumerate}
+\end{example}
+\begin{proof}
+\begin{enumerate}[(1)]
+\item 设 \(S_N = \sum\limits_{n=1}^N \ln \cos \frac{x}{2^n}\). 由倍角公式 \(\sin 2\theta = 2 \sin \theta \cos \theta\), 可得
+\begin{align*}
+\sin x = 2 \sin\frac{x}{2} \cos\frac{x}{2} = 2^2 \sin\frac{x}{4} \cos\frac{x}{4} \cos\frac{x}{2} = \cdots = 2^N \sin\frac{x}{2^N} \prod_{n=1}^N \cos\frac{x}{2^n}.
+\end{align*}
+因此
+\begin{align*}
+S_N = \ln \left( \prod_{n=1}^N \cos\frac{x}{2^n} \right) 
+= \ln \left( \frac{\sin x}{2^N \sin\frac{x}{2^N}} \right) 
+= \ln \frac{\sin x}{x} + \ln \frac{\frac{x}{2^N}}{\sin \left( \frac{x}{2^N} \right)}.
+\end{align*}
+令\(N\to +\infty\) 可得
+\begin{align*}
+\sum_{n=1}^{\infty}{\ln\cos \frac{x}{2^n}}=\underset{N\rightarrow \infty}{\lim}S_n=\ln \frac{\sin x}{x}+\underset{N\rightarrow \infty}{\lim}\ln \frac{\frac{x}{2^N}}{\sin \left( \frac{x}{2^N} \right)}=\ln \frac{\sin x}{x}.
+\end{align*}
+
+\item 令$T_N = \sum_{n=1}^N \frac{1}{2^n} \tan \frac{x}{2^n}$,由\hyperref[theorem:三角函数倍角公式]{倍角公式}\(\cot x - 2\cot 2x = \tan x\)可得
+\begin{align*}
+T_N = \sum_{n=1}^N \frac{1}{2^n} \tan \frac{x}{2^n} = \sum_{n=1}^N \left( \frac{1}{2^n} \cot\frac{x}{2^n} - \frac{1}{2^{n-1}} \cot\frac{x}{2^{n-1}} \right) = \frac{1}{2^N} \cot\frac{x}{2^N} - \cot x.
+\end{align*}
+令\(N\to\infty\)得
+\begin{align*}
+\sum_{n=1}^{\infty}{\frac{1}{2^n}\tan \frac{x}{2^n}}=\lim_{N\rightarrow \infty} T_N=\lim_{N\rightarrow \infty} \frac{1}{2^N}\cot \frac{x}{2^N}-\cot x=\lim_{N\rightarrow \infty} \frac{\frac{x}{2^N}}{\tan\mathrm{(}\frac{x}{2^N})}\cdot \frac{1}{x}-\cot x=\frac{1}{x}-\cot x.
+\end{align*}
+\end{enumerate}
+\end{proof}
 
 \begin{example}
 设\(\vert x\vert < 1\)，求极限\(\lim_{n\rightarrow\infty}(1 + x)(1 + x^2)\cdots(1 + x^{2^n})\).
@@ -64,7 +100,6 @@
 &=\lim_{n\rightarrow \infty} \frac{(1-x^2)(1+x^2)\cdots (1+x^{2^n})}{1-x}\\
 &=\cdots =\lim_{n\rightarrow \infty} \frac{1-x^{2^{n+1}}}{1-x}=\frac{1}{1-x}.
 \end{align*}
-
 \end{solution}
 
 \begin{example}
@@ -88,7 +123,6 @@ f^\prime(x)=\frac{1}{\ln^{2}\left(1 + \frac{1}{x}\right)}\frac{1}{x^{2}+x}-1>0
 \\
 &\xlongequal{\text{L' Hospital}}\frac{1}{2}.
 \end{align*}
-
 \end{solution}
 
 \begin{proposition}

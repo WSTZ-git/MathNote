@@ -57,6 +57,7 @@ $G$必是循环群,并且\( \forall a \in G \) 且 \( a \neq e \) 有 \( G = \la
 特别地,$\,G=\langle a \rangle\iff \text{ord}\,a=|G|.$
 \end{theorem}
 \begin{proof}
+
 令 \( \langle a \rangle = \{a^n|n \in \mathbb{Z}\} \), 容易验证这是 \( G \) 的一个子群. 又由于 \( G \) 有限, 故 \( \langle a \rangle \) 有限, 因而 \( a \) 是有限阶的, 设为 \( d \). 对 \( n \in \mathbb{Z} \) 有 \( t_n \) 与 \( r_n \) (\( 0 \leqslant r_n < d \)), 使 \( n = t_nd + r_n \), 于是 \( a^n = a^{r_n} \).因此$\langle a \rangle$中至多只有$d$个元素$1,a,\cdots,a^{d-1}$.
 
 又对 \( \forall r_1, r_2 \in \mathbb{N} \), 且 \( r_1 \neq r_2 \), \( 0 \leqslant r_1, r_2 < d \), 则 \( |r_1 - r_2| < d \), 从而 \( a^{r_1 - r_2} \neq 1 \), 进而 \( a^{r_1} \neq a^{r_2} \). 故 \( 1, a, \cdots, a^{d-1} \) 互不相同.

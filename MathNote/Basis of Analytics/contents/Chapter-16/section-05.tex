@@ -185,46 +185,6 @@ $$\sum_{n=1}^\infty \frac{t^{n-1}}{n^n}=\int_0^1 \frac{1}{x^{tx}}\mathrm{d}x.$$
 \end{align*}
 \end{proof}
 
-\begin{proposition}\label{proposition:没有收敛最慢的级数也没有发散最慢的级数}
-\begin{enumerate}
-\item 设正项级数$\sum\limits_{n=1}^\infty a_n$收敛,$a_n>0$,则存在$A_n$使得$a_n=o(A_n)$和$\sum\limits_{n=1}^\infty A_n$收敛.
-
-\item 设正项级数$\sum\limits_{n=1}^\infty a_n$发散,$a_n>0$,则存在$A_n$使得$A_n=o(a_n)$和$\sum\limits_{n=1}^\infty A_n$发散.
-\end{enumerate}
-\end{proposition}
-\begin{note}
-这个命题说明:\textbf{没有收敛最慢的级数,也没有发散最慢的级数.}
-\end{note}
-\begin{proof}
-\begin{enumerate}
-\item 令
-\begin{align*}
-A_n\triangleq \sqrt{\sum_{k=n}^{\infty}{a_k}}-\sqrt{\sum_{k=n+1}^{\infty}{a_k}},
-\end{align*}
-则
-\begin{align*}
-\sum_{n=1}^{\infty}{A_n}=\sqrt{\sum_{k=1}^{\infty}{a_k}}<+\infty .
-\end{align*}
-\begin{align*}
-\lim_{n\rightarrow \infty}\frac{a_n}{A_n}=\lim_{n\rightarrow \infty}\frac{a_n}{\sqrt{\sum\limits_{k=n}^{\infty}{a_k}}-\sqrt{\sum\limits_{k=n+1}^{\infty}{a_k}}}=\lim_{n\rightarrow \infty}\frac{a_n\left( \sqrt{\sum\limits_{k=n}^{\infty}{a_k}}+\sqrt{\sum\limits_{k=n+1}^{\infty}{a_k}} \right)}{a_n}=0.
-\end{align*}
-故$a_n=o\left( A_n \right) ,n\rightarrow \infty .$
-
-\item 令
-\begin{align*}
-A_1=1,\quad A_n\triangleq \sqrt{\sum_{k=1}^n{a_k}}-\sqrt{\sum_{k=1}^{n-1}{a_k}},\,\,n=2,3,\cdots .
-\end{align*}
-则
-\begin{align*}
-\sum_{n=2}^{\infty}{A_n}=\lim_{n\rightarrow \infty}\left( \sqrt{\sum_{k=1}^n{a_k}}-\sqrt{a_1} \right) =+\infty .
-\end{align*}
-\begin{align*}
-\lim_{n\rightarrow \infty}\frac{A_n}{a_n}=\lim_{n\rightarrow \infty}\frac{\sqrt{\sum\limits_{k=1}^n{a_k}}-\sqrt{\sum\limits_{k=1}^{n-1}{a_k}}}{a_n}=\lim_{n\rightarrow \infty}\frac{a_n}{a_n\left( \sqrt{\sum\limits_{k=1}^n{a_k}}+\sqrt{\sum\limits_{k=1}^{n-1}{a_k}} \right)}=0.
-\end{align*}
-故$A_n=o\left( a_n \right) ,n\rightarrow \infty .$
-\end{enumerate}
-\end{proof}
-
 \begin{example}
 设正项级数$\sum\limits_{n=1}^\infty \frac{1}{p_n}<\infty$,证明
 $$\sum_{n=1}^\infty \frac{n^2 p_n}{(p_1+p_2+\cdots +p_n)^2}<\infty.$$

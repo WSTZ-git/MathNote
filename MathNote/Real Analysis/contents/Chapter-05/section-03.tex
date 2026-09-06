@@ -350,12 +350,12 @@ f_n(x) = n\int_x^{x+\frac{1}{n}} f(t)\mathrm{d}t\quad (n=1,2,\cdots),
 \begin{align*}
 \int_a^b |f_n(x+h)-f_n(x)|\mathrm{d}x
 &= n\int_a^b \left|\int_0^{\frac{1}{n}} (f(x+h+t)-f(x+t))\mathrm{d}t\right|\mathrm{d}x \\
-&\leqslant \int_0^{\frac{1}{n}} \left(\int_a^b |f(x+h+t)-f(x+t)|\mathrm{d}x\right)\mathrm{d}t \\
+&\leqslant n\int_0^{\frac{1}{n}} \left(\int_a^b |f(x+h+t)-f(x+t)|\mathrm{d}x\right)\mathrm{d}t \\
 &= O(|h|),\quad h\to 0 \quad (\text{对 } n \text{ 一致}).
 \end{align*}
 由于 $f_n'\in L([a,b])$, 而且存在 $M>0$, 使得
 \[
-\int_a^b |f_n'(x)|\mathrm{d}x \leqslant \liminf_{h\to 0} \int_a^b \left|\frac{f_n(x+h)-f_n(x)}{h}\right|\mathrm{d}x \leqslant M,
+\int_a^b |f_n'(x)|\mathrm{d}x \leqslant \varliminf_{h\to 0} \int_a^b \left|\frac{f_n(x+h)-f_n(x)}{h}\right|\mathrm{d}x \leqslant M,
 \]
 故对 $[a,b]$ 的任一分割
 \[

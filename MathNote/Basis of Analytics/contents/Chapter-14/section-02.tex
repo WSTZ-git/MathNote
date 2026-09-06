@@ -731,6 +731,182 @@ f'(t)&=\frac{\mathrm{d}}{\mathrm{d}t}\int_0^{+\infty}\frac{\ln \left( a^2+tx^2 \
 \end{align*}
 \end{proof}
 
+\begin{proposition}\label{proposition:Possion积分-数分}
+证明Possion积分: \(\int_0^{+\infty} e^{-ax^2} \cos(bx) \mathrm{d}x = \frac{1}{2}\sqrt{\frac{\pi}{a}} e^{-\frac{b^2}{4a}}\), 其中 \(a>0\).
+\end{proposition}
+\begin{remark}
+也可利用留数定理证明(具体见\refpro{Complex Analysis-proposition:几个特殊积分的计算-Poisson积分}).
+\end{remark}
+\begin{proof}
+设
+\begin{align}
+I(b) &= \int_0^{+\infty} e^{-ax^2} \cos(bx) \mathrm{d}x, \label{myIdef_xyz_123}
+\end{align}
+其中 \(a>0, b\) 为实数.
+由于
+\begin{align*}
+\left| e^{-ax^2} \cos(bx) \right| \leq e^{-ax^2},
+\end{align*}
+且根据\hyperref[proposition:重要定积分结论-1]{Gauss-Poisson积分}可知 \(\int_0^{+\infty} e^{-ax^2} \mathrm{d}x\) 收敛, 故$I(b)$关于参数$b$在 \(\mathbb{R}\)上收敛. 
+对于任意的 \(b \in \mathbb{R}\) 与 \(x \geq 0\), 有
+\begin{align*}
+\left| \frac{\partial}{\partial b} \left( e^{-ax^2} \cos(bx) \right) \right|=\left| -x e^{-ax^2} \sin(bx) \right| \leq x e^{-ax^2}.
+\end{align*}
+由于
+\begin{align*}
+\int_0^{+\infty} x e^{-ax^2} \mathrm{d}x = \lim_{R \to +\infty} \left[ -\frac{1}{2a} e^{-ax^2} \right]_0^{R} = \frac{1}{2a}<+\infty,
+\end{align*}
+故由\(M\)判别法可知\(\int_0^{+\infty} f_b(x, b) \mathrm{d}x\)关于参数\(b\) 在 \(\mathbb{R}\) 上一致收敛.
+因此，根据\hyperref[theorem:含参反常积分的可微性]{含参反常积分的可微性}和分部积分可得
+\begin{align*}
+I' (b)&=\int_0^{+\infty}{\frac{\partial}{\partial b}\left( e^{-ax^2}\cos(bx) \right) \mathrm{d}x}=\int_0^{+\infty}{-xe^{-ax^2}\sin(bx)\mathrm{d}x.}
+\\
+&=\left[ \frac{1}{2a}e^{-ax^2}\sin(bx) \right] _{0}^{+\infty}-\int_0^{+\infty}{\frac{1}{2a}e^{-ax^2}b\cos(bx)\mathrm{d}x}
+\\
+&=-\frac{b}{2a}\int_0^{+\infty}{e^{-ax^2}\cos(bx)\mathrm{d}x}=-\frac{b}{2a}I(b).
+\end{align*}
+分离变量并积分, 得
+\begin{align*}
+\frac{\mathrm{d}I}{I} = -\frac{b}{2a} \mathrm{d}b\Longrightarrow 
+\ln|I(b)| = -\frac{b^2}{4a} + C_1. 
+\end{align*}
+由此可得通解 \(I(b) = C e^{-\frac{b^2}{4a}},\)其中$C,C_1$为某一常数.
+下面确定常数 \(C\).由\eqref{myIdef_xyz_123}式和\hyperref[proposition:重要定积分结论-1]{Gauss-Poisson积分}可知
+\begin{align*}
+C=I(0) = \int_0^{+\infty} e^{-ax^2} \mathrm{d}x= \frac{1}{2}\sqrt{\frac{\pi}{a}}..
+\end{align*}
+故
+\begin{align*}
+I(b) = \frac{1}{2}\sqrt{\frac{\pi}{a}} e^{-\frac{b^2}{4a}}.
+\end{align*}
+\end{proof}
+
+\begin{proposition}\label{proposition:高斯积分推论}
+设 \(a>0, b>0\)，则
+\begin{align*}
+\int_{0}^{+\infty} e^{-a^2 x^2 - \frac{b^2}{x^2}} \mathrm{d}x &= \frac{\sqrt{\pi}}{2a} e^{-2ab}. 
+\end{align*}
+\end{proposition}
+\begin{proof}
+令
+\begin{align*}
+F(b) &= \int_{0}^{+\infty} e^{-a^2 x^2 - \frac{b^2}{x^2}} \mathrm{d}x.
+\end{align*}
+其中 \(a > 0, b > 0\)。对参数 \(b\) 求导时，取任意的有界闭区间 \([\delta, M]\)（其中 \(\delta > 0\)）。对于任意 \(b \in [\delta, M]\)，易知
+\begin{align*}
+\left| \frac{\partial}{\partial b} e^{-a^2 x^2 - \frac{b^2}{x^2}} \right| = \left| -\frac{2b}{x^2} e^{-a^2 x^2} e^{-\frac{b^2}{x^2}} \right| \leq 2M x^{-2} e^{-a^2 x^2} e^{-\frac{\delta^2}{x^2}}.
+\end{align*}
+注意到
+\begin{align*}
+\underset{x\rightarrow 0^+}{\lim}\left( 2Mx^{-2}e^{-a^2x^2}e^{-\frac{\delta ^2}{x^2}} \right) =0,\quad \underset{x\rightarrow +\infty}{\lim}\left( 2Mx^{-2}e^{-a^2x^2}e^{-\frac{\delta ^2}{x^2}} \right) =0,
+\end{align*}
+因此$\int_0^{+\infty}{2Mx^{-2}e^{-a^2x^2}e^{-\frac{\delta ^2}{x^2}}\mathrm{d}x}$收敛,故根据 \(M\) 判别法可知 \(\int_0^{+\infty} f_b(x, b) \mathrm{d}x\) 关于 \(b\) 在 \([\delta, M]\) 上一致收敛,再由$\delta$的任意性知 \(\int_0^{+\infty} f_b(x, b) \mathrm{d}x\) 关于 \(b\) 在$[0,M]$上内闭一致收敛.
+从而由\hyperref[theorem:含参反常积分的可微性]{含参反常积分的可微性}得
+\begin{align*}
+F' (b)&=\int_0^{+\infty}{\frac{\partial}{\partial b}e^{-a^2x^2-\frac{b^2}{x^2}}\mathrm{d}x}=\int_0^{+\infty}{-\frac{2b}{x^2}e^{-a^2x^2-\frac{b^2}{x^2}}\mathrm{d}x}
+\\
+&\xlongequal{x=\frac{b}{at}}\int_{+\infty}^0{\left( -\frac{2a^2t^2}{b} \right) e^{-a^2t^2-\frac{b^2}{t^2}}}\cdot \left( -\frac{b}{at^2} \right) \mathrm{d}t,
+\\
+&=-\int_0^{+\infty}{2ae^{-a^2t^2-\frac{b^2}{t^2}}\mathrm{d}t=}-2aF\left( b \right) .
+\end{align*}
+解上述一阶线性齐次常微分方程 \(\frac{\mathrm{d}F}{\mathrm{d}b} = -2a F\) 得通解 \(F(b) = C e^{-2ab}\)。
+下面确定常数 \(C\).令 \(b \to 0^+\),由\hyperref[theorem:含参量反常积分的连续性]{含参量反常积分的连续性}可得
+\begin{align*}
+F(0) = \int_{0}^{+\infty} e^{-a^2 x^2} \mathrm{d}x = \frac{\sqrt{\pi}}{2a} = C.
+\end{align*}
+故
+\begin{align*}
+F(b)=\int_{0}^{+\infty} e^{-a^2 x^2 - \frac{b^2}{x^2}} \mathrm{d}x &= \frac{\sqrt{\pi}}{2a} e^{-2ab}. 
+\end{align*}
+\end{proof}
+
+\begin{example}
+求含参变量瑕积分 \(\int_0^{+\infty} \frac{\cos \beta x}{x^2 + \alpha^2} \mathrm{d}x\) （\(\alpha > 0, \beta > 0\)）.
+\end{example}
+\begin{note}
+提示 \(\frac{1}{x^2 + \alpha^2} = \int_{0}^{+\infty} e^{-t(x^2+\alpha^2)} \mathrm{d}t\).
+\end{note}
+\begin{proof}
+设 \(I(\beta) = \int_0^{+\infty} \frac{\cos \beta x}{x^2 + \alpha^2} \mathrm{d}x\)。任取 \(\varepsilon > 0\)，定义
+\begin{align*}
+I(\beta )\triangleq \int_0^{+\infty}{\int_0^{+\infty}{e^{-t\left( x^2+\alpha ^2 \right)}\cos \left( \beta x \right) \mathrm{d}t\mathrm{d}x}}.
+\end{align*}
+现在验证$I(\beta)$满足\cref{theorem:含参积分可积性定理}的条件.令 
+\begin{align*}
+f(x, t) = e^{-t(x^2+\alpha^2)} \cos(\beta x),\quad (x,t)\in [0, +\infty) \times [\varepsilon, +\infty).
+\end{align*}
+由\hyperref[proposition:重要定积分结论-1]{Gauss-Poisson积分}知,对$\forall \delta>0$,当$t\in[\delta,+\infty)$时,有
+\begin{align*}
+\int_0^{+\infty}{\left| f\left( x,t \right) \right|\mathrm{d}x}\leqslant \int_0^{+\infty}{e^{-\delta \left( x^2+\alpha ^2 \right)}\mathrm{d}x}\xlongequal{u=\sqrt{\delta}x}\frac{e^{-\delta \alpha ^2}}{\sqrt{\delta}}\int_0^{+\infty}{e^{-u^2}\mathrm{d}u}=\frac{e^{-\delta \alpha ^2}}{2}\sqrt{\frac{\pi}{\delta}},
+\end{align*}
+故由$M$判别法知\(\int_0^{+\infty} f(x,t) \mathrm{d}x\) 在 \([\delta, +\infty)\) 上关于 \(t\)一致收敛,再由$\delta$的任意性知\(\int_0^{+\infty} f(x,t) \mathrm{d}x\) 在 \([0, +\infty)\) 上关于 \(t\)内闭一致收敛.
+又当$x\in[0,+\infty)$时,有
+\begin{align*}
+\int_0^{+\infty}{\left| f\left( x,t \right) \right|\mathrm{d}t}\leqslant \int_0^{+\infty}{e^{-t\left( x^2+\alpha ^2 \right)}\mathrm{d}t}=\frac{1}{x^2+\alpha ^2}\leqslant \frac{1}{\alpha ^2},
+\end{align*}
+故由$M$判别法知\(\int_0^{+\infty}{f\left( x,t \right) \mathrm{d}t}\) 在 \([0, +\infty)\) 上关于 \(x\)内闭一致收敛。
+并且
+\begin{align*}
+\int_0^{+\infty}{\mathrm{d}x\int_0^{+\infty}{|f(x,t)|\mathrm{d}t}}\leqslant \int_0^{+\infty}{\frac{1}{x^2+\alpha ^2}\mathrm{d}x}<+\infty .
+\end{align*}
+综上所述，根据\cref{theorem:含参积分可积性定理}可得
+\begin{align*}
+I(\beta) = \int_{0}^{+\infty} e^{-t\alpha^2} \left( \int_{0}^{+\infty} e^{-t x^2} \cos(\beta x) \mathrm{d}x \right) \mathrm{d}t.
+\end{align*}
+再利用\cref{proposition:Possion积分-数分}可得
+\begin{align*}
+I(\beta) = \frac{\sqrt{\pi}}{2} \int_{0}^{+\infty} \frac{1}{\sqrt{t}} e^{-\alpha^2 t - \frac{\beta^2}{4t}} \mathrm{d}t \xlongequal{t=u^2}\sqrt{\pi}\int_0^{+\infty}{e^{-\alpha ^2u^2-\frac{\beta ^2}{4u^2}}\mathrm{d}u}.
+\end{align*}
+最后，由\cref{proposition:高斯积分推论}可得
+\begin{align*}
+I(\beta) = \sqrt{\pi} \cdot \frac{\sqrt{\pi}}{2\alpha} e^{-2\alpha \cdot \frac{\beta}{2}}
+= \frac{\pi}{2\alpha} e^{-\alpha\beta}. 
+\end{align*}
+\end{proof}
+
+\begin{example}
+设 $|a| \neq 1$，计算
+\begin{align*}
+\int_{0}^{\frac{\pi}{2}} \frac{\arctan(a \tan x)}{\tan x} \, \mathrm{d}x.
+\end{align*}
+\end{example}
+\begin{solution}
+令
+\begin{align*}
+I(a)=\int_{0}^{\frac{\pi}{2}}\frac{\arctan(a\tan x)}{\tan x}\,\mathrm{d}x.
+\end{align*}
+显然 $I(0)=0$,且$I(a)$在$\mathbb{R}\setminus \{-1,1\}$上收敛,被积函数关于$a$求偏导后的积分在$[0,\frac{\pi}{2}]$上一致收敛.于是由\hyperref[theorem:含参反常积分的可微性]{含参反常积分的可微性},再记 $c=|a|$，则
+\begin{align*}
+I' (a)=\int_0^{\frac{\pi}{2}}{\frac{\mathrm{d}x}{1+a^2\tan ^2x}}\xlongequal{t=\tan x}\int_0^{\infty}{\frac{\mathrm{d}t}{(1+a^2t^2)(1+t^2)}}=\frac{1}{1-c^2}\int_0^{\infty}{\left( \frac{1}{1+t^2}-\frac{c^2}{1+c^2t^2} \right) \mathrm{d}t}=\frac{\pi}{2(1+|a|)}.
+\end{align*}
+因此，若 $a>0$，则
+\begin{align*}
+I(a)=\int_{0}^{a}\frac{\pi}{2(1+s)}\,\mathrm{d}s
+=\frac{\pi}{2}\ln(1+a);
+\end{align*}
+若 $a<0$，则
+\begin{align*}
+I(a)=\int_{0}^{a}\frac{\pi}{2(1-s)}\,\mathrm{d}s
+=-\frac{\pi}{2}\ln(1-a).
+\end{align*}
+综上，
+\begin{align*}
+I(a)=
+\begin{cases}
+\dfrac{\pi}{2}\ln(1+a), & a>0,\\[6pt]
+0, & a=0,\\[6pt]
+-\dfrac{\pi}{2}\ln(1-a), & a<0,
+\end{cases}
+\quad |a|\neq 1.
+\end{align*}
+也可写成
+\begin{align*}
+I(a)=\frac{\pi}{2}\operatorname{sgn}(a)\ln(1+|a|),
+\end{align*}
+其中 $\operatorname{sgn}(0)=0$。
+\end{solution}
+
+
 
 \subsection{级数展开方法}
 
@@ -775,9 +951,9 @@ S(x)-S_m(x)=\sum_{n=m+1}^{\infty} f_n(x),
 \end{align*}
 并且\(0 < e^{-x} < 1\)，故
 \begin{align}
-\int_0^{+\infty} \frac{x}{1 + e^x} \mathrm{d}x &= \int_0^{+\infty} \frac{x e^{-x}}{1 + e^{-x}} \mathrm{d}x = \int_0^{+\infty} x \sum_{n = 0}^{\infty} (-1)^n e^{-(n + 1)x} \mathrm{d}x \nonumber \\
-&\xlongequal{\text{\hyperlink{积分求和换序equation100.39}{换序}}} \sum_{n = 0}^{\infty} (-1)^n \int_0^{+\infty} x e^{-(n + 1)x} \mathrm{d}x = \sum_{n = 0}^{\infty} \frac{(-1)^n}{(n + 1)^2} \nonumber \\
-&= \sum_{n = 0}^{\infty} \frac{1}{(2n + 1)^2} - \sum_{n = 0}^{\infty} \frac{1}{(2n)^2}.\label{equation:100.39} 
+\int_0^{+\infty} \frac{x}{1 + e^x} \mathrm{d}x &= \int_0^{+\infty} \frac{x e^{-x}}{1 + e^{-x}} \mathrm{d}x = \int_0^{+\infty} x \sum_{n = 0}^{\infty} (-1)^n e^{-(n + 1)x} \mathrm{d}x  \\
+&\xlongequal{\text{\hyperlink{积分求和换序equation100.39}{换序}}} \sum_{n = 0}^{\infty} (-1)^n \int_0^{+\infty} x e^{-(n + 1)x} \mathrm{d}x = \sum_{n = 0}^{\infty} \frac{(-1)^n}{(n + 1)^2}  \\
+&= \sum_{n = 0}^{\infty} \frac{1}{(2n + 1)^2} - \sum_{n = 0}^{\infty} \frac{1}{(2n)^2}.\label{equation:100.3911222} 
 \end{align}
 又因为\(\sum_{n = 1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}\)，所以
 \begin{align*}
@@ -788,13 +964,13 @@ S(x)-S_m(x)=\sum_{n=m+1}^{\infty} f_n(x),
 \begin{align*}
 \int_0^{+\infty} \frac{x}{1 + e^x} \mathrm{d}x &= \sum_{n = 0}^{\infty} \frac{1}{(2n + 1)^2} - \sum_{n = 0}^{\infty} \frac{1}{(2n)^2} = \frac{\pi^2}{8} - \frac{\pi^2}{24} = \frac{\pi^2}{12}.
 \end{align*}
-\hypertarget{积分求和换序equation100.39}{下面证明}\eqref{equation:100.39}式换序成立，由\cref{proposition:级数逐项可积等价于余项趋于0}知这等价于证明\(\lim_{m \to +\infty} \int_0^{+\infty} \sum_{n = m}^{\infty} x (-1)^n e^{-(n + 1)x} \mathrm{d}x = 0\).
+\hypertarget{积分求和换序equation100.39}{下面证明}\eqref{equation:100.3911222}式换序成立，由\cref{proposition:级数逐项可积等价于余项趋于0}知这等价于证明\(\lim_{m \to +\infty} \int_0^{+\infty} \sum_{n = m}^{\infty} x (-1)^n e^{-(n + 1)x} \mathrm{d}x = 0\).
 由\hyperref[theorem:交错级数不等式]{交错级数不等式}及\(x e^{-(n + 1)x}\)关于\(n\)非负递减，对\(\forall m \in \mathbb{N}\)，都有
 \\
 \begin{align*}
 \int_0^{+\infty} \left| \sum_{n = m}^{\infty} x (-1)^n e^{-(n + 1)x} \right| \mathrm{d}x &\leqslant \int_0^{+\infty} x e^{-(m + 1)x} \mathrm{d}x = -\frac{x e^{-(m + 1)x}}{m + 1} \Big|_0^{+\infty} + \frac{1}{m + 1} \int_0^{+\infty} e^{-(m + 1)x} \mathrm{d}x = \frac{1}{(m + 1)^2}.
 \end{align*}
-令\(m \to +\infty\)，得\(\lim_{m \to +\infty} \int_0^{+\infty} \sum_{n = m}^{\infty} x (-1)^n e^{-(n + 1)x} \mathrm{d}x = 0\). 故\eqref{equation:100.39}式换序成立. 
+令\(m \to +\infty\)，得\(\lim_{m \to +\infty} \int_0^{+\infty} \sum_{n = m}^{\infty} x (-1)^n e^{-(n + 1)x} \mathrm{d}x = 0\). 故\eqref{equation:100.3911222}式换序成立. 
 \end{solution}
 
 \begin{example}
@@ -962,8 +1138,8 @@ $\Im$表示取虚部,$\Re$表示取实部.
 
 \item 利用(3)有
 \begin{align*}
-\sum_{n = 1}^{\infty} \frac{q^{n} \sin(nx)}{n!} &= \Im\left( e^{q \cos x} \cos(q \sin x) - 1 + i e^{q \cos x} \sin(q \sin x) \right) \\
-&= e^{q \cos x} \sin(q \sin x).
+\sum_{n = 1}^{\infty} \frac{q^{n} \sin(nx)}{n!} = \Im\left( e^{q \cos x} \cos(q \sin x) - 1 + i e^{q \cos x} \sin(q \sin x) \right) 
+= e^{q \cos x} \sin(q \sin x).
 \end{align*} 
 \end{enumerate}
 \end{proof}
@@ -1090,12 +1266,9 @@ F'(x) = -\frac{1}{x} \ln(1-x) + \frac{\ln x}{1-x} - \frac{\ln x}{1-x} + \frac{\l
 {\color{blue}解法二:} 由\hyperref[proposition:Li_2函数的性质]{$\mathrm{Li}_2$函数的性质}知
 \begin{align*}i
 \int_0^1 \ln x\ln(1-x)\,\mathrm{d}x
-&= \int_0^1 \left[\frac{\pi^2}{6}-\left(\mathrm{Li}_2(x)+\mathrm{Li}_2(1-x)\right)\right]\mathrm{d}x \\
-&= \frac{\pi^2}{6}-2\int_0^1 \mathrm{Li}_2(x)\,\mathrm{d}x \\
-&= \frac{\pi^2}{6}-2\int_0^1 \sum\limits_{n=1}^{\infty}\frac{x^n}{n^2}\,\mathrm{d}x \\
-&= \frac{\pi^2}{6}-2\sum\limits_{n=1}^{\infty}\int_0^1 \frac{x^n}{n^2}\,\mathrm{d}x \\
-&= \frac{\pi^2}{6}-2\sum\limits_{n=1}^{\infty}\frac{1}{n^2(n+1)} \\
-&= \frac{\pi^2}{6}-2\sum\limits_{n=1}^{\infty}\left[\frac{1}{n^2}-\frac{1}{n(n+1)}\right] \\
+&= \int_0^1 \left[\frac{\pi^2}{6}-\left(\mathrm{Li}_2(x)+\mathrm{Li}_2(1-x)\right)\right]\mathrm{d}x = \frac{\pi^2}{6}-2\int_0^1 \mathrm{Li}_2(x)\,\mathrm{d}x \\
+&= \frac{\pi^2}{6}-2\int_0^1 \sum\limits_{n=1}^{\infty}\frac{x^n}{n^2}\,\mathrm{d}x = \frac{\pi^2}{6}-2\sum\limits_{n=1}^{\infty}\int_0^1 \frac{x^n}{n^2}\,\mathrm{d}x \\
+&= \frac{\pi^2}{6}-2\sum\limits_{n=1}^{\infty}\frac{1}{n^2(n+1)} = \frac{\pi^2}{6}-2\sum\limits_{n=1}^{\infty}\left[\frac{1}{n^2}-\frac{1}{n(n+1)}\right] \\
 &= \frac{\pi^2}{6}-2\sum\limits_{n=1}^{\infty}\frac{1}{n^2}
 +2\sum\limits_{n=1}^{\infty}\left(\frac{1}{n}-\frac{1}{n+1}\right)
 = 2-\frac{\pi^2}{6}.
@@ -1106,6 +1279,7 @@ F'(x) = -\frac{1}{x} \ln(1-x) + \frac{\ln x}{1-x} - \frac{\ln x}{1-x} + \frac{\l
 计算$\int_0^{\frac{1}{2}} \frac{\ln x}{1-x}\, \mathrm{d}x$.
 \end{example}
 \begin{solution}
+利用$\ln (1-x)$在$[-1,1]$上的Taylor公式得
 \begin{align*}
 \int_0^{\frac{1}{2}} \frac{\ln x}{1-x} \, \mathrm{d}x &= \int_{\frac{1}{2}}^1 \frac{\ln(1-x)}{x} \, \mathrm{d}x = -\sum_{n=1}^{\infty} \frac{1}{n} \int_{\frac{1}{2}}^1 x^{n-1} \, \mathrm{d}x\\
 &= -\sum_{n=1}^{\infty} \frac{1}{n^2} + \sum_{n=1}^{\infty} \frac{1}{2^n n^2} = -\frac{\pi^2}{6} + \mathrm{Li}_2\left(\frac{1}{2}\right)

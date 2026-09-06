@@ -328,7 +328,7 @@ m(C) = 1 - 1 = 0.
 
 \item\label{theorem:测度的基本性质-2} 单调性: 若$E_1,E_2\in \mathscr{M}$且\(E_1 \subset E_2\), 则 \(m(E_2) \leqslant  m(E_1)\).
 
-若只有$E_1\in \mathscr{M}$,则$m^*(E_2\setminus E_1)=m^*(E_2)-m^*(E_1)$.
+若只有$E_1\in \mathscr{M}$,则$m^*\left( E_2 \right) =m^*\left( E_1 \right) +m^*\left( E_2\setminus E_1 \right)$.
 
 并且若还有$m(E_1)<+\infty$,则$m^*(E_2\setminus E_1)+m^*(E_1)=m^*(E_2)$.
 
@@ -347,10 +347,6 @@ m\left(\bigcup_{i = 1}^{\infty} E_i\right) = \sum_{i = 1}^{\infty} m(E_i).
 \item 由\hyperref[theorem:R^n 中点集的外测度性质]{$R^n$ 中点集的外测度性质}可知\(m(E_1) \leqslant  m(E_2)\).再根据$E_1$可测的定义可知
 \begin{align*}
 m^*\left( E_2 \right) =m^*\left( E_2\cap E_1 \right) +m^*\left( E_2\cap E_{1}^{c} \right) =m^*\left( E_1 \right) +m^*\left( E_2\setminus E_1 \right) .
-\end{align*}
-又由\hyperref[theorem:可测集的性质]{可测集的性质}可知$E_2\setminus E_1$可测,又因为$E_1,E_2$可测,所以上式等价于
-\begin{align*}
-m\left( E_2 \right) =m\left( E_2\cap E_1 \right) +m\left( E_2\cap E_{1}^{c} \right) =m\left( E_1 \right) +m\left( E_2\setminus E_1 \right) .
 \end{align*}
 又$m(E_1)<+\infty$,故由上式移项后得$m(E_2\backslash E_1)=m(E_2)-m(E_1).$
 
@@ -416,14 +412,14 @@ $m(E_1)-m\left(\lim_{k\to\infty}E_k\right)=m(E_1)-\lim_{k\to\infty}m(E_k)$。
 $m\left(\lim_{k\to\infty}E_k\right)=\lim_{k\to\infty}m(E_k)$。 
 \end{proof}
 
-\begin{theorem}[测度的Fatou引理]\label{theorem:测度的Fatou引理}
+\begin{theorem}[Borel-Cantelli引理]\label{theorem:Borel-Cantelli引理}
 \begin{enumerate}[(1)]
-\item\label{theorem:测度的Fatou引理-1} 若有可测集列$\{E_k\}$，且有$\sum_{k = 1}^{\infty}m(E_k)<+\infty$，则
+\item\label{theorem:Borel-Cantelli引理-1} 若有可测集列$\{E_k\}$，且有$\sum_{k = 1}^{\infty}m(E_k)<+\infty$，则
 \begin{align*}
 m\left(\varlimsup_{k\to\infty}E_k\right)= 0.
 \end{align*}
 
-\item\label{theorem:测度的Fatou引理-2} 设$\{E_k\}$是可测集列，则
+\item\label{theorem:Borel-Cantelli引理-2} 设$\{E_k\}$是可测集列，则
 \begin{align*}
 m\left(\varliminf_{k\to\infty}E_k\right)\leqslant\varliminf_{k\to\infty}m(E_k).
 \end{align*}
@@ -434,8 +430,9 @@ m\left(\varlimsup_{k\to\infty}E_k\right)\geqslant\varlimsup_{k\to\infty}m(E_k).
 \end{enumerate}
 \end{theorem}
 \begin{proof}
-\begin{enumerate}
-\item \begin{align*}
+\begin{enumerate}[(1)]
+\item 由\hyperref[corollary:递减可测集列的测度运算]{递减可测集列的测度运算}可得
+\begin{align*}
 m\left( \underset{k\rightarrow \infty}{\overline{\lim }}E_k \right) &=m\left( \bigcap_{k=1}^{\infty}{\bigcup_{i=k}^{\infty}{E_i}} \right) =m\left( \lim_{k\rightarrow \infty} \bigcup_{i=k}^{\infty}{E_i} \right) 
 \\
 &\xlongequal{\text{\hyperref[corollary:递减可测集列的测度运算]{递减可测集列的测度运算}}}\lim_{k\rightarrow \infty} m\left( \bigcup_{i=k}^{\infty}{E_i} \right) \\
@@ -466,7 +463,7 @@ m\left( \underset{k\rightarrow \infty}{\overline{\lim }}E_k \right) &=m\left( \b
 设有 $\mathbb{R}$ 中可测集列 $\{E_k\}$, 且当 $k\geqslant k_0$ 时, $E_k\subseteq[a,b]$. 若存在 $\lim\limits_{k\to\infty}E_k=E$, 试证明: $m(E)=\lim\limits_{k\to\infty}m(E_k)$.
 \end{example}
 \begin{proof}
-由条件知$\bigcup\limits_{k=k_0}^{\infty}E_k\subseteq \left[ a,b \right]$,从而$m\left( \bigcup\limits_{k=k_0}^{\infty}E_k \right) \leqslant b-a<+\infty$.于是由\hyperref[theorem:测度的Fatou引理]{测度的Fatou引理}知
+由条件知$\bigcup\limits_{k=k_0}^{\infty}E_k\subseteq \left[ a,b \right]$,从而$m\left( \bigcup\limits_{k=k_0}^{\infty}E_k \right) \leqslant b-a<+\infty$.于是由\hyperref[theorem:Borel-Cantelli引理]{Borel-Cantelli引理}知
 \begin{align*}
 m\left( E \right) =m\left( \underset{k\rightarrow \infty}{\overline{\lim }}E_k \right) \geqslant \underset{k\rightarrow \infty}{\overline{\lim }}m\left( E_k \right) \geqslant \underset{k\rightarrow \infty}{\underline{\lim }}m\left( E_k \right) \geqslant m\left( \underset{k\rightarrow \infty}{\underline{\lim }}E_k \right) =m\left( E \right) .
 \end{align*}
@@ -865,7 +862,7 @@ m\left( E \right) =m\left( E\cap \bigcup_{n=-\infty}^{+\infty}{\left( n,n+1 \rig
 \end{align*}
 记在$p,q$固定时$E_0$中之点集为$E_{p,q}$，又记$E_q=\bigcup\limits_{p=1}^{q}E_{p,q}$，由$E_0$的定义知,当$x\in E_0$时,存在无穷多个$p,q$，使得$x\in E_{p,q}$.而任意的$E_q$中只包含有限个$E_{p,q}$,故也存在无穷多个$q$,使得$x\in E_q$.故由\refthe{Set Theory-theorem:上、下极限集的刻画}知$x\in\varlimsup\limits_{q\to\infty}E_q$，由此知$E\subseteq\varlimsup\limits_{q\to\infty}E_q$.
 
-此外，由$m(E_{p,q})=\frac{2}{q^{\alpha}}$可知，$m(E_q)\leqslant \frac{2q}{q^\alpha}=\frac{2}{q^{\alpha-1}}$。从而我们有$\sum\limits_{q=1}^{\infty}m(E_q)<+\infty$。因此由\rrefthe{theorem:测度的Fatou引理}{theorem:测度的Fatou引理-1}知$m\left(\varlimsup\limits_{q\to\infty}E_q\right)=0$，也就有$m(E)=0$.
+此外，由$m(E_{p,q})=\frac{2}{q^{\alpha}}$可知，$m(E_q)\leqslant \frac{2q}{q^\alpha}=\frac{2}{q^{\alpha-1}}$。从而我们有$\sum\limits_{q=1}^{\infty}m(E_q)<+\infty$。因此由\rrefthe{theorem:Borel-Cantelli引理}{theorem:Borel-Cantelli引理-1}知$m\left(\varlimsup\limits_{q\to\infty}E_q\right)=0$，也就有$m(E)=0$.
 
 \item 考查$E_q=\bigcup\limits_{p=0}^{q}(\frac{p-a_q}{q},\frac{p+a_q}{q})$（$q\in\mathbb{N}$，易知$E\subseteq\bigcup\limits_{q\geqslant m}E_q$（任意$m\in\mathbb{N}$）。
 \end{enumerate}

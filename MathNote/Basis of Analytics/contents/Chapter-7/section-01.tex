@@ -506,20 +506,62 @@ u(x, y) = \cos x + (y^2 - 1) e^{-x}.
 \end{proof}
 
 \begin{example}
-设 \( D \) 为单位圆盘, 考虑 \( f \in C^1(D) \cap C(\overline{D}) \) 且 \( |f| \leqslant 1 \), 证明: 存在 \( D \) 中的一个点 \( (x_0, y_0) \) 使得
+设 \( D \) 为单位圆盘, 考虑 \( f \in C^1(D) \cap C(\overline{D}) \) 且 \( |f| \leqslant 1 \), 证明: 
+\begin{enumerate}[(1)]
+\item 存在 \( D \)内部中的一个点 \( (x_0, y_0) \) 使得
 \[
 \left| \frac{\partial f}{\partial x}(x_0, y_0) \right|^2 + \left| \frac{\partial f}{\partial y}(x_0, y_0) \right|^2 \leqslant 16 .
 \]
+
+\item 存在 \( D \)内部中的一个点 \( (x_0, y_0) \) 使得\[
+\left| \frac{\partial f}{\partial x}(x_0, y_0) \right|^2 + \left| \frac{\partial f}{\partial y}(x_0, y_0) \right|^2 \leqslant 1,
+\]
+并说明右端常数 \(1\) 是最佳的.
+\end{enumerate}
 \end{example}
 \begin{note}
-摄动想法, 考虑$g(x,y)=f(x,y)+\varepsilon (x^2+y^2)$,其中$\varepsilon$待定.此外很多同学疑惑构造函数咋来的,实际上这是完全没有必要的! 因为大家几乎都是记的. 本题有一些更高端的技术可以加强到最佳系数.
+摄动想法, 考虑$g(x,y)=f(x,y)+\varepsilon (x^2+y^2)$,其中$\varepsilon$待定.此外很多同学疑惑构造函数咋来的,实际上这是完全没有必要的! 因为大家几乎都是记的.
 \end{note}
 \begin{proof}
-考虑 \( g(x, y) = f(x, y) + 2(x^2 + y^2) \), 则由$|f|\leqslant 1$知\( g|_{\partial D} \geqslant 1, g(0, 0)=f(0,0) \leqslant 1 \). 故 \( g \) 最小值在 \( D \) 内取到.又由$g\in C(D)$,从而存在 \( D \) 中的一个 \( g \) 的最小值点 \( (x_0, y_0) \) 使得 \( \frac{\partial g}{\partial x}(x_0, y_0) = 0, \frac{\partial g}{\partial y}(x_0, y_0) = 0 \), 即
+\begin{enumerate}[(1)]
+\item 考虑 \( g(x, y) = f(x, y) + 2(x^2 + y^2) \), 则由$|f|\leqslant 1$知\( g|_{\partial D} \geqslant 1, g(0, 0)=f(0,0) \leqslant 1 \). 故 \( g \) 最小值在 \( D \) 内取到.又由$g\in C(D)$,从而存在 \( D \) 中的一个 \( g \) 的最小值点 \( (x_0, y_0) \) 使得 \( \frac{\partial g}{\partial x}(x_0, y_0) = 0, \frac{\partial g}{\partial y}(x_0, y_0) = 0 \), 即
 \[
 \frac{\partial f}{\partial x}(x_0, y_0) = -4x_0, \frac{\partial f}{\partial y}(x_0, y_0) = -4y_0,
 \]
 这就得到了证明.
+
+\item 将 \(f\) 换成 \(-f\) 不影响题设条件与待证结论，因此不妨设 \(f(0,0) \geqslant 0\).
+考察函数
+\begin{align*}
+F(x,y) = f(x,y) - \sqrt{x^2+y^2}.
+\end{align*}
+在圆周 \(x^2+y^2=1\) 上，\(F(x,y) = f(x,y) - 1 \leqslant 0\)，而 \(F(0,0) = f(0,0) \geqslant 0\). 若 \(F\) 的最大值$F(x_1,y_1)$大于 \(0\)，则最大值点不可能在圆周上,否则
+\begin{align*}
+F(x_1,y_1)=f(x_1,y_1)-1\leqslant 0,
+\end{align*}
+矛盾!
+若最大值等于 \(0\)，则原点就是一个最大值点. 因此，\(F\) 总能在圆盘内部的某点 \((x_0,y_0)\) 处取得最大值.
+\begin{enumerate}[(i)]
+\item 若 \((x_0,y_0) \neq (0,0)\)，由极值的必要条件知$F_x(x_0,y_0)=F_y(x_0,y_0)=0$,即
+\begin{align*}
+f_x(x_0,y_0) = \frac{x_0}{\sqrt{x_0^2+y_0^2}}, \quad f_y(x_0,y_0) = \frac{y_0}{\sqrt{x_0^2+y_0^2}},
+\end{align*}
+从而 \(f_x^2(x_0,y_0) + f_y^2(x_0,y_0) = 1\).
+
+\item 若 \((x_0,y_0) = (0,0)\)，则对任意满足 \(u^2+v^2=1\) 的 \((u,v)\) 以及充分小的 \(t>0\)，由原点是 \(F\) 的最大值点可得
+\begin{align*}
+f(tu,tv)-t=F\left( tu,tv \right) \leqslant F\left( 0,0 \right) =f(0,0)\Longleftrightarrow \frac{f(tu,tv)-f(0,0)}{t}\leqslant 1.
+\end{align*}
+令 \(t \to 0^+\)，得到 \(f_x(0,0)u + f_y(0,0)v \leqslant 1\).
+
+若 \((f_x(0,0), f_y(0,0)) \neq (0,0)\)，取
+\begin{align*}
+(u,v) = \frac{(f_x(0,0), f_y(0,0))}{\sqrt{f_x^2(0,0)+f_y^2(0,0)}},
+\end{align*}
+便有 \(\sqrt{f_x^2(0,0)+f_y^2(0,0)} \leqslant 1\); 若两个偏导数均为 \(0\)，结论显然成立. 因此总能找到圆盘内一点 \((x_0,y_0)\)，使得 \(f_x^2(x_0,y_0) + f_y^2(x_0,y_0) \leqslant 1\).
+\end{enumerate}
+最后取 \(f(x,y)=x\). 它满足 \(|f(x,y)| \leqslant 1\)，并且在整个圆盘上恒有 \(f_x^2(x,y) + f_y^2(x,y) = 1\). 因此右端常数不能小于 \(1\)，故 \(1\) 是最佳常数.
+\end{enumerate}
 \end{proof}
 
 \begin{proposition}\label{proposition:极坐标变换偏导数相关结论}
@@ -734,13 +776,16 @@ f(\bm{x}_0 + \bm{h}) = f(\bm{x}_0) + \sum_{j=1}^{k} \frac{1}{j!}\, \mathrm{d}^j 
 
 特别地，当$k=2$ 时，设$\boldsymbol{x}=\left( x_1,\cdots,x_n \right)^T ,\boldsymbol{x}_0=\left( x_1^0,\cdots,x_n^0 \right)^T $,$\bm{x_0} \in D \subseteq \mathbb{R}^n$，$f(\bm{x})$ 在 $\bm{x_0}$邻域内具有二阶连续偏导数，则存在$\delta>0$,当$\bm{h}\in \mathbb{R}^n$且$\|\bm{h}\|<\delta$时,有
 \begin{align*}
-f\left( \boldsymbol{x}_0+\boldsymbol{h} \right) =f\left( \boldsymbol{x}_0 \right) +\frac{1}{2}\boldsymbol{h}^TH\left( \boldsymbol{x}_0 \right) \boldsymbol{h}+o\left( \left\| \boldsymbol{h} \right\| ^2 \right) .
+f\left( \boldsymbol{x}_0+\boldsymbol{h} \right) =f\left( \boldsymbol{x}_0 \right) +\nabla f\left( \boldsymbol{x}_0 \right) \cdot \boldsymbol{h}+\frac{1}{2}\boldsymbol{h}^TH\left( \boldsymbol{x}_0 \right) \boldsymbol{h}+o\left( \left\| \boldsymbol{h} \right\| ^2 \right) .
 \end{align*}
 也即存在$\delta>0$,当$\bm{x}\in \mathbb{R}^n$且$\|\bm{x}\|< \delta$ 时有
 \begin{align*}
-f\left( \boldsymbol{x} \right) =f\left( \boldsymbol{x}_0 \right) +\frac{1}{2}\left( \boldsymbol{x}-\boldsymbol{x}_0 \right) ^TH\left( \boldsymbol{x}_0 \right) \left( \boldsymbol{x}-\boldsymbol{x}_0 \right) +o\left( \left\| \left( \boldsymbol{x}-\boldsymbol{x}_0 \right) \right\| ^2 \right) ,
+f\left( \boldsymbol{x} \right) =f\left( \boldsymbol{x}_0 \right) +\nabla f\left( \boldsymbol{x}_0 \right) \cdot \left( \boldsymbol{x}-\boldsymbol{x}_0 \right) +\frac{1}{2}\left( \boldsymbol{x}-\boldsymbol{x}_0 \right) ^TH\left( \boldsymbol{x}_0 \right) \left( \boldsymbol{x}-\boldsymbol{x}_0 \right) +o\left( \left\| \left( \boldsymbol{x}-\boldsymbol{x}_0 \right) \right\| ^2 \right) ,
 \end{align*}
-其中$H\left( \boldsymbol{x}_0 \right)$为$f$的$n$阶Hess矩阵在$\bm{x_0}$处取值的矩阵.
+其中$H\left( \boldsymbol{x}_0 \right)=\left( \begin{matrix}
+f_{xx}\left( \boldsymbol{x}_0 \right)&		f_{xy}\left( \boldsymbol{x}_0 \right)\\
+f_{yx}\left( \boldsymbol{x}_0 \right)&		f_{yy}\left( \boldsymbol{x}_0 \right)\\
+\end{matrix} \right) $为$f$的二阶Hessian矩阵在$\bm{x_0}$处取值的矩阵.
 \end{theorem}
 
 \begin{example}
@@ -801,11 +846,88 @@ f(x,y) &= f(0,0) + f_x(0,0)x + f_y(0,0)y + \frac{1}{2}\left[ f_{xx}(0,0)x^2 + 2f
 \begin{align}
 \lim\limits_{r\to 0^+} \frac{1}{r^4}\iint_{B_r} R(x,y)\mathrm{d}x\mathrm{d}y=0. \label{eq2p5g8h}
 \end{align}
-于是结合$\eqref{eq9s7k2p}$$\eqref{eq7d3s6f}$、$\eqref{eq2p5g8h}$式可得
+于是结合\eqref{eq9s7k2p}\eqref{eq7d3s6f}\eqref{eq2p5g8h}式可得
 \begin{align*}
 \lim\limits_{r\to 0^+} \frac{1}{r^2}\left[ \frac{1}{\pi r^2}\iint_{B_r} f(x,y)\mathrm{d}x\mathrm{d}y - f(0,0) \right] = \lim\limits_{r\to 0^+} \frac{1}{8}\left[ f_{xx}(0,0) + f_{yy}(0,0) \right] + \lim\limits_{r\to 0^+}\frac{1}{\pi r^4}\iint_{B_r}R(x,y)\mathrm{d}x\mathrm{d}y 
 = \frac{1}{8}\Delta f(0,0).
 \end{align*}
+\end{proof}
+
+\begin{example}
+\(u(x, y, z)\) 是 \(R^3\) 上的连续函数, 在 \(u(x_0, y_0, z_0)\) 的某个邻域上具有二阶连续偏导. 定义
+\begin{align*}
+F(R) = \frac{1}{4\pi R^2} \iint_{\Sigma} u(x, y, z)\, \mathrm{d}S,
+\end{align*}
+其中\(\Sigma\) 是以 \((x_0, y_0, z_0)\) 为球心, 半径为 \(R\) 的球面.
+\begin{enumerate}[(1)]
+\item 证明 \(\lim\limits_{R \to 0} F(R) = u(x_0, y_0, z_0)\);
+\item 证明 \(\lim\limits_{R \to 0} \frac{F(R) - u(x_0, y_0, z_0)}{R^2} = \frac{\Delta u(x_0, y_0, z_0)}{6}\), 其中 \(\Delta u = \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2}\).
+\end{enumerate}
+\end{example}
+\begin{proof}
+\begin{enumerate}[(1)]
+\item 根据函数的连续性, 对于任意 \(\varepsilon > 0\), 存在 \(\delta > 0\), 当 \(\sqrt{(x-x_0)^2 + (y-y_0)^2 + (z-z_0)^2} < \delta\) 时, 有
+\begin{align*}
+|u(x, y, z) - u(x_0, y_0, z_0)| < \varepsilon.
+\end{align*}
+当 \(R < \delta\) 时, 球面$B(x_0,R)$上的所有点都满足上述条件,于是
+\begin{align*}
+\left|F(R) - u(x_0, y_0, z_0)\right| &= \left| \frac{1}{4\pi R^2} \iint_{\Sigma} \left[u(x, y, z) - u(x_0, y_0, z_0)\right]\, \mathrm{d}S \right| \\
+&\leqslant \frac{1}{4\pi R^2} \iint_{\Sigma} \left|u(x, y, z) - u(x_0, y_0, z_0)\right|\, \mathrm{d}S \\
+&< \frac{1}{4\pi R^2} \cdot \varepsilon \cdot 4\pi R^2 = \varepsilon .
+\end{align*}
+因此, 由极限定义得\(\lim\limits_{R \to 0} F(R) = u(x_0, y_0, z_0)\).
+
+\item 设 \(u_0 = u(x_0, y_0, z_0)\). 根据\hyperref[theorem:多元函数带Peano余项的Taylor公式]{多元函数的Taylor公式}得
+\begin{align*}
+u(x, y, z) = u_0 + \nabla u_0 \cdot \bm{r} + \frac{1}{2} \bm{r}^T H u_0 \bm{r} + o(R^2),
+\end{align*}
+其中 \(\bm{r} = (x, y, z)\), \(|\bm{r}| = R\),且\(Hu_0\) 是$u$在$(x_0,y_0,z_0)$处取值的Hessian矩阵.
+在球面$\Sigma$上对 \(u(x, y, z)\) 进行积分得
+\begin{align}
+F(R)=\iint_{\Sigma} u(x, y, z)\, \mathrm{d}S = \iint_{\Sigma} u_0\, \mathrm{d}S + \iint_{\Sigma} (\nabla u_0 \cdot \bm{r})\, \mathrm{d}S + \iint_{\Sigma} \frac{1}{2} \bm{r}^T H u_0 \bm{r}\, \mathrm{d}S + \iint_{\Sigma} o(R^2)\, \mathrm{d}S .\label{eq::jfijeioWQQQ}
+\end{align}
+其中
+\begin{align*}
+\iint_{\Sigma} u_0\, \mathrm{d}S = u_0 \cdot 4\pi R^2.
+\end{align*}
+由于球面关于原点对称,故
+\begin{align}\label{eq::fjisfjijJFEOEO}
+\iint_{\Sigma}{x\,\mathrm{d}S}=\iint_{\Sigma}{y\,\mathrm{d}S}=\iint_{\Sigma}{z\,\mathrm{d}S}=\iint_{\Sigma}{xy\,\mathrm{d}S}=\iint_{\Sigma}{xz\,\mathrm{d}S}=\iint_{\Sigma}{yz\,\mathrm{d}S}=\iint_{\Sigma}{xyz\,\mathrm{d}S}=0.
+\end{align}
+从而
+\begin{align*}
+\iint_{\Sigma} (\nabla u_0 \cdot \bm{r})\, \mathrm{d}S = 0.
+\end{align*}
+再利用球坐标积分对称性知
+\begin{align}\label{eq::fjisfjijJFEOEO-1}
+\iint_{\Sigma} x^2\, \mathrm{d}S = \iint_{\Sigma} y^2\, \mathrm{d}S = \iint_{\Sigma} z^2\, \mathrm{d}S = \frac{1}{3} \iint_{\Sigma} (x^2+y^2+z^2)\, \mathrm{d}S = \frac{1}{3} \iint_{\Sigma} R^2\, \mathrm{d}S = \frac{4\pi R^4}{3}.
+\end{align}
+再由\eqref{eq::fjisfjijJFEOEO}\eqref{eq::fjisfjijJFEOEO-1}式可得
+\begin{align*}
+\iint_{\Sigma} \bm{r}^T H u_0 \bm{r}\, \mathrm{d}S = \sum\limits_{i=1}^3 u_{ii} \cdot \frac{4\pi R^4}{3} = \frac{4\pi R^4}{3} \Delta u_0.
+\end{align*}
+且
+\begin{align*}
+\iint_{\Sigma} o(R^2)\, \mathrm{d}S = o(R^2) \cdot 4\pi R^2 = o(R^4).
+\end{align*}
+将上述各项代入\eqref{eq::jfijeioWQQQ}式得
+\begin{align*}
+F(R) = \frac{1}{4\pi R^2} \left( 4\pi R^2 u_0 + 0 + \frac{1}{2} \cdot \frac{4\pi R^4}{3} \Delta u_0 + o(R^4) \right).
+\end{align*}
+化简得
+\begin{align*}
+F(R) = u_0 + \frac{R^2}{6} \Delta u_0 + o(R^2).
+\end{align*}
+因此
+\begin{align*}
+\frac{F(R) - u_0}{R^2} = \frac{\Delta u_0}{6} + \frac{o(R^2)}{R^2}.
+\end{align*}
+令\(R \to 0\)得
+\begin{align*}
+\lim\limits_{R \to 0} \frac{F(R) - u(x_0, y_0, z_0)}{R^2} = \frac{\Delta u(x_0, y_0, z_0)}{6}.
+\end{align*}
+\end{enumerate}
 \end{proof}
 
 \begin{theorem}[拟微分平均值定理]

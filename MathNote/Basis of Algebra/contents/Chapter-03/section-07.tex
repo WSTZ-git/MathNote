@@ -196,8 +196,23 @@
 \begin{proposition}[行/列满秩矩阵性质]\label{proposition:行/列满秩矩阵性质}
 由\hyperref[theorem:相抵标准型]{矩阵的相抵标准型}可设\(\boldsymbol{A}\)是\(m\times n\)矩阵,则
 \begin{enumerate}[(1)]
-\item 若\(\mathrm{r}(\boldsymbol{A}) = n\),即\(\boldsymbol{A}\)是列满秩阵,则必存在秩等于\(n\)的\(n\times m\)矩阵\(\boldsymbol{B}\)(行满秩),使得\(\boldsymbol{B}\boldsymbol{A}=\boldsymbol{I}_n\)(这样的矩阵\(\boldsymbol{B}\)称为\(\boldsymbol{A}\)的左逆);
-\item 若\(\mathrm{r}(\boldsymbol{A}) = m\),即\(\boldsymbol{A}\)是行满秩阵,则必存在秩等于\(m\)的\(n\times m\)矩阵\(\boldsymbol{C}\)(列满秩),使得\(\boldsymbol{A}\boldsymbol{C}=\boldsymbol{I}_m\)(这样的矩阵\(\boldsymbol{C}\)称为\(\boldsymbol{A}\)的右逆).
+\item 若\(\mathrm{r}(\boldsymbol{A}) = n\),即\(\boldsymbol{A}\)是列满秩阵,则必存在秩等于\(n\)的\(n\times m\)矩阵\(\boldsymbol{B}\)(行满秩),使得
+\begin{align*}
+\boldsymbol{B}\boldsymbol{A}=\boldsymbol{I}_n,
+\end{align*}
+其中这样的矩阵\(\boldsymbol{B}\)称为\(\boldsymbol{A}\)的\textbf{左逆}.并且对任意的$n\times s$阶矩阵$X$,有
+\begin{align*}
+r(AX)=r(X).
+\end{align*}
+
+\item 若\(\mathrm{r}(\boldsymbol{A}) = m\),即\(\boldsymbol{A}\)是行满秩阵,则必存在秩等于\(m\)的\(n\times m\)矩阵\(\boldsymbol{C}\)(列满秩),使得
+\begin{align*}
+\boldsymbol{A}\boldsymbol{C}=\boldsymbol{I}_m,
+\end{align*}
+其中这样的矩阵\(\boldsymbol{C}\)称为\(\boldsymbol{A}\)的\textbf{右逆}.并且对任意的$s\times m$阶矩阵$X$,有
+\begin{align*}
+r(XB)=r(X).
+\end{align*}
 \end{enumerate}
 \end{proposition}
 \begin{proof}
@@ -209,9 +224,15 @@
 \boldsymbol{O}
 \end{pmatrix},
 \]
-因此\((\boldsymbol{I}_n,\boldsymbol{O})\boldsymbol{P}\boldsymbol{A}\boldsymbol{Q}=\boldsymbol{I}_n\),即\((\boldsymbol{I}_n,\boldsymbol{O})\boldsymbol{P}\boldsymbol{A}=\boldsymbol{Q}^{-1}\),于是\(\boldsymbol{Q}(\boldsymbol{I}_n,\boldsymbol{O})\boldsymbol{P}\boldsymbol{A}=\boldsymbol{I}_n\). 令\(\boldsymbol{B}=\boldsymbol{Q}(\boldsymbol{I}_n,\boldsymbol{O})\boldsymbol{P}\)即可.
+因此\((\boldsymbol{I}_n,\boldsymbol{O})\boldsymbol{P}\boldsymbol{A}\boldsymbol{Q}=\boldsymbol{I}_n\),即\((\boldsymbol{I}_n,\boldsymbol{O})\boldsymbol{P}\boldsymbol{A}=\boldsymbol{Q}^{-1}\),于是\(\boldsymbol{Q}(\boldsymbol{I}_n,\boldsymbol{O})\boldsymbol{P}\boldsymbol{A}=\boldsymbol{I}_n\). 令\(\boldsymbol{B}=\boldsymbol{Q}(\boldsymbol{I}_n,\boldsymbol{O})\boldsymbol{P}\)即可.再利用\hyperref[proposition:Sylvester(西尔维斯特)不等式]{Sylvester不等式}容易得到对任意的$n\times s$阶矩阵$X$,有
+\begin{align*}
+r(AX)=r(X).
+\end{align*}
 
-\item 同理可证,或者考虑\(\boldsymbol{A}'\)并利用(1)的结论.
+\item 同理可证,或者考虑\(\boldsymbol{A}^T\)并利用(1)的结论.再利用\hyperref[proposition:Sylvester(西尔维斯特)不等式]{Sylvester不等式}容易得到对任意的$s\times m$阶矩阵$X$,有
+\begin{align*}
+r(XB)=r(X).
+\end{align*}
 \end{enumerate}
 \end{proof}
 

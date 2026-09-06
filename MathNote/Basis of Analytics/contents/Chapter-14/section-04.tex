@@ -245,7 +245,7 @@ c = c(x), \, d = d(x).
 若对任意$[a,b]\subset I$,含参量反常积分\eqref{eq::::--wefw234fsd3480t34t3532jrwdr24t}在$[a,b]$上一致收敛,则称\eqref{eq::::--wefw234fsd3480t34t3532jrwdr24t}在$I$上\textbf{内闭一致收敛}(若$I=[a,b]$,则内闭一致收敛即一致收敛).
 \end{definition}
 
-\begin{theorem}[一致收敛的柯西准则]
+\begin{theorem}[一致收敛的Cauchy准则]
 含参量反常积分\eqref{eq::::--wefw234fsd3480t34t3532jrwdr24t}在$I$上一致收敛的充要条件是:对任给正数$\varepsilon$,总存在某一实数$M>c$,使得当$A_1,A_2>M$时,对一切$x\in I$,都有
 \begin{align*}
 \left| \int_{A_1}^{A_2}f(x,y)\mathrm{d}y \right| < \varepsilon. 
@@ -310,9 +310,9 @@ c = c(x), \, d = d(x).
 这与级数\eqref{eq::::--wefw234fsd34802jrw4t}在$I$上一致收敛的假设矛盾.故含参量反常积分\eqref{eq::::--wefw234fsd3480t34t3532jrwdr24t}在$I$上一致收敛.
 \end{proof}
 
-\begin{theorem}[含参量反常积分一致收敛判别法]
+\begin{theorem}[含参量反常积分一致收敛判别法]\label{theorem:含参量反常积分一致收敛判别法}
 \begin{enumerate}
-\item \textbf{Weierstrass判别法(M判别法)} 
+\item\label{theorem:含参积分Weierstrass判别法(M判别法)} \textbf{Weierstrass判别法(M判别法)} 
 
 设有函数$g(y)$,使得
 \[
@@ -320,7 +320,7 @@ c = c(x), \, d = d(x).
 \]
 若$\int_{c}^{+\infty} g(y)\mathrm{d}y$收敛,则$\int_{c}^{+\infty} f(x,y)\mathrm{d}y$在$I$上一致收敛.
 
-\item \textbf{狄利克雷判别法} 
+\item \textbf{Dirichlet判别法} 
 
 设
 
@@ -341,7 +341,7 @@ c = c(x), \, d = d(x).
 \]
 在$I$上一致收敛.
 
-\item \textbf{阿贝尔判别法} 
+\item \textbf{Abel判别法} 
 
 设
 
@@ -356,10 +356,109 @@ c = c(x), \, d = d(x).
 在$I$上一致收敛.
 \end{enumerate}
 \end{theorem}
+
+\begin{example}
+证明:$\int_0^{+\infty}{\frac{\alpha t}{1+\alpha ^2+t^2}e^{-\alpha ^2t^2}\cos \left( \alpha ^2t^2 \right) \,\mathrm{d}t}$在$\alpha \in \left( 0,+\infty \right)$上一致收敛.
+\end{example}
 \begin{proof}
 
+由于 \(1+\alpha^2+t^2 \geqslant 1+t^2\) 且 \(|\cos(\alpha^2 t^2)| \leqslant 1\)，又求导易知$\underset{x\in \left[ 0,+\infty \right)}{\max}\left\{ xe^{-x^2} \right\} =\frac{1}{\sqrt{2e}}.$故
+\begin{align*}
+\left| \int_0^{+\infty}{\frac{\alpha t}{1+\alpha ^2+t^2}e^{-\alpha ^2t^2}\cos\mathrm{(}\alpha ^2t^2)\mathrm{d}t} \right|\leqslant \int_0^{+\infty}{\frac{\alpha t}{1+t^2}e^{-\alpha ^2t^2}\mathrm{d}t}\leqslant \int_0^{+\infty}{\frac{1}{\sqrt{2e}}}\cdot \frac{1}{1+t^2}\mathrm{d}t=\frac{\pi}{2\sqrt{2e}}.
+\end{align*}
+根据\hyperref[theorem:含参量反常积分一致收敛判别法]{Weierstrass判别法}可知该含参广义积分在 \(\alpha \in (0, +\infty)\) 上一致收敛.
 \end{proof}
 
+\begin{example}
+\begin{enumerate}[(1)]
+\item 讨论下列函数在 \((0,1)\) 上的连续性:
+\begin{align*}
+f(\alpha) = \int_{0}^{+\infty} \frac{e^{-t}}{|\sin t|^{\alpha}} \mathrm{d}t;
+\end{align*}
+\item 讨论下列函数在 \((0,1)\) 上的连续性:
+\begin{align*}
+g(\alpha) = \int_{0}^{1} \frac{f(t)}{\sqrt{|t-\alpha|}} \mathrm{d}t, \quad \text{其中 } f(t) \text{ 是 } [0,1] \text{ 上的有界可积函数}.
+\end{align*}
+\end{enumerate}
+\end{example}
+\begin{solution}
+\begin{enumerate}[(1)]
+\item 任取闭区间 \([\alpha_0, \beta_0] \subset (0,1)\)。对任意 \(\alpha \in [\alpha_0, \beta_0]\)，将含参量积分 \(f(\alpha)\) 按周期拆分
+\begin{align}
+f(\alpha) = \int_{0}^{+\infty} \frac{e^{-t}}{|\sin t|^{\alpha}} \mathrm{d}t = \sum_{n=0}^{\infty} \int_{n\pi}^{(n+1)\pi} \frac{e^{-t}}{|\sin t|^{\alpha}} \mathrm{d}t \xlongequal{u = t - n\pi} \sum_{n=0}^{\infty} e^{-n\pi} \int_{0}^{\pi} \frac{e^{-u}}{|\sin u|^{\alpha}} \mathrm{d}u. \label{eq:series_decomp_123}
+\end{align}
+令 \(F(\alpha) = \int_{0}^{\pi} \frac{e^{-u}}{|\sin u|^{\alpha}} \mathrm{d}u\)，则 \(f(\alpha) = \sum_{n=0}^{\infty} e^{-n\pi} F(\alpha)\)。下面先证明 \(F(\alpha)\) 在 \([\alpha_0, \beta_0]\) 上连续。
+对于 \(F(\alpha)\)，我们有
+\begin{align}\label{eq::jiqjw202u80u289}
+F\left( \alpha \right) =\int_0^{\pi}{\frac{e^{-t}}{|\sin t|^{\alpha}}\mathrm{d}t}\leqslant \int_0^{\pi}{\frac{e^{-u}}{|\sin u|^{\beta _0}}\mathrm{d}u}\triangleq I_0.
+\end{align}
+下面证明控制函数 \(G(t) = \frac{e^{-t}}{|\sin t|^{\beta_0}}\) 在 \([0,+\infty)\) 上可积。将积分区间按周期拆分得
+\begin{align*}
+\int_0^{+\infty}{\frac{e^{-t}}{|\sin t|^{\beta _0}}\mathrm{d}t=\sum_{n=0}^{\infty}{\int_{n\pi}^{(n+1)\pi}{\frac{e^{-t}}{|\sin t|^{\beta _0}}\mathrm{d}t}}}\xlongequal{u=t-n\pi}\sum_{n=0}^{\infty}{\int_0^{\pi}{\frac{e^{-(u+n\pi )}}{|\sin u|^{\beta _0}}\mathrm{d}u}}=\sum_{n=0}^{\infty}{e^{-n\pi}\int_0^{\pi}{\frac{e^{-u}}{|\sin u|^{\beta _0}}\mathrm{d}u.}}
+\end{align*}
+现在证明\(I_0 = \int_{0}^{\pi} \frac{e^{-u}}{|\sin u|^{\beta_0}} \mathrm{d}u\)收敛.
+由于 \(\beta_0 < 1\)，
+取 \(\delta \in (0, \frac{\pi}{2})\)，当 \(u \in (0, \delta)\) 时，有 \(\sin u > \frac{1}{2} u\) 成立.从而
+\begin{align*}
+\int_{0}^{\delta} \frac{e^{-u}}{|\sin u|^{\beta_0}} \mathrm{d}u 
+\leqslant \int_{0}^{\delta} \frac{1}{(\frac{1}{2} u)^{\beta_0}} \mathrm{d}u = 2^{\beta_0} \int_{0}^{\delta} u^{-\beta_0} \mathrm{d}u < +\infty.
+\end{align*}
+同理有
+\begin{align*}
+\int_{\pi -\delta}^{\pi}{\frac{e^{-u}}{\left| \sin u \right|^{\beta _0}}\mathrm{d}u}\xlongequal{v=\pi -u}\int_0^{\delta}{\frac{e^{v-\pi}}{\left| \sin v \right|^{\beta _0}}\mathrm{d}v}\leqslant \int_0^{\delta}{\frac{1}{\left( \frac{1}{2}v \right) ^{\beta _0}}\mathrm{d}u}<+\infty .
+\end{align*}
+而
+\begin{align*}
+\int_{\delta}^{\pi -\delta}{\frac{e^{-u}}{\left| \sin u \right|^{\beta _0}}\mathrm{d}u}\leqslant \frac{\pi -2\delta}{\left| \sin \delta \right|^{\beta _0}}<+\infty .
+\end{align*}
+因此
+\begin{align*}
+I_0=\int_0^{\delta}{\frac{e^{-u}}{\left| \sin u \right|^{\beta _0}}\mathrm{d}u}+\int_{\delta}^{\pi -\delta}{\frac{e^{-u}}{\left| \sin u \right|^{\beta _0}}\mathrm{d}u}+\int_{\pi -\delta}^{\pi}{\frac{e^{-u}}{\left| \sin u \right|^{\beta _0}}\mathrm{d}u}<+\infty .
+\end{align*}
+再根据\eqref{eq::jiqjw202u80u289}式和\hyperref[theorem:含参量反常积分一致收敛判别法]{Weierstrass判别法}知,\(F(\alpha)\) 在 \([\alpha_0, \beta_0]\) 上一致收敛.又因为被积函数在 \((0, \pi) \times [\alpha_0, \beta_0]\) 上连续,由\hyperref[theorem:含参量反常积分的连续性]{含参量积分连续性定理}知，\(F(\alpha)\) 在 \([\alpha_0, \beta_0]\) 上连续.
+
+由于 \(F(\alpha)\) 在紧集 \([\alpha_0, \beta_0]\) 上连续，故存在常数 \(M > 0\)，使得对所有 \(\alpha \in [\alpha_0, \beta_0]\) 均有 \(|F(\alpha)| \leqslant M\)。于是由\eqref{eq:series_decomp_123}式可得
+\begin{align*}
+f\left( \alpha \right) =\sum_{n=1}^{\infty}{e^{-n\pi}F\left( \alpha \right)}\leqslant M\sum_{n=1}^{\infty}{e^{-n\pi}}<+\infty .
+\end{align*}
+由于几何级数 \(\sum_{n=0}^{\infty} M e^{-n\pi}\) 收敛以及\hyperref[theorem:含参量反常积分一致收敛判别法]{Weierstrass判别法}可知，函数项级数 \(f(\alpha)\) 在 \([\alpha_0, \beta_0]\) 上一致收敛。
+又由于 \(F(\alpha)\) 在 \([\alpha_0, \beta_0]\) 上连续，因此每一项 \(e^{-n\pi} F(\alpha)\) 都连续，因此根据\hyperref[theorem:函数项级数连续性定理]{一致收敛级数的和函数连续性定理}，其和函数 \(f(\alpha)\) 在 \([\alpha_0, \beta_0]\) 上连续.
+最后,由区间 \([\alpha_0, \beta_0] \subset (0,1)\) 的任意性可知，函数 \(f(\alpha)\) 在 \((0,1)\) 上连续。
+
+\item 设 \(|f(t)| \leqslant M\)。任取 \(\alpha, \beta \in (0,1)\)，我们有
+\begin{align*}
+|g(\alpha) - g(\beta)| &= \left| \int_{0}^{1} \frac{f(t)}{\sqrt{|t-\alpha|}} \mathrm{d}t - \int_{0}^{1} \frac{f(t)}{\sqrt{|t-\beta|}} \mathrm{d}t \right| \\
+&\leqslant \sup_{(0,1)} |f| \cdot \int_{0}^{1} \left| \frac{1}{\sqrt{|t-\alpha|}} - \frac{1}{\sqrt{|t-\beta|}} \right| \mathrm{d}t \\
+&\leqslant \sup_{(0,1)} |f| \cdot \int_{-\infty}^{+\infty} \left| \frac{1}{\sqrt{|t-\alpha|}} - \frac{1}{\sqrt{|t-\beta|}} \right| \mathrm{d}t.
+\end{align*}
+令 \(t = \alpha + (\alpha - \beta)s\)，则 \(\mathrm{d}t = |\alpha - \beta| \mathrm{d}s\)，且 \(t-\alpha = (\alpha - \beta)s\)，\(t-\beta = (\alpha - \beta)(s+1)\)。代入上式得
+\begin{align*}
+|g(\alpha) - g(\beta)| \leqslant \sup_{(0,1)} |f| \cdot |\alpha-\beta| \int_{-\infty}^{+\infty} \frac{1}{\sqrt{|\alpha-\beta|}} \left| \frac{1}{\sqrt{|s|}} - \frac{1}{\sqrt{|s+1|}} \right| \mathrm{d}s = \sqrt{|\alpha-\beta|} \cdot \sup_{(0,1)} |f| \cdot I,
+\end{align*}
+其中 \(I = \int_{-\infty}^{+\infty} \left| \frac{1}{\sqrt{|s|}} - \frac{1}{\sqrt{|s+1|}} \right| \mathrm{d}s\)。下面详细计算积分 \(I\)。
+\begin{align*}
+I &= \int_{-\infty}^{-1} \left| \frac{1}{\sqrt{-s}} - \frac{1}{\sqrt{-(s+1)}} \right| \mathrm{d}s + \int_{-1}^{0} \left| \frac{1}{\sqrt{-s}} + \frac{1}{\sqrt{s+1}} \right| \mathrm{d}s + \int_{0}^{+\infty} \left| \frac{1}{\sqrt{s}} - \frac{1}{\sqrt{s+1}} \right| \mathrm{d}s.
+\end{align*}
+分别计算这三个积分。对于第一部分，令 \(u = -s\)，则
+\begin{align*}
+\int_{-\infty}^{-1} \left( \frac{1}{\sqrt{-s}} - \frac{1}{\sqrt{-(s+1)}} \right) \mathrm{d}s &= \int_{1}^{+\infty} \left( \frac{1}{\sqrt{u}} - \frac{1}{\sqrt{u-1}} \right) \mathrm{d}u = \lim_{M \to +\infty} \left[ 2\sqrt{u} - 2\sqrt{u-1} \right]_{1}^{M} \\
+&= \lim_{M \to +\infty} \frac{2}{\sqrt{M} + \sqrt{M-1}} - (2 - 0) = -2.
+\end{align*}
+故其绝对值为 \(2\)。第二部分：
+\begin{align*}
+\int_{-1}^{0} \left( \frac{1}{\sqrt{-s}} + \frac{1}{\sqrt{s+1}} \right) \mathrm{d}s &= \left[ -2\sqrt{-s} \right]_{-1}^{0} + \left[ 2\sqrt{s+1} \right]_{-1}^{0} = (0 - (-2)) + (2 - 0) = 4.
+\end{align*}
+第三部分：
+\begin{align*}
+\int_{0}^{+\infty} \left( \frac{1}{\sqrt{s}} - \frac{1}{\sqrt{s+1}} \right) \mathrm{d}s = \lim_{M \to +\infty} \left[ 2\sqrt{s} - 2\sqrt{s+1} \right]_{0}^{M} = \lim_{M \to +\infty} \frac{-2}{\sqrt{M} + \sqrt{M+1}} - (0 - 2) = 2.
+\end{align*}
+由此可得 \(I = 2 + 4 + 2 = 8\)。因此
+\begin{align*}
+|g(\alpha) - g(\beta)| \leqslant 8 \sup_{(0,1)} |f| \cdot \sqrt{|\alpha - \beta|}.
+\end{align*}
+当 \(\alpha \to \beta\) 时，\(\sqrt{|\alpha - \beta|} \to 0\)，故差值趋于 \(0\)，从而 \(g(\alpha)\) 在 \((0,1)\) 上连续,且一致连续。
+\end{enumerate}
+\end{solution}
 
 \subsubsection{含参量反常积分的性质}
 
@@ -440,7 +539,7 @@ u_n'(x) = \int_{A_n}^{A_{n+1}} f_x(x,y) \, \mathrm{d}y.
 这就是\eqref{eq::::--wefw234fsd3480t34t32jrwdr24t948543tdhe634}式。
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}\label{theorem:含参积分可积性定理}
 设 \( f(x,y) \) 在 \( [a, +\infty) \times [c, +\infty) \) 上连续。若
 \begin{enumerate}[(i)]
 \item \( \int_{a}^{+\infty} f(x,y) \, \mathrm{d}x \) 关于 \( y \) 在 \( [c, +\infty) \) 上内闭一致收敛，\( \int_{c}^{+\infty} f(x,y) \, \mathrm{d}y \) 关于 \( x \) 在 \( [a, +\infty) \) 上内闭一致收敛。

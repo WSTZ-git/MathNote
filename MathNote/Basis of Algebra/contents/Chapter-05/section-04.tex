@@ -371,11 +371,110 @@ g(x) = g_1(x)g_2(x).
 由连续性可知上式对 \( x = 0 \) 也成立, 这与 \( g(x) \) 在 \( \mathbb{Q}[x] \) 上不可约矛盾. 故 \( f(x) \) 在有理数域上不可约.
 \end{proof}
 
+\begin{lemma}\label{lemma:正整数因子个数估计}
+正整数 \(N\) 的正整数因子个数记为\(\tau(N)\),则
+\begin{align*}
+\tau(N) \leqslant 2\sqrt{N}.
+\end{align*}
+进而\(N\)正、负整数因子总个数为$2\tau(N)$,且满足
+\begin{align*}
+2\tau(N) \leqslant 4\sqrt{N}.
+\end{align*}
+\end{lemma}
+\begin{proof}
+设正整数 \(N\) 的正因子个数为 \(\tau(N)\), 则对 \(N\) 的任意一个正因子 \(d\), 都存在与之对应的正整数 \(\frac{N}{d}\), 使得 \(d \cdot \frac{N}{d} = N\). 因此, 所有的正因子都可以成对出现: \((d_1, \frac{N}{d_1}), (d_2, \frac{N}{d_2}), \cdots\).
+在每一对因子 \((d, \frac{N}{d})\) 中, 必然满足一个小于等于 \(\sqrt{N}\), 另一个大于等于 \(\sqrt{N}\). 正因子按大小可分为小于等于 \(\sqrt{N}\) 和大于等于 \(\sqrt{N}\) 两部分. 小于等于 \(\sqrt{N}\) 的因子只能取自 \(1,2,\cdots,\lfloor\sqrt{N}\rfloor\) 中的整数, 所以其个数最多为 \(\lfloor\sqrt{N}\rfloor\) 个; 根据配对原则, 大于等于 \(\sqrt{N}\) 的因子也至多有 \(\lfloor\sqrt{N}\rfloor\) 个.
+因此, 总的正因子个数满足
+\begin{align*}
+\tau(N) \leqslant \lfloor\sqrt{N}\rfloor + \lfloor\sqrt{N}\rfloor = 2\lfloor\sqrt{N}\rfloor \leqslant 2\sqrt{N}.
+\end{align*}
+考虑到每一个正因子 \(d\) 都存在对应的负因子 \(-d\), 所以正负因子总数为 \(2\tau(N)\). 将其代入上式得, 正、负整数因子总数满足
+\begin{align*}
+2\tau(N) \leqslant 4\sqrt{N}.
+\end{align*}
+\end{proof}
 
+\begin{example}
+问多项式 \(f(x) = \prod\limits_{i=1}^{2013} (x-i)^2 + 2014\) 在有理数域上是否可约? 证明你的结论.
+\end{example}
+\begin{proof}
+假设 \(f(x)\) 在 \(\mathbb{Q}\) 上可约, 则有 \(f(x)=g(x)h(x)\), 其中 \(g(x),h(x) \in \mathbb{Z}[x]\) 都是首一多项式, \(\deg g(x), \deg h(x) \geqslant 1\), 且 \(g(x)\) 和 \(h(x)\) 必有一个满足 \(\deg g(x) \leqslant 2013\). 因为$f$恒正,所以$g,h$也必恒正.
+记 \(I=\{1,2,\cdots,2013\}\), 显然有
+\begin{align*}
+g(i)h(i) = 2014, \quad \forall i \in I.
+\end{align*}
+所以 \(g(i)\) 和 \(h(i)\) 都是 2014 的正因子. 注意到2014 的全部正因子只有如下 8 个
+\begin{align*}
+S = \{1,2,19,38,53,106,1007,2014\}.
+\end{align*}
+所由抽屉原理,必存在某个 \(m\in S\), 使得 \(g(x)\) 对 \(I\) 中至少 $\left\lceil \frac{2013}{18} \right\rceil=252 $个互异的整数 \(a_1,a_2,\cdots,a_{252}\) 都取值 \(m\). 于是
+\begin{align*}
+g(x) = p(x) \prod\limits_{j=1}^{252} (x-a_j) + m,
+\end{align*}
+其中 \(p(x)\in \mathbb{Z}[x]\). 现在, 若存在某个 \(k\in I\setminus\{a_1,a_2,\cdots,a_{252}\}\) 使得 \(g(k) = m_1 \in S\)且 \(m_1\neq m\), 则
+\begin{align*}
+\prod\limits_{j=1}^{252} (k-a_j) \mid (m_1-m),
+\end{align*}
+即 \(m-m_1\) 有 252 个不同的整数因子, 这不可能. 这是因为 \(m,m_1\in S\), 所以 \(0<|m_1-m|\leqslant 2013\).
+取 \(N=|m_1-m|\leqslant 2013\), 则由\cref{lemma:正整数因子个数估计}知其整数因子总数不超过 \(4\sqrt{2013}<180<252\), 这与它至少有 252 个不同的整数因子矛盾.
+所以 \(m_1\neq m\) 不可能, 只能有 \(g(k)=m\). 由于 \(k\) 是任取的, 结合原来的 252 个点可知 \(g(i)=m\) 对所有 \(i=1,2,\cdots,2013\) 都成立. 由此说明 \(\deg g(x)=2013\),故
+$g(x) = \prod\limits_{j=1}^{252} (x-a_j) + m.$
+同理可知 \(h(x) = \prod\limits_{i=1}^{2013} (x-i) + n\), 其中 \(n\in S\). 从而
+\begin{align*}
+g(x)h(x) = \prod\limits_{i=1}^{2013} (x-i)^2 + (m+n) \prod\limits_{i=1}^{2013} (x-i) + mn.
+\end{align*}
+与 \(f(x)\) 比较系数, 得 \(m+n=0\), \(mn=2014\). 矛盾！故假设不成立, 所以 \(f(x)\) 在 \(\mathbb{Q}\) 上不可约.
+\end{proof}
 
+\begin{example}
+证明多项式 \(f(x) = \prod\limits_{i=1}^{18}(x-i) + 23\) 在 \(\mathbb{Q}\) 上不可约.
+\end{example}
+\begin{proof}
 
+假设 \(f(x)\) 在 \(\mathbb{Z}[x]\) 上可约, 则存在首一的多项式 \(g(x), h(x) \in \mathbb{Z}[x]\) 使得 \(f(x) = g(x)h(x)\). 其满足 \(\deg g + \deg h = 18\), 不妨设 \(\deg g \leqslant 17\).
+对任意 \(i \in \{1,2,\cdots,18\}\), 有 \(f(i) = g(i)h(i) = 23\). 因为 \(23\) 为素数, 所以对于每个 \(i\) 来说, 有序数对 \((g(i), h(i))\) 只可能是如下四种情形之一:
+\begin{align*}
+(g(i), h(i)) \in \{\left( 23,1 \right) ,\left( -23,-1 \right) ,\left( 1,23 \right) ,\left( -1,-23 \right) \}, \quad \forall i\in \{1,2,\cdots,18\}.
+\end{align*}
+分别称
+\begin{align*}
+\left( g\left( i \right) ,h\left( i \right) \right) =\left( 23,1 \right) \text{、}\left( g\left( i \right) ,h\left( i \right) \right) =\left( -23,-1 \right) \text{、}\left( g\left( i \right) ,h\left( i \right) \right) =\left( 1,23 \right) \text{、}\left( g\left( i \right) ,h\left( i \right) \right) =\left( -1,-23 \right) 
+\end{align*}
+为第一种、第二种、第三种、第四种情形.
 
-
+首先, 由抽屉原理, 在所有 \(18\) 个整数点中, 这四种情形至少有一种出现的次数大于等于 \(\left\lceil \frac{18}{4} \right\rceil = 5\). 取其中的 \(5\) 个点, 记为 \(a_1, a_2, a_3, a_4, a_5\). 不妨设这 \(5\) 个点属于第一种情形, 即 \(g(a_j) = 23\)且\(h(a_j) = 1\). 从而存在 \(k(x), t(x) \in \mathbb{Z}[x]\) 使得
+\begin{align*}
+g(x)-23 = k(x) \prod\limits_{j=1}^{5}(x-a_j), \quad 
+h(x)-1 = t(x) \prod\limits_{j=1}^{5}(x-a_j).
+\end{align*}
+若存在某个 \(i_0\in \{1,2,\cdots,18\}\setminus\{a_1,a_2,\cdots,a_5\}\) 属于第二种情形, 即 \(g(i_0) = -23\)且\(h(i_0) = -1\). 代入上式得
+\begin{align*}
+2=\left| h(i_0)-1 \right|=\left| t\left( i_0 \right) \right|\prod_{j=1}^5{\left| i_0-a_j \right|}\geqslant \left| t\left( i_0 \right) \right|\cdot 5!=120\left| t\left( i_0 \right) \right|,
+\end{align*}
+显然矛盾！
+接着, 排除了第二种情形后,$\forall i\in \{1,2,\cdots,18\}$只能落在第一、第三、第四种情形之中. 再次使用抽屉原理, 这三种情形中至少有一种出现的次数大于等于\(\left\lceil \frac{18}{3} \right\rceil = 6\)次. 不妨仍设为第一种情形出现 \(6\) 次, 即存在 \(6\) 个不同的点 \(b_1, b_2, \cdots, b_6\) 使得 \(g(a_j) = 23\).从而存在 \(p(x), q(x) \in \mathbb{Z}[x]\) 使得
+\begin{align*}
+g(x)-23 = p(x) \prod\limits_{j=1}^{6}(x-b_j), \quad
+h(x)-1 = q(x) \prod\limits_{j=1}^{6}(x-b_j).
+\end{align*}
+若存在某个\(i_0\in \{1,2,\cdots,18\}\setminus\{b_1,b_2,\cdots,b_6\}\) 属于第三种情形, 即 \(g(i_0) = 1\)且 \(h(i_0) = 23\). 代入上式得
+\begin{align*}
+22=\left| g\left( i_0 \right) -23 \right|=\left| p\left( i_0 \right) \right|\prod_{j=1}^6{\left| i_0-b_j \right|}\geqslant \left| p\left( i_0 \right) \right|\cdot 6!=720\left| p\left( i_0 \right) \right|,
+\end{align*}
+显然矛盾！
+现在,$\forall i\in \{1,2,\cdots,18\}$只能属于第一种或第四种情形, 即 \((g(i), h(i)) \in \{(23, 1), (-1, -23)\}\). 根据抽屉原理, 在这两种情形中至少有一种出现的次数大于等于\(\left\lceil \frac{18}{2} \right\rceil = 9\)次.  同样不妨设第一种情形出现 \(9\) 次, 即存在 \(9\) 个不同的点 \(c_1, c_2, \cdots, c_9\) 使得 \(g(c_j) = 23\). 从而存在 \(m(x) \in \mathbb{Z}[x]\) 使得
+\begin{align*}
+g(x)-23 = m(x) \prod\limits_{j=1}^{9}(x-c_j).
+\end{align*}
+若存在\(i_0\in \{1,2,\cdots,18\}\setminus\{c_1,c_2,\cdots,c_9\}\)属于第四种情形, 即 \(g(i_0) = -1\)且\(h(i_0) = -23\). 代入上式得
+\begin{align*}
+24=\left| g\left( i_0 \right) -23 \right|=\left| m\left( i_0 \right) \right|\prod_{j=1}^9{\left| i_0-c_j \right|}\geqslant \left| m\left( i_0 \right) \right|\cdot 9!=362880\left| m\left( i_0 \right) \right|,
+\end{align*}
+显然矛盾！
+至此, 第二、第三、第四种情形都被证明不可能存在. 因此, 对于全部的 \(i \in \{1,2,\cdots,18\}\), 只有第一种情形成立, 即 \(g(i) = 23\).
+这意味着多项式 \(g(x) - 23\) 至少有 \(18\) 个不同的根. 由于 \(\deg g(x) \leqslant 17\), 多项式 \(g(x) - 23\) 恒等于 \(0\), 即 \(g(x) \equiv 23\).
+这与假设\(g(x)\) 是首一多项式矛盾!因此多项式 \(f(x)\) 在 \(\mathbb{Q}\) 上不可约.
+\end{proof}
 
 
 

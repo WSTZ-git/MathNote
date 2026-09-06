@@ -164,7 +164,14 @@ A_n = \langle \{(ijk)\} \rangle \subseteq \{(ijk)\mid i,j,k=1,2,\cdots,n\} = C_\
 设$G$是4阶群,则$G\cong K_4$或$G\cong C_4$,其中$K_4$是Klein四元数群,$C_4$是4阶循环群.进而$G$是Abel群.
 \end{proposition}
 \begin{proof}
-
+设$G$的单位元为$e$,由拉格朗日定理可知,群$G$中任意元素$a$的阶$o(a)$只能是$1,2,4$.下面分两种情况讨论 :
+\begin{enumerate}[(1)]
+\item 若存在$a\in G$使得$o(a)=4$,则$G=\{e,a,a^2,a^3\}$,即$G$是由$a$生成的循环群,从而$G\cong C_4$.
+\item 若$G$中不存在4阶元,则对任意$a\in G\setminus\{e\}$,都有$o(a)=2$,即$a^2=e$.
+\item 此时任取$a,b\in G$,由$a^2=b^2=e$及群$G$的封闭性可知$abab=e$,两边左乘$a$并右乘$b$,可得$ba=a^{-1}b^{-1}=ab$,这表明$G$为Abel群.
+\item 取两个不同的非单位元$a,b\in G\setminus\{e\}$,则$G=\{e,a,b,ab\}$,且$(ab)^2=a^2b^2=e$,即$ab$也是2阶元,故此时$G$同构于Klein四元数群$K_4$.
+\end{enumerate}
+综上所述,4阶群只能同构于$C_4$或$K_4$,且两者均为Abel群.
 \end{proof}
 
 \begin{proposition}

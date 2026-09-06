@@ -16,10 +16,36 @@
 \section{最大模原理和Schwarz引理}
 
 \begin{theorem}[最大模原理]\label{theorem:最大模原理-定理4.5.1}
-设 \( f \) 是区域 \( D \) 中非常数的全纯函数，那么 \( |f(z)| \) 不可能在 \( D \) 中取到最大值。
+设 \( f \) 是区域 \( D \) 中非常数的全纯函数，那么 \( |f(z)| \) 不可能在 \( D \)的内部取到最大值。
 \end{theorem}
 \begin{proof}
-因为 \( f \) 是 \( D \) 上非常数的全纯函数，由\refthe{theorem:定理4.4.6-开映射定理}，\( G = f(D) \) 是一个区域。如果 \( |f(z)| \) 在 \( D \) 中某点 \( z_0 \) 处取到最大值，记 \( w_0 = f(z_0)\in G \)，则由$G$是区域知 \( w_0 \) 是 \( G \) 的一个内点，即有 \( \varepsilon > 0 \)，使得 \( B(w_0, \varepsilon) \subseteq G \)。故必有 \( w_1 \in G \)，使得 \( |w_1| > |w_0| \)。于是存在 \( z_1 \in D \)，使得 \( |f(z_1)| = |w_1| > |w_0| = |f(z_0)| \)。这与 \( |f(z_0)| \) 是 \( |f(z)| \) 在 \( D \) 中的最大值相矛盾！ 
+
+{\color{blue}证法一:}因为 \( f \) 是 \( D \) 上非常数的全纯函数，由\refthe{theorem:定理4.4.6-开映射定理}，\( G = f(D) \) 是一个区域。如果 \( |f(z)| \) 在 \( D \) 中某点 \( z_0 \) 处取到最大值，记 \( w_0 = f(z_0)\in G \)，则由$G$是区域知 \( w_0 \) 是 \( G \) 的一个内点，即有 \( \varepsilon > 0 \)，使得 \( B(w_0, \varepsilon) \subseteq G \)。故必有 \( w_1 \in G \)，使得 \( |w_1| > |w_0| \)。于是存在 \( z_1 \in D \)，使得 \( |f(z_1)| = |w_1| > |w_0| = |f(z_0)| \)。这与 \( |f(z_0)| \) 是 \( |f(z)| \) 在 \( D \) 中的最大值相矛盾！
+
+{\color{blue}证法二:}假设存在 \(z_0 \in D\) 使得 \(|f(z_0)| = M = \max_{z \in D} |f(z)|\)。由于 \(D\) 是区域，存在 \(r > 0\) 使得闭圆盘 \(\overline{B(z_0, r)} \subseteq D\)。对任意 \(\rho \in (0, r]\)，函数 \(f\) 在圆 \(|\zeta - z_0| < \rho\) 内解析，在闭圆 \(|\zeta - z_0| \leqslant \rho\) 上连续，故由\hyperref[theorem:解析函数的平均值定理]{解析函数的平均值定理}可得
+\begin{align*}
+f(z_0) = \frac{1}{2\pi} \int_{0}^{2\pi} f(z_0 + \rho \mathrm{e}^{\mathrm{i}\varphi}) \mathrm{d}\varphi.
+\end{align*}
+取模并利用三角不等式，得
+\begin{align}\label{eqLLjjifiowjeiofjew}
+M = |f(z_0)| \leqslant \frac{1}{2\pi} \int_{0}^{2\pi} |f(z_0 + \rho \mathrm{e}^{\mathrm{i}\varphi})| \mathrm{d}\varphi \leqslant M\Longrightarrow \frac{1}{2\pi} \int_{0}^{2\pi} |f(z_0 + \rho \mathrm{e}^{\mathrm{i}\varphi})| \mathrm{d}\varphi=M.
+\end{align}
+由于 \(|f(z_0 + \rho \mathrm{e}^{\mathrm{i}\varphi})| \leqslant M\)对一切 \(\varphi \in [0, 2\pi]\)成立.若存在$\varphi_0\in [0,2\pi]$使得$|f(z_0 + \rho \mathrm{e}^{\mathrm{i}\varphi_0})| < M$.不妨设$\varphi_0\in (0,2\pi)$,则由$|f(z_0 + \rho \mathrm{e}^{\mathrm{i}\varphi})|$关于$\varphi$连续知,存在$\delta>0$,使得
+\begin{align*}
+|f(z_0 + \rho \mathrm{e}^{\mathrm{i}\varphi})|<M,\quad \forall \varphi\in (\varphi_0-\delta,\varphi_0+\delta).
+\end{align*}
+从而
+\begin{align*}
+\frac{1}{2\pi}\int_0^{2\pi}{\left| f\left( z_0+\rho \mathrm{e}^{\mathrm{i}\varphi} \right) \right|\mathrm{d}\varphi}&=\frac{1}{2\pi}\left( \int_0^{\varphi _0-\delta}{\left| f\left( z_0+\rho \mathrm{e}^{\mathrm{i}\varphi} \right) \right|\mathrm{d}\varphi}+\int_{\varphi _0-\delta}^{\varphi _0+\delta}{\left| f\left( z_0+\rho \mathrm{e}^{\mathrm{i}\varphi} \right) \right|\mathrm{d}\varphi}+\int_{\varphi _0+\delta}^{2\pi}{\left| f\left( z_0+\rho \mathrm{e}^{\mathrm{i}\varphi} \right) \right|\mathrm{d}\varphi} \right) 
+\\
+&<\frac{1}{2\pi}\left( 2\delta M+M\left( 2\pi -2\delta \right) \right) =M,
+\end{align*}
+这与\eqref{eqLLjjifiowjeiofjew}式矛盾!
+于是对一切 \(\varphi \in [0, 2\pi]\) 必有
+\begin{align*}
+|f(z_0 + \rho \mathrm{e}^{\mathrm{i}\varphi})| = M.
+\end{align*}
+故对任意 \(\rho \in (0, r]\)，圆周 \(|z - z_0| = \rho\) 上均有 \(|f(z)| = M\)。从而由$\rho$的任意性知在圆盘 \(B(z_0, r)\) 内，\(|f(z)|\) 恒等于 \(M\)。由\cref{proposition:复变函数导数为0必是常函数}，故 \(f\) 在 \(B(z_0, r)\) 内为常数。再由\hyperref[theorem:复变函数--唯一性定理]{唯一性定理}，\(f\) 在区域 \(D\) 内为常数，这与 \(f\) 非常数矛盾！因此 \(|f(z)|\) 不可能在 \(D\) 的内部取到最大值。
 \end{proof}
 
 \begin{theorem}\label{theorem:定理4.5.2}
@@ -62,7 +88,7 @@ f(z) = a_1 z + a_2 z^2 + \cdots = z(a_1 + a_2 z + \cdots) = z g(z),
 \[
 |g(z)| = \frac{|f(z)|}{|z|} \leqslant  \frac{1}{r},
 \]
-故由最大模原理，在圆盘 \( B(0,r) \) 中也有
+故由\hyperref[theorem:最大模原理-定理4.5.1]{最大模原理}，在圆盘 \( B(0,r) \) 中也有
 \[
 |g(z)| \leqslant  \frac{1}{r} \, (\text{当} \ |z| < r \ \text{时}).
 \]

@@ -622,7 +622,26 @@ a=a_{k}^{1-k^{-\alpha}},\quad b=\frac{1}{2},\quad p=\frac{1}{1-k^{-\alpha}},\qua
 故 $\sum_{n=1}^{\infty} \frac{\sin n}{n}, \sum_{n=1}^{\infty} \frac{\cos n}{n}$ 条件收敛.
 \end{proof}
 
-
+\begin{example}
+设 \(\{a_n\}\) 为实数列,
+\(S_n = a_1 + a_2 + \cdots + a_n, \quad \sigma_n = \frac{1}{n+1}(S_1 + S_2 + \cdots + S_n).\)
+已知级数 \(\sum\limits_{n=1}^{\infty} |S_n - \sigma_n|^2\) 收敛, 求证: \(\sum\limits_{n=1}^{\infty} a_n\) 收敛.
+\end{example}
+\begin{proof}
+注意到对 \(\forall n\geqslant 2\), 有
+\begin{align*}
+&\sigma_n - \sigma_{n-1} = \frac{\sum\limits_{k=1}^n S_k}{n+1} - \frac{\sum\limits_{k=1}^{n-1} S_k}{n} = \frac{n\sum\limits_{k=1}^n S_k - (n+1)\sum\limits_{k=1}^{n-1} S_k}{n(n+1)} \\
+&= \frac{nS_n - \sum\limits_{k=1}^{n-1} S_k}{n(n+1)} = \frac{(n+1)S_n - \sum\limits_{k=1}^n S_k}{n(n+1)} = \frac{S_n - \sigma_n}{n}.
+\end{align*}
+再由 Cauchy-Schwarz 不等式和题设可得
+\begin{align*}
+\lim\limits_{n\to\infty} (\sigma_n - \sigma_1) = \sum\limits_{n=2}^{\infty} (\sigma_n - \sigma_{n-1}) \leqslant \sum\limits_{n=2}^{\infty} |\sigma_n - \sigma_{n-1}| = \sum\limits_{n=2}^{\infty} \frac{|S_n - \sigma_n|}{n} \leqslant \sqrt{\sum\limits_{n=2}^{\infty} |S_n - \sigma_n|^2} \cdot \sqrt{\sum\limits_{n=2}^{\infty} \frac{1}{n^2}} < +\infty.
+\end{align*}
+故可设 \(\lim\limits_{n\to\infty} \sigma_n \triangleq L < +\infty\), 且
+\begin{align*}
+\lim\limits_{n\to\infty} |\sigma_n - \sigma_{n-1}| = \lim\limits_{n\to\infty} \frac{|S_n - \sigma_n|}{n} = 0 \implies \sum\limits_{n=1}^{\infty} a_n = \lim\limits_{n\to\infty} S_n = \lim\limits_{n\to\infty} \sigma_n = L.
+\end{align*}
+\end{proof}
 
 
 

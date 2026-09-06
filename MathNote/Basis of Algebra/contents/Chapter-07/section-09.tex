@@ -59,14 +59,15 @@ V = V_1 \oplus V_2 \oplus \cdots \oplus V_k.
 & & & & \lambda_1
 \end{pmatrix}.
 \end{align*}
-注意到 $\boldsymbol{J}_1$ 的特征值全为 $\lambda_1$，并且 $\lambda_1\boldsymbol{I} - \boldsymbol{J}_1$ 的秩等于 $r_1 - 1$，故 $\boldsymbol{J}_1$ 只有一个线性无关的特征向量，不妨选为 $e_{11}$。显然 $e_{11}$ 也是 $\varphi$ 作为 $V$ 上线性变换关于特征值 $\lambda_1$ 的特征向量。不失一般性，不妨设在 $\varphi$ 的初等因子组即\eqref{equation--7.7.1} 式中
+注意到 $\boldsymbol{J}_1$ 的特征值全为 $\lambda_1$，并且 $\lambda_1\boldsymbol{I} - \boldsymbol{J}_1$ 的秩等于 $r_1 - 1$，故 $\boldsymbol{J}_1$ 只有一个线性无关的特征向量，不妨选为 $e_{11}$。显然$e_{11}$(补0)延拓到$n$维得到的向量$\hat{e}_{11}$ 也是 $\varphi$ 作为 $V$ 上线性变换关于特征值 $\lambda_1$ 的特征向量。不失一般性，不妨设在 $\varphi$ 的初等因子组即\eqref{equation--7.7.1} 式中
 \[
 \lambda_1 = \lambda_2 = \cdots = \lambda_s, \quad \lambda_i \neq \lambda_1 (i = s + 1, \cdots, k),
 \]
 则 $\boldsymbol{J}_1, \cdots, \boldsymbol{J}_s$ 都以 $\lambda_1$ 为特征值，且{\heiti 相应于每一块有且只有一个线性无关的特征向量}。相应的特征向量可取为
 \begin{align}
-e_{11}, e_{21}, \cdots, e_{s1}, \label{equation--7.7.3}
+\hat{e}_{11}, \hat{e}_{21}, \cdots, \hat{e}_{s1}, \label{equation--7.7.3}
 \end{align}
+其中$\hat{e}_{i1}$都是$e_{i1}$(补0)延拓到$n$维得到的向量.
 显然这是 $s$ 个线性无关的特征向量。如果 $\lambda_i \neq \lambda_1$，则容易看出 $\mathrm{r}(\lambda_1\boldsymbol{I} - \boldsymbol{J}_i) = r_i$，于是
 \begin{align*}
 \mathrm{r}(\lambda_1\boldsymbol{I} - \boldsymbol{J}) &= \sum_{i = 1}^{k} \mathrm{r}(\lambda_1\boldsymbol{I} - \boldsymbol{J}_i) = (r_1 - 1) + \cdots + (r_s - 1) + r_{s + 1} + \cdots + r_k = n - s.

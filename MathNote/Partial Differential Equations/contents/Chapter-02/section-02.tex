@@ -260,7 +260,14 @@ Green 函数 $G(x,y)$ $(n=2,3)$ 的物理意义如下：在物体内部 $x$ 处�
 \end{remark}
 
 \begin{theorem}\label{theorem:Dirichlet问题解的表达式}
-假设 $\Omega$ 是 $\mathbb{R}^n$ 上的一个有界区域，$u(x)\in C^2(\Omega)\cap C^1(\overline{\Omega})$ 是 Dirichlet 问题  的解，则
+假设 $\Omega$ 是 $\mathbb{R}^n$ 上的一个有界区域，$u(x)\in C^2(\Omega)\cap C^1(\overline{\Omega})$ 是 Dirichlet 问题
+\begin{align*}
+\begin{cases}
+-\Delta u = f, & x\in\Omega, \\
+u = g, & x\in\partial\Omega
+\end{cases} 
+\end{align*}
+的解，则
 \begin{align}
 u(x) = -\int_{\partial\Omega} g(y)\frac{\partial}{\partial n}G(x,y)\,\mathrm{d}S(y) + \int_\Omega G(x,y)f(y)\,\mathrm{d}y, \label{eq:green-sol}
 \end{align}

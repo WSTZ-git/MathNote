@@ -412,6 +412,19 @@ $\mathrm{C}_{a}^{b}=\frac{a}{b}\mathrm{C}_{a-1}^{b-1}$.
 \end{align*}
 \end{proof}
 
+\begin{example}
+计算 $\lim\limits_{n\to\infty}\left( \frac{1^p+2^p+\cdots +n^p}{n^p}-\frac{n}{p+1} \right)$.
+\end{example}
+\begin{solution}
+由\hyperref[theorem:Stolz定理]{Stolz定理}可得
+\begin{align*}
+&\lim\limits_{n\to\infty}\left( \frac{1^p+2^p+\cdots +n^p}{n^p}-\frac{n}{p+1} \right) 
+= \lim\limits_{n\to\infty}\frac{\sum\limits_{k=1}^n k^p-\frac{n^{p+1}}{p+1}}{n^p} = \lim\limits_{n\to\infty}\frac{(n+1)^p-\frac{(n+1)^{p+1}-n^{p+1}}{p+1}}{(n+1)^p-n^p} \\
+&= \lim\limits_{n\to\infty}\frac{n^p+pn^{p-1}+O(n^{p-2})-\frac{1}{p+1}\left[(p+1)n^p+\frac{p(p+1)}{2}n^{p-1}+O(n^{p-2})\right]}{pn^{p-1}} \\
+&= \lim\limits_{n\to\infty}\frac{\frac{p}{2}n^{p-1}+O(n^{p-2})}{pn^{p-1}} = \frac{1}{2}.
+\end{align*}
+\end{solution}
+
 \begin{proposition}\label{proposition:幂次小于1的级数的阶}
 设$\alpha \ne 0$，证明
 \begin{align*}
@@ -734,7 +747,342 @@ x_n = \frac{1}{n}\sum_{k=0}^{n-1} \sin x_k,
 \end{solution}
 
 
-\subsection{函数Stolz定理}
+\subsection{反向洛必达法则和函数Stolz定理}
+
+\begin{theorem}\label{theorem:反向洛必达法则}
+\begin{enumerate}[(1)]
+\item 设$f\in C[0,+\infty)\cap D^2(0,+\infty)$,且存在$C>0$,使得
+\begin{align*}
+f''(x)>-\frac{C}{x^2},\quad x>0.
+\end{align*}
+则
+\begin{align*}
+\lim\limits_{x\to0^+}xf'(x)=0.
+\end{align*}
+
+\item 设$m>0$,且$yg'(y)$在$[a,+\infty)$上连续递增,满足
+\begin{align}
+\lim\limits_{y\to+\infty}\frac{g(y)}{y^m}=A\in\mathbb{R}.
+\label{eq:reverse-lhopital-7f3a}
+\end{align}
+则
+\begin{align*}
+\lim\limits_{y\to+\infty}\frac{g'(y)}{y^{m-1}}=mA.
+\end{align*}
+
+\item 设$f$在$[0,+\infty)$上二阶可导,且$\lim\limits_{x\to+\infty}f(x)$存在.若$f''$有界,则
+\begin{align*}
+\lim\limits_{x\to+\infty}f'(x)=0.
+\end{align*}
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+\begin{enumerate}[(1)]
+\item 不妨设$C>0$. 对$h>0$,由Taylor定理可知,存在$\theta\in(x,x+h)$,使得
+\begin{align*}
+f(x+h)=f(x)+f'(x)h+\frac{f''(\theta)}{2}h^2.
+\end{align*}
+于是
+\begin{align*}
+f'(x)=\frac{f(x+h)-f(x)}{h}-\frac{f''(\theta)}{2}h.
+\end{align*}
+由条件可得
+\begin{align*}
+f'(x)
+\leqslant\left|\frac{f(x+h)-f(x)}{h}\right|+\frac{C}{2\theta^2}h
+\leqslant\left|\frac{f(x+h)-f(x)}{h}\right|+\frac{C}{2x^2}h.
+\end{align*}
+取$h=\eta x$,其中$\eta\in(0,1)$,则
+\begin{align*}
+xf'(x)
+\leqslant\frac{|f(x+\eta x)-f(x)|}{\eta}
++\frac{C\eta}{2}.
+\end{align*}
+由于$f$在$[0,+\infty)$上连续,且$\lim\limits_{x\to0^+}f(x)$存在,故
+\begin{align*}
+\lim\limits_{x\to0^+}\frac{|f(x+\eta x)-f(x)|}{\eta}=0.
+\end{align*}
+从而
+\begin{align*}
+\varlimsup\limits_{x\to0^+}xf'(x)\leqslant\frac{C\eta}{2}.
+\end{align*}
+由$\eta$的任意性可得
+\begin{align*}
+\varlimsup\limits_{x\to0^+}xf'(x)\leqslant0.
+\end{align*}
+类似地,由Taylor定理可知,存在$\vartheta\in(x-\eta x,x)$,使得
+\begin{align*}
+f(x-\eta x)=f(x)-f'(x)\eta x+\frac{f''(\vartheta)}{2}\eta^2x^2.
+\end{align*}
+于是
+\begin{align*}
+xf'(x)
+&=\frac{f(x)-f(x-\eta x)}{\eta}
++\frac{f''(\vartheta)}{2}\eta x^2\\
+&\geqslant-\frac{|f(x)-f(x-\eta x)|}{\eta}
+-\frac{C}{2\vartheta^2}\eta x^2\\
+&\geqslant-\frac{|f(x)-f(x-\eta x)|}{\eta}
+-\frac{C\eta}{2(1-\eta)^2}.
+\end{align*}
+因此
+\begin{align*}
+\varliminf\limits_{x\to0^+}xf'(x)
+\geqslant-\frac{C\eta}{2(1-\eta)^2}.
+\end{align*}
+令$\eta\to0^+$,可得
+\begin{align*}
+\varliminf\limits_{x\to0^+}xf'(x)\geqslant0.
+\end{align*}
+故
+\begin{align*}
+\lim\limits_{x\to0^+}xf'(x)=0.
+\end{align*}
+
+\item 对$c>1$,由$g'(y)y^m$在充分大时为正,并利用Netwon-Leibniz公式可得
+\begin{align*}
+g(c x)-g(x)
+=\int_x^{cx}g'(y)\,\mathrm{d}y
+=\int_x^{cx}\frac{yg'(y)}{y}\,\mathrm{d}y
+\geqslant xg'(x)\int_x^{cx}\frac{1}{y}\,\mathrm{d}y
+=xg'(x)\ln c.
+\end{align*}
+于是由\eqref{eq:reverse-lhopital-7f3a}式可得
+\begin{align*}
+\frac{g’ (x)}{x^{m-1}}\leqslant \frac{1}{\ln c}\frac{g(cx)-g(x)}{x^m}=\frac{c^m\frac{g(cx)}{(cx)^m}-\frac{g(x)}{x^m}}{\ln c}\Longrightarrow \underset{x\rightarrow +\infty}{\overline{\lim }}\frac{g‘ (x)}{x^{m-1}}\leqslant \underset{x\rightarrow +\infty}{\overline{\lim }}\frac{(c^m-1)A}{\ln c}.
+\end{align*}
+再令$c\to1^+$可得
+\begin{align*}
+\varlimsup\limits_{x\to+\infty}\frac{g'(x)}{x^{m-1}}
+\leqslant mA.
+\end{align*}
+对$0<c<1$,同理有
+\begin{align*}
+g(x)-g(cx)
+=\int_{cx}^{x}g'(y)\,\mathrm{d}y
+\leqslant\ln\frac{1}{c}\,xg'(x).
+\end{align*}
+于是由\eqref{eq:reverse-lhopital-7f3a}式可得
+\begin{align*}
+\frac{g' (x)}{x^{m-1}}\geqslant \frac{1}{\ln \frac{1}{c}}\frac{g(x)-g(cx)}{x^m}=\frac{\frac{g(x)}{x^m}-c^m\frac{g(cx)}{(cx)^m}}{\ln \frac{1}{c}}\Longrightarrow \underset{x\rightarrow +\infty}{\underline{\lim }}\frac{g' (x)}{x^{m-1}}\geqslant \underset{x\rightarrow +\infty}{\underline{\lim }}\frac{\left( 1-c^m \right) A}{\ln \frac{1}{c}}.
+\end{align*}
+再令$c\to1^-$可得
+\begin{align*}
+\varliminf\limits_{x\to+\infty}\frac{g'(x)}{x^{m-1}}
+\geqslant mA.
+\end{align*}
+因此
+\begin{align*}
+\lim\limits_{x\to+\infty}\frac{g'(x)}{x^{m-1}}=mA.
+\end{align*}
+
+\item 因为$f''$有界,所以$f'$在$[0,+\infty)$上Lipschitz连续,进而$f'$在$[0,+\infty)$上一致连续.于是由\cref{proposition:经典导数一致连续问题}可知
+$\lim\limits_{x\to+\infty}f'(x)=0.$
+\end{enumerate}
+\end{proof}
+
+\begin{example}
+设$f\in D^2(0,1)$,且
+\begin{align*}
+\lim\limits_{x\to1^-}f(x)=0.
+\end{align*}
+若存在$M>0$,使得
+\begin{align*}
+(1-x^2)|f''(x)|\leqslant M,\quad x\in(0,1),
+\end{align*}
+证明
+\begin{align*}
+\lim\limits_{x\to1^-}(1-x)f'(x)=0.
+\end{align*}
+\end{example}
+\begin{proof}
+取$x\in\left(\frac{1}{2},1\right)$及$h\in\left(0,\frac{1}{2}\right)$,由Taylor定理可知,存在$\theta\in(x-h,x)$,使得
+\begin{align*}
+f(x-h)=f(x)-f'(x)h+\frac{f''(\theta)}{2}h^2.
+\end{align*}
+于是
+\begin{align*}
+f'(x)=\frac{f(x)-f(x-h)}{h}+\frac{f''(\theta)}{2}h.
+\end{align*}
+令$h=\eta(1-x)$,其中$\eta\in(0,1)$,则
+\begin{align*}
+(1-x)|f'(x)|
+&\leqslant
+\frac{1-x}{h}|f(x)-f(x-h)|
++\frac{1-x}{2}|f''(\theta)|h\\
+&=\frac{1}{\eta}|f(x)-f(x-\eta(1-x))|
++\frac{M(1-x)h}{2(1-\theta^2)}.
+\end{align*}
+注意到
+\begin{align*}
+1-\theta^2\geqslant1-(x-\eta(1-x))^2
+\geqslant1-x^2,
+\end{align*}
+故
+\begin{align*}
+(1-x)|f' (x)|&\leqslant \frac{1}{\eta}|f(x)-f(x-\eta (1-x))|+\frac{M\eta (1-x)^2}{2(1-x^2)}
+\\
+&=\frac{1}{\eta}|f(x)-f(x-\eta (1-x))|+\frac{M\eta \left( 1-x \right)}{2\left( 1+x \right)}\\
+&\leqslant \frac{1}{\eta}|f(x)-f(x-\eta (1-x))|+\frac{M\eta}{2}.
+\end{align*}
+令$x\to1^-$,由$\lim\limits_{x\to1^-}f(x)=0$可知
+\begin{align*}
+\varlimsup\limits_{x\to1^-}(1-x)|f'(x)|
+\leqslant\frac{M\eta}{4}.
+\end{align*}
+令$\eta\to0^+$,得到
+\begin{align*}
+\lim\limits_{x\to1^-}(1-x)f'(x)=0.
+\end{align*}
+\end{proof}
+
+\begin{example}
+设$f$在$[0,+\infty)$上二阶可微,且
+\begin{align*}
+\lim\limits_{x\to+\infty}\frac{f(x)}{x^a}=0,\quad
+\varlimsup\limits_{x\to+\infty}x^a|f''(x)|<+\infty.
+\end{align*}
+判断是否一定有
+\begin{align*}
+\lim\limits_{x\to+\infty}f'(x)=0.
+\end{align*}
+\end{example}
+\begin{solution}
+
+当$a>1$时,取
+\begin{align*}
+f(x)=x+\int_0^x\frac{1}{1+t^a}\,\mathrm{d}t,\quad x\geqslant 0.
+\end{align*}
+则
+\begin{align*}
+f'(x)=1+\frac{1}{1+x^a},
+\end{align*}
+所以
+\begin{align*}
+\lim\limits_{x\to+\infty}f'(x)=1\ne0.
+\end{align*}
+另一方面,由L'Hospital法则可得
+\begin{align*}
+\lim_{x\rightarrow +\infty} \frac{f(x)}{x^a}=\lim_{x\rightarrow +\infty} \frac{x+\int_0^x{\frac{1}{1+t^a}\,\mathrm{d}t}}{x^a}=\lim_{x\rightarrow +\infty} \frac{1+\frac{1}{1+x^a}}{ax^{a-1}}=0,
+\end{align*}
+且
+\begin{align*}
+\lim\limits_{x\to+\infty}x^a|f''(x)|
+=\lim\limits_{x\to+\infty}\frac{ax^{2a-1}}{(1+x^a)^2}
+=0.
+\end{align*}
+因此$a>1$时不一定有$\lim\limits_{x\to+\infty}f'(x)=0$.
+
+当$a\in(0,1)$时,由Taylor中值定理可知,对$h>0$,存在$\theta\in(x,x+h)$,使得
+\begin{align*}
+f(x+h)=f(x)+f'(x)h+\frac{f''(\theta)}{2}h^2.
+\end{align*}
+于是
+\begin{align*}
+|f'(x)|
+\leqslant
+\left|\frac{f(x+h)-f(x)}{h}\right|
++\left|\frac{f''(\theta)}{2}h\right|.
+\end{align*}
+取$h=sx^a$,其中$s\in(0,1)$,则
+\begin{align*}
+\left|\frac{f''(\theta)}{2}sx^a\right|
+\leqslant
+\frac{s}{2}\sup_{y\geqslant x}|f''(y)y^a|
+\frac{x^a}{\theta^a}
+\leqslant
+\frac{s}{2}\sup_{y\geqslant x}|f''(y)y^a|.
+\end{align*}
+此外,我们有
+\begin{align*}
+\left|\frac{f(x+sx^a)-f(x)}{sx^a}\right|
+=
+\left|
+\frac{f(x+sx^a)}{s x^a}
+-\frac{f(x)}{s x^a}
+\right|.
+\end{align*}
+由$a\in(0,1)$可知$x+sx^a\sim x$,故
+\begin{align*}
+\lim\limits_{x\to+\infty}
+\frac{f(x+sx^a)-f(x)}{sx^a}=0.
+\end{align*}
+从而
+\begin{align*}
+\varlimsup\limits_{x\to+\infty}|f'(x)|
+\leqslant
+\frac{s}{2}\varlimsup\limits_{x\to+\infty}|f''(x)x^a|.
+\end{align*}
+再令$s\to 0^+$得
+\begin{align*}
+\lim\limits_{x\to+\infty}f'(x)=0.
+\end{align*}
+\end{solution}
+
+\begin{example}
+设函数 $f$ 在 $[0,+\infty)$ 上二阶可微，且对足够大的 $x$，成立不等式
+\begin{align*}
+|f''(x)| < c|f'(x)|,
+\end{align*}
+其中 $c>0$ 为常数。证明：若
+\begin{align*}
+\lim\limits_{x\to+\infty}\frac{f(x)}{e^x}=1,
+\end{align*}
+则
+\begin{align*}
+\lim\limits_{x\to+\infty}\frac{f'(x)}{e^x}=1.
+\end{align*}
+\end{example}
+\begin{proof}
+由题设，存在 $X_0>0$，使得当 $x\geqslant X_0$ 时，有
+\begin{align*}
+|f''(x)| < c|f'(x)|.
+\end{align*}
+又因为 $\lim\limits_{x\to+\infty}\frac{f(x)}{e^x}=1$，所以 $f(x)>0$ 且 $\lim\limits_{x\to+\infty}f(x)=+\infty$。若存在 $x_0\geqslant X_0$ 使得 $f'(x_0)=0$，则代入不等式得 $|f''(x_0)|<0$，矛盾!因此 $f'(x)\neq 0$ 对所有 $x\geqslant X_0$ 成立。由于 $f'$ 连续，故由介值定理知$f'$ 在 $[X_0,+\infty)$ 上恒正或恒负。若恒负，则 $f$ 单调递减，与 $\lim\limits_{x\to+\infty}f(x)=+\infty$矛盾！所以 $f'(x)>0$ 对一切 $x\geqslant X_0$ 成立。于是可取 $X\geqslant X_0$，使得当 $x\geqslant X$ 时，有
+\begin{align*}
+f(x)>0,\quad f'(x)>0.
+\end{align*}
+对任意 $x\geqslant X$，由 Newton-Leibniz 公式可得
+\begin{align*}
+|f'(x)-f'(X)| &=\left|\int_{X}^{x} f''(t)\,\mathrm{d}t\right| \leqslant \int_{X}^{x} |f''(t)|\,\mathrm{d}t < c\int_{X}^{x} |f'(t)|\,\mathrm{d}t \\
+&= c\int_{X}^{x} f'(t)\,\mathrm{d}t = c\bigl(f(x)-f(X)\bigr).
+\end{align*}
+于是
+\begin{align*}
+|f'(x)| \leqslant |f'(X)| + c\bigl(f(x)-f(X)\bigr) = c f(x) + \bigl(|f'(X)| - c f(X)\bigr).
+\end{align*}
+两边除以 $f(x)$ 并取上极限，得
+\begin{align*}
+\varlimsup_{x\to+\infty}\frac{|f'(x)|}{f(x)} \leqslant c.
+\end{align*}
+因此存在$d>0,X'>X$，使得当 $x\geqslant X'$时，有
+\begin{align}\label{eq::jiofjiwwjifj--12}
+|f'(x)| \leqslant d f(x).
+\end{align}
+令$g(x)=\frac{f(x)}{e^x},$则
+\begin{align*}
+g'(x)=\frac{f'(x)-f(x)}{e^x},\qquad
+g''(x)=\frac{f''(x)-2f'(x)+f(x)}{e^x}.
+\end{align*}
+由条件及\eqref{eq::jiofjiwwjifj--12}式可知，当 $x\geqslant X'$时，有
+\begin{align*}
+|g''(x)| &\leqslant \frac{|f''(x)|+2|f'(x)|+|f(x)|}{e^x} < \frac{c|f'(x)|+2|f'(x)|+|f(x)|}{e^x} \\
+&\leqslant \frac{(c+2)d\,f(x)+f(x)}{e^x} = \bigl((c+2)d+1\bigr)\frac{f(x)}{e^x}.
+\end{align*}
+由于 $\lim\limits_{x\to+\infty}\frac{f(x)}{e^x}=1$，故 $|g''(x)|$ 有界。又 $\lim\limits_{x\to+\infty} g(x)=1$，根据\hyperref[theorem:反向洛必达法则]{反向洛必达法则}可得
+\begin{align*}
+\lim\limits_{x\to+\infty} g'(x)=0.
+\end{align*}
+而
+\begin{align*}
+g'(x)=\frac{f'(x)-f(x)}{e^x}=\frac{f'(x)}{e^x}-\frac{f(x)}{e^x},
+\end{align*}
+所以
+\begin{align*}
+\lim\limits_{x\to+\infty}\frac{f'(x)}{e^x}
+=\lim\limits_{x\to+\infty}g'(x)+\lim\limits_{x\to+\infty}\frac{f(x)}{e^x}
+=0+1=1.
+\end{align*}
+\end{proof}
 
 \begin{theorem}[函数Stolz定理]\label{theorem:函数Stolz定理}
 设\(T > 0,f,g:[0,+\infty)\to\mathbb{R}\)是内闭有界函数.

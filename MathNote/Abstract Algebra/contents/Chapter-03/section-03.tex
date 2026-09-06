@@ -377,13 +377,13 @@ P_2 = g_1P_1g_1^{-1} = P_1,
 设 $p,q$ 都是素数, $p<q$, $p\nmid (q-1)$. 证明 $pq$ 阶群一定是循环群.
 \end{proposition}
 \begin{proof}
-设 $P,Q$ 分别为 $pq$ 阶群 $G$ 的 $p,q$ 阶子群. 于是由\hyperref[theorem:Sylow第三定理-2]{Sylow第三定理\ref{theorem:Sylow第三定理-2}},可设$P,Q$ 共轭子群的个数分别为$sp+1,tq+1(s,t\in \mathbb{N})$.由\rrefcor{corollary:p群中的所有Sylow p子群}{corollary:p群中的所有Sylow p子群-1}知,$P$的共轭子群都是$G$的Sylow $p$子群,$Q$的共轭子群都是$G$的Sylow $p$子群.因此
+设 $P,Q$ 分别为 $pq$ 阶群 $G$ 的 $p,q$ 阶子群. 于是由\hyperref[theorem:Sylow第三定理-2]{Sylow第三定理\ref{theorem:Sylow第三定理-2}},可设$P,Q$ 共轭子群的个数分别为$sp+1,tq+1(s,t\in \mathbb{N})$,并且$sp+1\mid q,tq+1\mid p$.因此
 \begin{align*}
 sp+1=q,\quad tq+1=p.
 \end{align*}
-由 $p<q$, 于是 $t=0$, 因而 $Q$ 是 $G$ 的唯一的 $q$ 阶子群. 若 $s\neq 0$, 则 $sp+1=q$, 这与 $p\nmid (q-1)$ 矛盾. 于是 $s=0$, 因而 $P$ 是 $G$ 的唯一的 $p$ 阶子群.
+由 $p<q$, 于是 $t=0$, 因而 $Q$ 是 $G$ 的唯一的 $q$ 阶子群. 若 $s\neq 0$, 则 $sp+1=q$, 这与 $p\nmid (q-1)$ 矛盾! 于是 $s=0$, 因而 $P$ 是 $G$ 的唯一的 $p$ 阶子群.
 
-因为$p,q$都是素数且$p<q$,所以$|P\cup Q|\leqslant p+q<pq=|G|$,因此$G\neq Q\cup P$. 对$\forall a \in G\setminus (P\cup Q)$,则$\langle a\rangle \neq P,Q$,从而由$P,Q$分别是$G$的唯一$p,q$阶子群知$\langle a\rangle$ 的阶既不是 $p$ 也不是 $q$.又由\hyperref[theorem:抽象代数--Lagrange定理]{Lagrange定理}知$|\langle a\rangle|=\mid pq$,于是$|\langle a\rangle|=pq$, 因此$G=\langle a\rangle$为循环群.
+因为$p,q$都是素数且$p<q$,所以$|P\cup Q|\leqslant p+q<pq=|G|$,因此$G\neq Q\cup P$. 对$\forall a \in G\setminus (P\cup Q)$,则$\langle a\rangle \neq P,Q$,从而由$P,Q$分别是$G$的唯一$p,q$阶子群知$\langle a\rangle$ 的阶既不是 $p$ 也不是 $q$.又由\hyperref[theorem:抽象代数--Lagrange定理]{Lagrange定理}知$|\langle a\rangle|\mid pq$,于是$|\langle a\rangle|=pq$, 因此$G=\langle a\rangle$为循环群.
 \end{proof}
 
 \begin{proposition}\label{proposition:g到g的幂的自同构充要条件}
